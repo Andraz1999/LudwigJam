@@ -36,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float lowJumpMultiplier = 5f;
 
     [SerializeField] private float multiJumpMultiplier = 1f;
-    public int extraJumps;
-    public int currentJump;
+    [SerializeField] private int extraJumps;
+    private int currentJump;
 
     private float airLinearDrag = 1f;
 
@@ -74,25 +74,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if(currentJump > 0)
+
+        if(isGrounded)
         {
-            // float x = rb.velocity.x;
-            // rb.velocity = new Vector2(x,initialJumpVelocity); 
             rb.velocity = new Vector2(rb.velocity.x, 0f);
-            if(currentJump == extraJumps)
-            {
-                float x = rb.velocity.x;
-                rb.velocity = new Vector2(x,initialJumpVelocity);
-                // rb.AddForce(Vector2.up*initialJumpVelocity, ForceMode2D.Impulse);
-            }                
-            else    
-            {
-                float x = rb.velocity.x;
-                rb.velocity = new Vector2(x,multiJumpVelocity);
-                // rb.AddForce(Vector2.up*multiJumpVelocity, ForceMode2D.Impulse); 
-            } 
-                
-            
+            float x = rb.velocity.x;
+            rb.velocity = new Vector2(x,initialJumpVelocity);
+        }
+        else if(currentJump > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
+            float x = rb.velocity.x;
+            rb.velocity = new Vector2(x,multiJumpVelocity);
+            // rb.AddForce(Vector2.up*multiJumpVelocity, ForceMode2D.Impulse); 
             currentJump--; 
         }
     }
