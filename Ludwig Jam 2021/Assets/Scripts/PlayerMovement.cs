@@ -39,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int extraJumps;
     private int currentJump;
 
+    [SerializeField] private float hangTime = 0.2f;
+    private float hangCounter;
+    [SerializeField] private float jumpBufferLength = 0.1f;
+    private float jumpBufferCount;
+
     private float airLinearDrag = 1f;
 
     [Header("LayerMask")]
@@ -75,11 +80,12 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
 
-        if(isGrounded)
+        if(hangCounter > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             float x = rb.velocity.x;
             rb.velocity = new Vector2(x,initialJumpVelocity);
+            jumpBufferCount = 0f;
         }
         else if(currentJump > 0)
         {
@@ -88,17 +94,18 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(x,multiJumpVelocity);
             // rb.AddForce(Vector2.up*multiJumpVelocity, ForceMode2D.Impulse); 
             currentJump--; 
+            jumpBufferCount = 0f;
         }
     }
-    private void CancelJump()
-    {
-        // if(rb.velocity.y > 0f)
-        // {
-        //     float x = rb.velocity.x;
-        //     float y = rb.velocity.y / 2f;
-        //     rb.velocity = new Vector2(x,y); 
-        // }
-    }
+    // private void CancelJump()
+    // {
+    //     // if(rb.velocity.y > 0f)
+    //     // {
+    //     //     float x = rb.velocity.x;
+    //     //     float y = rb.velocity.y / 2f;
+    //     //     rb.velocity = new Vector2(x,y); 
+    //     // }
+    // }
 
 
     void Update()
@@ -109,13 +116,23 @@ public class PlayerMovement : MonoBehaviour
         if(isGrounded)
         {
             currentJump = extraJumps;
+            hangCounter = hangTime;
             ApplyLinearDrag();
         }
         else
         {
+            hangCounter -= Time.deltaTime;
             ApplyAirLinearDrag();
             FallMultiplier();
-        }        
+        }
+        if(jumpBufferCount > 0f)
+        {
+            Jump();
+        }
+        
+        jumpBufferCount -= Time.deltaTime;
+        
+            
     }
 
     private void MoveCharacter()
@@ -165,6 +182,7 @@ public class PlayerMovement : MonoBehaviour
     private void CheckCollisions()
     {
         isGrounded = Physics2D.Raycast(transform.position + Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer) || Physics2D.Raycast(transform.position - Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer);
+        if(isGrounded) hangCounter = hangTime;
         isGrounded = isGrounded && !isJumpPressed;
     }
 
@@ -189,12 +207,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if(context.started)
         {
-            Jump();
+            //Jump();
+            jumpBufferCount = jumpBufferLength;
+            Debug.Log(jumpBufferCount);
             isJumpPressed = true;
         }
         else if(context.canceled)
         {
-            CancelJump();
+            //CancelJump();
             isJumpPressed = false;
         }
     }
