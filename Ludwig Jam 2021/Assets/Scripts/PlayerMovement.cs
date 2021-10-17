@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     private float hangCounter;
     [SerializeField] private float jumpBufferLength = 0.1f;
     private float jumpBufferCount;
+    private float jumpDelay;
+    private float jumpDelayCount;
 
     private float airLinearDrag = 1f;
 
@@ -58,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         SetUpJumpVariables();
-        
+        jumpDelay = hangTime + 0.05f;
     }
 
     void SetUpJumpVariables()
@@ -131,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         jumpBufferCount -= Time.deltaTime;
+        jumpDelayCount -= Time.deltaTime;
         
             
     }
@@ -205,11 +208,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void JumpInput(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if(context.started && jumpDelayCount < 0f)
         {
             //Jump();
+            jumpDelayCount = jumpDelay;
             jumpBufferCount = jumpBufferLength;
-            Debug.Log(jumpBufferCount);
             isJumpPressed = true;
         }
         else if(context.canceled)

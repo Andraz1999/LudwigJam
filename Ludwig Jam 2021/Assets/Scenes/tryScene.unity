@@ -1631,7 +1631,7 @@ MonoBehaviour:
   fallJumpMultiplier: 2
   lowJumpMultiplier: 2
   multiJumpMultiplier: 0.8
-  extraJumps: 0
+  extraJumps: 1
   hangTime: 0.15
   jumpBufferLength: 0.15
   groundLayer:
