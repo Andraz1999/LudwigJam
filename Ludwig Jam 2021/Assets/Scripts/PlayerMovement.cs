@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
     
     private Rigidbody2D rb;
 
+    public bool facingRight = true; 
+
     [Header("Movementvariables")]
+    bool canMove = true;
     [SerializeField] private float movementAcceleration = 50f;
     [SerializeField] private float airMovementAcceleration = 10;
     [SerializeField] private float maxMoveSpeed = 10f;
@@ -20,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     // gravity
     
-    float groundedGravity = -0.05f;
+    //                                float groundedGravity = -0.05f;
     // jumping variables
     [Header("Jumping variables")]
     [SerializeField] private float maxJumpHeight = 1f;
@@ -47,21 +50,137 @@ public class PlayerMovement : MonoBehaviour
     private float jumpDelayCount;
 
     private float airLinearDrag = 1f;
+    ///////////
+    [Header("WallSliding")]
+    [SerializeField] float wallSlideSpeed = 0;
+    [SerializeField] LayerMask wallLayer;
+    [SerializeField] float wallRaycastLength;
+    private bool isTouchingWall;
+    private bool wasTouchingWall;
+    private bool isWallSliding;
 
+    ///////////
+    [Header("WallJumping")]
+    [SerializeField] float wallJumpForce = 18f;
+    int wallJumpDirection = -1;
+    [SerializeField] Vector2 wallJumpAngle;
+    
+    ///////////
+    [Header("Crouching")]
+    [SerializeField] Vector3 crouchSize;
+    private Vector3 basicSize;
+    [SerializeField] float crouchSpeed;
+    private float basicSpeed;
+    private bool isCrouching;
+
+    ///////////
     [Header("LayerMask")]
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Ground Collision Variables")]
     [SerializeField] private float groundRaycastLength;
     [SerializeField] private float groundRaycastOffSet;
+
+    /////////////
+    [Header("Particles")]
+    [SerializeField] ParticleSystem footsteps;
+    private ParticleSystem.EmissionModule footEmission;
+    [SerializeField] float footestepsRateOverTime;
+    [SerializeField] ParticleSystem impactEffect;
+    private bool wasOnGround;
     private bool isGrounded;
+
+    [Header("Switching Tabs")]
+    [SerializeField] private Transform tab1;
+    [SerializeField] private Transform tab2;
+    private Vector3 tab1y;
+    private Vector3 tab2y;
+    private bool isSwitched;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         SetUpJumpVariables();
         jumpDelay = hangTime + 0.05f;
+        footEmission = footsteps.emission;
+        wallJumpAngle.Normalize();
+        basicSize = transform.localScale;
+        basicSpeed = maxMoveSpeed;
+
+        tab1y = tab1.position;
+        tab2y = tab2.position;
     }
+
+        void Update()
+    {
+        if(canMove)
+        MoveCharacter();
+
+        if(rb.velocity.x < -0.01f && facingRight || rb.velocity.x > 0.01f && !facingRight)
+        {
+            Flip();
+        }
+
+
+        CheckCollisions();
+
+        if(isGrounded && !isJumpPressed)
+        {
+            ApplyLinearDrag();
+        }
+        else
+        {
+            ApplyAirLinearDrag();
+            FallMultiplier();
+        }
+
+
+        if(isGrounded)
+        {
+            canMove = true;
+            currentJump = extraJumps;
+            hangCounter = hangTime;
+            //ApplyLinearDrag();
+            footEmission.rateOverDistance = footestepsRateOverTime;
+            // dust Effect when hitting the ground
+            if(!wasOnGround)
+            {
+                impactEffect.gameObject.SetActive(true);
+                impactEffect.Stop();
+                impactEffect.transform.position = footsteps.transform.position;
+                impactEffect.Play();
+            }
+        }
+        else
+        {
+            hangCounter -= Time.deltaTime;
+           // ApplyAirLinearDrag();
+            //FallMultiplier();
+            footEmission.rateOverDistance = 0f;
+        }
+
+        
+        
+
+        if(jumpBufferCount > 0f)
+        {
+            CheckJump();
+        }
+
+        if(isTouchingWall && !wasTouchingWall) canMove = true;
+        
+
+        WallSlide();
+        
+        if(isGrounded && isCrouching)
+        maxMoveSpeed = crouchSpeed;
+        
+        jumpBufferCount -= Time.deltaTime;
+        jumpDelayCount -= Time.deltaTime; 
+        wasOnGround = isGrounded;  
+        wasTouchingWall = isTouchingWall;     
+    }
+
 
     void SetUpJumpVariables()
     {
@@ -77,27 +196,60 @@ public class PlayerMovement : MonoBehaviour
         lowJumpMultiplier *= gravity;
     }
 
-    
+    public void Jump(float lowJump, float highJump)
+    {
+        if(jumpBufferCount > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, highJump);
+        }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, lowJump);
+        }
+    }
 
-    private void Jump()
+    public void Jump(float jump)
+    {
+        Jump(jump, jump);
+    }
+
+    private void CheckJump()
     {
 
-        if(hangCounter > 0f)
+        if(isWallSliding)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
-            float x = rb.velocity.x;
-            rb.velocity = new Vector2(x,initialJumpVelocity);
-            jumpBufferCount = 0f;
+            rb.AddForce(new Vector2(wallJumpForce*wallJumpDirection*wallJumpAngle.x, wallJumpForce*wallJumpAngle.y), ForceMode2D.Impulse);
+            canMove = false;
+        }
+
+        else if(hangCounter > 0f)
+        {
+            // rb.velocity = new Vector2(rb.velocity.x, 0f);
+            // float x = rb.velocity.x;
+            // rb.velocity = new Vector2(x,initialJumpVelocity);
+            Jump(initialJumpVelocity);
+            canMove = true;
+            
         }
         else if(currentJump > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
-            float x = rb.velocity.x;
-            rb.velocity = new Vector2(x,multiJumpVelocity);
+            // rb.velocity = new Vector2(rb.velocity.x, 0f);
+            // float x = rb.velocity.x;
+            // rb.velocity = new Vector2(x,multiJumpVelocity);
+            Jump(multiJumpVelocity);
+            canMove = true;
             // rb.AddForce(Vector2.up*multiJumpVelocity, ForceMode2D.Impulse); 
             currentJump--; 
-            jumpBufferCount = 0f;
+            
         }
+        jumpBufferCount = 0f;
+    }
+
+    private void Flip()
+    {
+        wallJumpDirection *= -1;
+        facingRight = !facingRight;
+        transform.Rotate(0, 180, 0);
     }
     // private void CancelJump()
     // {
@@ -110,33 +262,21 @@ public class PlayerMovement : MonoBehaviour
     // }
 
 
-    void Update()
+    private void WallSlide()
     {
-        MoveCharacter();
-
-        CheckCollisions();
-        if(isGrounded)
+        if(isTouchingWall && !isGrounded && rb.velocity.y < 0)
         {
-            currentJump = extraJumps;
-            hangCounter = hangTime;
-            ApplyLinearDrag();
+            isWallSliding = true;
+            //wall slide
+            rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
         }
         else
         {
-            hangCounter -= Time.deltaTime;
-            ApplyAirLinearDrag();
-            FallMultiplier();
+            isWallSliding = false;
         }
-        if(jumpBufferCount > 0f)
-        {
-            Jump();
-        }
-        
-        jumpBufferCount -= Time.deltaTime;
-        jumpDelayCount -= Time.deltaTime;
-        
-            
-    }
+    } 
+
+
 
     private void MoveCharacter()
     {
@@ -185,15 +325,38 @@ public class PlayerMovement : MonoBehaviour
     private void CheckCollisions()
     {
         isGrounded = Physics2D.Raycast(transform.position + Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer) || Physics2D.Raycast(transform.position - Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer);
-        if(isGrounded) hangCounter = hangTime;
-        isGrounded = isGrounded && !isJumpPressed;
+        //if(isGrounded) hangCounter = hangTime;
+        //isGrounded = isGrounded && !isJumpPressed;
+        isTouchingWall = Physics2D.Raycast(transform.position, transform.right, wallRaycastLength, wallLayer);
+    }
+
+    private void SwitchTabs()
+    {
+        if(isSwitched)
+        {
+            tab1.position = tab1y;
+            tab2.position = tab2y;
+            isSwitched = false;
+        }
+        else
+        {
+            tab2.position = tab1y;
+            tab1.position = tab2y;
+            isSwitched = true;
+        }
     }
 
     private void OnDrawGizmos()
     {
+        // for ground Check
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + Vector3.right*groundRaycastOffSet, transform.position + Vector3.right*groundRaycastOffSet + Vector3.down * groundRaycastLength);
         Gizmos.DrawLine(transform.position - Vector3.right*groundRaycastOffSet, transform.position - Vector3.right*groundRaycastOffSet + Vector3.down * groundRaycastLength);
+
+        // for wall Check
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * wallRaycastLength);
+        
     }
 
 //////////////////////////////////////////INPUT//////////////////////////////////////////////
@@ -221,4 +384,29 @@ public class PlayerMovement : MonoBehaviour
             isJumpPressed = false;
         }
     }
+    public void CrouchInput(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            transform.localScale = crouchSize;
+            isCrouching = true;
+        }
+        if(context.canceled)
+        {
+            isCrouching = false;
+            transform.localScale = basicSize;
+            maxMoveSpeed = basicSpeed;
+        }
+    }
+
+    public void SwitchInput(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            SwitchTabs();
+        }    
+        
+    }
+
+
 }
