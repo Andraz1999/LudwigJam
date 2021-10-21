@@ -9,7 +9,9 @@ using UnityEngine.EventSystems;
 public class PauseMenu : MonoBehaviour
 {
     public PlayerInput control;
+    PlayerStatus playerStatus;
 
+    [Header("Menu")]
     public static bool gameIsPaused = false;
     public static bool quitMenuActive = false;
     public GameObject pauseMenuUI;
@@ -17,7 +19,32 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseFirstButton, quitFirstButton, quitClosedButton;
 
+    bool canResume;
+
+    // [Header("Game Over")]
+     public GameObject gameOverUI;
+     public GameObject quitGameOverUI;
+    public GameObject gameOverFirstButton, gameOverQuitFirstButton, gameOverQuitClosedButton;
+
+    #region Singleton
+    public static PauseMenu Instance {get; private set;}
     
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
+    }   
+    #endregion
+
+
+    private void Start() 
+    {
+        playerStatus = PlayerStatus.Instance;    
+    }
+
     public void PauseInput(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -28,14 +55,14 @@ public class PauseMenu : MonoBehaviour
                 {
                     QuitMenu();
                 }
-                else
+                else if(canResume)
                 {
                     Resume();
                 }
             }
             else
             {
-                Pause();
+                Pause(true);
             }
         }  
     }
@@ -45,45 +72,79 @@ public class PauseMenu : MonoBehaviour
         control.actions.FindActionMap("PauseMenu").Disable();
         control.actions.FindActionMap("Gameplay").Enable();
         pauseMenuUI.SetActive(false);
+        gameOverUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
-    void Pause() 
+    public void Pause(bool canResume) 
     {
-
-        pauseMenuUI.SetActive(true);
+        this.canResume = canResume;
         Time.timeScale = 0f;
         gameIsPaused = true;
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
-
         control.actions.FindActionMap("Gameplay").Disable();
         control.actions.FindActionMap("PauseMenu").Enable();
+        
+        if(canResume)
+        {
+            pauseMenuUI.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+
+            
+        }
+        else
+        {
+            gameOverUI.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(gameOverFirstButton);
+
+            
+        }
     }
 
     public void Restart()
     {
-        Debug.Log("You want to restart");
+        playerStatus.Die();
+        Resume();
     }
 
     public void QuitMenu()
-    {
-        if (quitMenuActive)
-        {
-            quitMenuUI.SetActive(false);
-            quitMenuActive = false;
+    {   
+        if(canResume)
+            if (quitMenuActive)
+            {
+                quitMenuUI.SetActive(false);
+                quitMenuActive = false;
 
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(quitClosedButton);
-        }
-        else 
-        {
-            quitMenuUI.SetActive(true);
-            quitMenuActive = true;
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(quitClosedButton);
+            }
+            else 
+            {
+                quitMenuUI.SetActive(true);
+                quitMenuActive = true;
 
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(quitFirstButton);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(quitFirstButton);
+            }
+        else
+        {
+            if (quitMenuActive)
+            {
+                quitGameOverUI.SetActive(false);
+                quitMenuActive = false;
+
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(gameOverQuitClosedButton);
+            }
+            else 
+            {
+                quitGameOverUI.SetActive(true);
+                quitMenuActive = true;
+
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(gameOverQuitFirstButton);
+            }
         }
     }
 

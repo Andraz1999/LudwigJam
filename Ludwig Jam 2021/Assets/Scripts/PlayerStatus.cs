@@ -19,6 +19,8 @@ public class PlayerStatus : MonoBehaviour
     private TimerController timer;
     private Progressbar progressbar;
 
+    private PauseMenu pauseMenu;
+
 
     #region Singleton
     public static PlayerStatus Instance {get; private set;}
@@ -41,6 +43,7 @@ public class PlayerStatus : MonoBehaviour
         currentHealth = maxHealth;
         timer = TimerController.Instance;
         progressbar = Progressbar.Instance;
+        pauseMenu = PauseMenu.Instance;
     }
 
     
@@ -71,7 +74,9 @@ public class PlayerStatus : MonoBehaviour
             }
             if (currentHealth <= 0)
             {
-                Die();
+                //Die();
+                Debug.Log(timer.GetTime());
+                pauseMenu.Pause(false);
             }   
         
         }   
@@ -81,10 +86,9 @@ public class PlayerStatus : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
-        player.Respawn();
         progressbar.ResetProgress();
-        Debug.Log(timer.GetTime());
         timer.RestartTimer();
+        player.Respawn();
     }
 
 

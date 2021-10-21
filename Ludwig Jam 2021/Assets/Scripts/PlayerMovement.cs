@@ -373,7 +373,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.Raycast(transform.position + Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer) || Physics2D.Raycast(transform.position - Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer);
         //if(isGrounded) hangCounter = hangTime;
         //isGrounded = isGrounded && !isJumpPressed;
-        isTouchingWall = Physics2D.Raycast(transform.position + Vector3.down * wallRaycastOffset, transform.right, wallRaycastLength, wallLayer);
+        isTouchingWall = Physics2D.Raycast(transform.position + Vector3.up * wallRaycastOffset, transform.right, wallRaycastLength, wallLayer);
         isCeiling = Physics2D.Raycast(transform.position, transform.up, ceilingRaycastLength, groundLayer);
     }
 
@@ -408,7 +408,7 @@ public class PlayerMovement : MonoBehaviour
 
         // for wall Check
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position + Vector3.down * wallRaycastOffset, transform.position + Vector3.down * wallRaycastOffset + transform.right * wallRaycastLength);
+        Gizmos.DrawLine(transform.position + Vector3.up * wallRaycastOffset, transform.position + Vector3.up * wallRaycastOffset + transform.right * wallRaycastLength);
 
         // for ceiling Check
         Gizmos.color = Color.green;
