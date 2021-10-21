@@ -16,6 +16,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float invincibilitymaxcount = 0.2f;
     private float invincibilitycount;
     [SerializeField] private Renderer playerSprite;
+    private TimerController timer;
+    private Progressbar progressbar;
 
 
     #region Singleton
@@ -37,6 +39,8 @@ public class PlayerStatus : MonoBehaviour
         healthbar = Healthbar.Instance;
         healthbar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
+        timer = TimerController.Instance;
+        progressbar = Progressbar.Instance;
     }
 
     
@@ -77,7 +81,10 @@ public class PlayerStatus : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
-        //player.Respawn();
+        player.Respawn();
+        progressbar.ResetProgress();
+        Debug.Log(timer.GetTime());
+        timer.RestartTimer();
     }
 
 

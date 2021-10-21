@@ -7,10 +7,10 @@ using TMPro;
 public class Healthbar : MonoBehaviour
 {
     
-    public Slider slider;
-    public Gradient gradient;
-    public Image fill;
-    public TextMeshProUGUI text;
+    [SerializeField] Slider slider;
+    [SerializeField] Gradient gradient;
+    [SerializeField] Image fill;
+    [SerializeField] TextMeshProUGUI text;
 
     #region Singleton
     public static Healthbar Instance {get; private set;}
