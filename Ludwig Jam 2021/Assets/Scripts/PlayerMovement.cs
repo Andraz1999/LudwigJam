@@ -72,6 +72,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float crouchSpeed;
     private float basicSpeed;
     private bool isCrouching;
+    private bool crouchingPressed;
+    private bool isCeiling;
+    [SerializeField] float ceilingRaycastLength;
 
     ///////////
     [Header("LayerMask")]
@@ -97,6 +100,25 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 tab2y;
     private bool isSwitched;
 
+    [Header("Minimap Sprites")]
+    [SerializeField] Transform minimapSprite;
+    private float distanceBetweenTabs;
+
+
+
+    ///////////////////////////////////////////////
+    #region Singleton
+    public static PlayerMovement Instance {get; private set;}
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
+    }   
+    #endregion
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -109,9 +131,10 @@ public class PlayerMovement : MonoBehaviour
 
         tab1y = tab1.position;
         tab2y = tab2.position;
+        distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
     }
 
-        void Update()
+        void FixedUpdate()
     {
         if(canMove)
         MoveCharacter();
@@ -172,13 +195,26 @@ public class PlayerMovement : MonoBehaviour
 
         WallSlide();
         
-        if(isGrounded && isCrouching)
-        maxMoveSpeed = crouchSpeed;
+        if(isCrouching)
+            {
+                if(isGrounded)
+                {
+                    maxMoveSpeed = crouchSpeed;
+                }
+                if(!isCeiling && !crouchingPressed)
+                StopCrouching();
+            }
+            
+
+        
         
         jumpBufferCount -= Time.deltaTime;
         jumpDelayCount -= Time.deltaTime; 
         wasOnGround = isGrounded;  
-        wasTouchingWall = isTouchingWall;     
+        wasTouchingWall = isTouchingWall;   
+
+        /// updating the minimap
+        minimapSprite.position = new Vector3(transform.position.x, transform.position.y + distanceBetweenTabs, transform.position.z);  
     }
 
 
@@ -322,12 +358,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void StopCrouching()
+    {
+        isCrouching = false;
+        transform.localScale = basicSize;
+        maxMoveSpeed = basicSpeed;
+    }
+
     private void CheckCollisions()
     {
         isGrounded = Physics2D.Raycast(transform.position + Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer) || Physics2D.Raycast(transform.position - Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer);
         //if(isGrounded) hangCounter = hangTime;
         //isGrounded = isGrounded && !isJumpPressed;
         isTouchingWall = Physics2D.Raycast(transform.position, transform.right, wallRaycastLength, wallLayer);
+        isCeiling = Physics2D.Raycast(transform.position, transform.up, ceilingRaycastLength, groundLayer);
     }
 
     private void SwitchTabs()
@@ -356,6 +400,10 @@ public class PlayerMovement : MonoBehaviour
         // for wall Check
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + transform.right * wallRaycastLength);
+
+        // for ceiling Check
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * ceilingRaycastLength);
         
     }
 
@@ -389,13 +437,12 @@ public class PlayerMovement : MonoBehaviour
         if(context.performed)
         {
             transform.localScale = crouchSize;
+            crouchingPressed = true;
             isCrouching = true;
         }
         if(context.canceled)
         {
-            isCrouching = false;
-            transform.localScale = basicSize;
-            maxMoveSpeed = basicSpeed;
+            crouchingPressed = false;
         }
     }
 
