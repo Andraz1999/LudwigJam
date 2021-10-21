@@ -54,9 +54,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("WallSliding")]
     [SerializeField] float wallSlideSpeed = 0;
     [SerializeField] LayerMask wallLayer;
+    [SerializeField] float wallRaycastOffset;
     [SerializeField] float wallRaycastLength;
     private bool isTouchingWall;
-    private bool wasTouchingWall;
+    //private bool wasTouchingWall;
     private bool isWallSliding;
 
     ///////////
@@ -64,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float wallJumpForce = 18f;
     int wallJumpDirection = -1;
     [SerializeField] Vector2 wallJumpAngle;
+    [SerializeField] float canMoveAgainDelay = 0.2f;
     
     ///////////
     [Header("Crouching")]
@@ -72,6 +74,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float crouchSpeed;
     private float basicSpeed;
     private bool isCrouching;
+    private bool crouchingPressed;
+    private bool isCeiling;
+    [SerializeField] float ceilingRaycastLength;
 
     ///////////
     [Header("LayerMask")]
@@ -97,6 +102,27 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 tab2y;
     private bool isSwitched;
 
+    [Header("Minimap Sprites")]
+    [SerializeField] Transform minimapSprite;
+    private float distanceBetweenTabs;
+
+
+    [Header("Respawn")]
+    [SerializeField] Transform respawnPoint;
+
+    ///////////////////////////////////////////////
+    #region Singleton
+    public static PlayerMovement Instance {get; private set;}
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
+    }   
+    #endregion
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -109,9 +135,10 @@ public class PlayerMovement : MonoBehaviour
 
         tab1y = tab1.position;
         tab2y = tab2.position;
+        distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
     }
 
-        void Update()
+        void FixedUpdate()
     {
         if(canMove)
         MoveCharacter();
@@ -167,18 +194,36 @@ public class PlayerMovement : MonoBehaviour
             CheckJump();
         }
 
-        if(isTouchingWall && !wasTouchingWall) canMove = true;
+        //if(isTouchingWall && !wasTouchingWall) canMove = true;
         
 
         WallSlide();
+        if(isWallSliding)
+        {
+            //wall slide
+            rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
+        }
         
-        if(isGrounded && isCrouching)
-        maxMoveSpeed = crouchSpeed;
+        if(isCrouching)
+            {
+                if(isGrounded)
+                {
+                    maxMoveSpeed = crouchSpeed;
+                }
+                if(!isCeiling && !crouchingPressed)
+                StopCrouching();
+            }
+            
+
+        
         
         jumpBufferCount -= Time.deltaTime;
         jumpDelayCount -= Time.deltaTime; 
         wasOnGround = isGrounded;  
-        wasTouchingWall = isTouchingWall;     
+        //wasTouchingWall = isTouchingWall;   
+
+        /// updating the minimap
+        minimapSprite.position = new Vector3(transform.position.x, transform.position.y + distanceBetweenTabs, transform.position.z);  
     }
 
 
@@ -220,6 +265,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(new Vector2(wallJumpForce*wallJumpDirection*wallJumpAngle.x, wallJumpForce*wallJumpAngle.y), ForceMode2D.Impulse);
             canMove = false;
+            Invoke("CanMoveAgain", canMoveAgainDelay);
         }
 
         else if(hangCounter > 0f)
@@ -245,6 +291,12 @@ public class PlayerMovement : MonoBehaviour
         jumpBufferCount = 0f;
     }
 
+    private void CanMoveAgain()
+    {
+        if(!isGrounded)
+        canMove = true;
+    }
+
     private void Flip()
     {
         wallJumpDirection *= -1;
@@ -267,8 +319,9 @@ public class PlayerMovement : MonoBehaviour
         if(isTouchingWall && !isGrounded && rb.velocity.y < 0)
         {
             isWallSliding = true;
+            canMove = false;
             //wall slide
-            rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
+            //rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
         }
         else
         {
@@ -322,12 +375,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void StopCrouching()
+    {
+        isCrouching = false;
+        transform.localScale = basicSize;
+        maxMoveSpeed = basicSpeed;
+    }
+
     private void CheckCollisions()
     {
         isGrounded = Physics2D.Raycast(transform.position + Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer) || Physics2D.Raycast(transform.position - Vector3.right*groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer);
         //if(isGrounded) hangCounter = hangTime;
         //isGrounded = isGrounded && !isJumpPressed;
-        isTouchingWall = Physics2D.Raycast(transform.position, transform.right, wallRaycastLength, wallLayer);
+        isTouchingWall = Physics2D.Raycast(transform.position + Vector3.up * wallRaycastOffset, transform.right, wallRaycastLength, wallLayer);
+        isCeiling = Physics2D.Raycast(transform.position, transform.up, ceilingRaycastLength, groundLayer);
+    }
+
+    public void Respawn()
+    {
+        rb.velocity = Vector3.zero;
+        transform.position = respawnPoint.position;
     }
 
     private void SwitchTabs()
@@ -355,7 +422,11 @@ public class PlayerMovement : MonoBehaviour
 
         // for wall Check
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * wallRaycastLength);
+        Gizmos.DrawLine(transform.position + Vector3.up * wallRaycastOffset, transform.position + Vector3.up * wallRaycastOffset + transform.right * wallRaycastLength);
+
+        // for ceiling Check
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * ceilingRaycastLength);
         
     }
 
@@ -389,13 +460,17 @@ public class PlayerMovement : MonoBehaviour
         if(context.performed)
         {
             transform.localScale = crouchSize;
+            crouchingPressed = true;
             isCrouching = true;
+            if(isWallSliding)
+            {
+                canMove = true;
+                isWallSliding = false;
+            }
         }
         if(context.canceled)
         {
-            isCrouching = false;
-            transform.localScale = basicSize;
-            maxMoveSpeed = basicSpeed;
+            crouchingPressed = false;
         }
     }
 
