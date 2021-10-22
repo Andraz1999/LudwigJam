@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerStatus : MonoBehaviour
     private Progressbar progressbar;
 
     private PauseMenu pauseMenu;
+    [SerializeField] CinemachineVirtualCamera cam;
 
 
     #region Singleton
@@ -89,6 +91,7 @@ public class PlayerStatus : MonoBehaviour
         progressbar.ResetProgress();
         timer.RestartTimer();
         player.Respawn();
+        cam.Priority = 20;
     }
 
 
