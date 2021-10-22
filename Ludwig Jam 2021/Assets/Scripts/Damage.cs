@@ -5,7 +5,7 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     private PlayerStatus playerStatus;
-    [SerializeField] int damage;
+    [SerializeField] int damage = -10;
     [SerializeField] bool forceDamage;
     void Start()
     {
