@@ -58,7 +58,7 @@ public class TimerController : MonoBehaviour
 
     public float GetTime()
     {
-        return (float) timePlaying.TotalMinutes;
+        return (float) timePlaying.TotalSeconds;
     }
     public string GetTimeString()
     {

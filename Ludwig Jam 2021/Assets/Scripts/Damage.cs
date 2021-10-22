@@ -5,6 +5,8 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     private PlayerStatus playerStatus;
+    [SerializeField] int damage;
+    [SerializeField] bool forceDamage;
     void Start()
     {
         playerStatus = PlayerStatus.Instance;
@@ -13,7 +15,7 @@ public class Damage : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            playerStatus.Health(-10);
+            playerStatus.Health(damage, forceDamage);
         }    
     }
 }
