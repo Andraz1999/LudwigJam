@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CollectBalls : MonoBehaviour
 {
     [SerializeField] float respawnTime = 15f;
-     [SerializeField] GameObject collectEffect;
+    [SerializeField] GameObject collectEffect;
     [SerializeField] UnityEvent onComplete;
     
     SpriteRenderer sprite;

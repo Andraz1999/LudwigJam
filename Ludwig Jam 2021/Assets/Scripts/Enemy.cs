@@ -1,67 +1,114 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private UnityEngine.AI.NavMeshAgent agent;
+    private Rigidbody2D rb;
     private Transform player;
 
-    // Patroling
-    [SerializeField] Vector3 walkPoint1;
-    [SerializeField] Vector3 walkPoint2;
-    private bool isSecond;
-    private Vector3 walkPoint;
-    bool walkPointSet;
+
+    [SerializeField] private float walkSpeed = 10f;
+    public bool facingRight = true; 
+
+
+    [Header("Ground")]
+    [SerializeField] float groundRaycastOffSet;
+    [SerializeField] float groundRaycastLength;
+    [SerializeField] LayerMask groundLayer;
+    bool isGrounded;
+
+    [Header("Wall")]
+    [SerializeField] float wallRaycastLength;
+    [SerializeField] LayerMask wallLayer;
+    bool isWall;
+
+    [SerializeField] LayerMask borderLayer;
+    bool isBorder;
 
     [SerializeField] float sightRange;
+//////////////////////
+    bool mustPatrol = true; 
+    bool mustTurn;
+
+    [SerializeField] Transform startPosition;
+
 
 
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();   
+        rb = GetComponent<Rigidbody2D>();   
     }
 
     void Update()
-    {
-        if ((transform.position - player.position).magnitude < sightRange)
-        ChasePlayer();
-        else
-        Patroling();
-    }
-    private void Patroling()
-    {
-        if(!walkPointSet) SearchWalkPoint();
-        else agent.SetDestination(walkPoint);
-
-        if((transform.position - walkPoint).magnitude < 1f)
-        walkPointSet = false;
-    }
-
-    private void SearchWalkPoint()
-    {
-        if(isSecond)
+    {   
+        if((transform.position - player.position).magnitude < sightRange && !isGrounded)
         {
-            walkPoint = walkPoint1;
-            isSecond = false;
+            //
+        }
+        else if(mustPatrol)
+        {
+            Patrol();
         }
         
-        else
-        {
-            walkPoint = walkPoint2;
-            isSecond = true;
-        }
-        walkPointSet = true;
+    }
 
-
-    } 
-
-
-    private void ChasePlayer()
+    private void FixedUpdate()
     {
-        agent.SetDestination(player.position);
+        CheckCollisions();
+        if(mustPatrol)
+        {
+            if((transform.position - player.position).magnitude < sightRange)
+                mustTurn = (!isGrounded || isWall || Mathf.Sign(rb.velocity.x * (player.position.x - transform.position.x)) < 0);
+            else    mustTurn = (!isGrounded || isWall || isBorder);
+        }
+
+    }
+    void CheckCollisions()
+    {
+        isGrounded = Physics2D.Raycast(transform.position + transform.right * groundRaycastOffSet, Vector3.down, groundRaycastLength, groundLayer);
+        isWall = Physics2D.Raycast(transform.position, transform.right, wallRaycastLength, wallLayer);
+        isBorder = Physics2D.Raycast(transform.position, transform.right, wallRaycastLength, borderLayer);
+    }
+    private void Patrol()
+    {
+        if(mustTurn)
+        {
+            Flip();
+        }
+        rb.velocity = Vector2.right * walkSpeed * Time.fixedDeltaTime + new Vector2(0f, rb.velocity.y);
+    }
+
+    private void Flip()
+    {
+        mustPatrol = false;
+        facingRight = !facingRight;
+        walkSpeed *= -1;
+        transform.Rotate(0, 180, 0);
+        mustPatrol = true;
+
+    }
+
+    public void Respawn()
+    {
+        transform.position = startPosition.position;
+        if(!facingRight) Flip(); 
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        // for player Check
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+
+        // for ground Check
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position + transform.right * groundRaycastOffSet, transform.position + transform.right * groundRaycastOffSet + Vector3.down * groundRaycastLength);
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * wallRaycastLength);
     }
     
 }

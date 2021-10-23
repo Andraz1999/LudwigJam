@@ -4967,12 +4967,17 @@ MonoBehaviour:
   wallJumpForce: 36
   wallJumpAngle: {x: 1.2, y: 2.8}
   canMoveAgainDelay: 0.3
-  crouchSize: {x: 1, y: 0.5, z: 1}
+  crouchSize: {x: 1, y: 1}
+  crouchOffset: {x: 0, y: -0.5}
   crouchSpeed: 3
-  ceilingRaycastLength: 1.7
+  ceilingRaycastLength: 1.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  noDoubleJumpLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  noDoubleJumpRange: 1
   groundRaycastLength: 1.1
   groundRaycastOffSet: 0.25
   footsteps: {fileID: 125249125575432566}
@@ -4982,7 +4987,7 @@ MonoBehaviour:
   tab2: {fileID: 0}
   minimapSprite: {fileID: 0}
   respawnPoint: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 3090752427825844745}
 --- !u!1 &125249125875040674
 GameObject:
   m_ObjectHideFlags: 0

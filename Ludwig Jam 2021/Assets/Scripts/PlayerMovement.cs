@@ -84,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
     ///////////
     [Header("LayerMask")]
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask noDoubleJumpLayer;
+    [SerializeField] float noDoubleJumpRange;
 
     [Header("Ground Collision Variables")]
     [SerializeField] private float groundRaycastLength;
@@ -254,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(float lowJump, float highJump)
     {
-        if(jumpBufferCount > 0f)
+        if(jumpBufferCount + 0.3f > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, highJump);
         }
@@ -289,14 +291,17 @@ public class PlayerMovement : MonoBehaviour
             
         }
         else if(currentJump > 0)
-        {
-            // rb.velocity = new Vector2(rb.velocity.x, 0f);
-            // float x = rb.velocity.x;
-            // rb.velocity = new Vector2(x,multiJumpVelocity);
-            Jump(multiJumpVelocity);
-            canMove = true;
-            // rb.AddForce(Vector2.up*multiJumpVelocity, ForceMode2D.Impulse); 
-            currentJump--; 
+        {   
+            if(!Physics2D.OverlapCircle(transform.position, noDoubleJumpRange, noDoubleJumpLayer))
+            {
+                // rb.velocity = new Vector2(rb.velocity.x, 0f);
+                // float x = rb.velocity.x;
+                // rb.velocity = new Vector2(x,multiJumpVelocity);
+                Jump(multiJumpVelocity);
+                canMove = true;
+                // rb.AddForce(Vector2.up*multiJumpVelocity, ForceMode2D.Impulse); 
+                currentJump--; 
+            }
             
         }
         jumpBufferCount = 0f;
@@ -442,6 +447,10 @@ public class PlayerMovement : MonoBehaviour
         // for ceiling Check
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, transform.position + transform.up * ceilingRaycastLength);
+
+        // for double jumps
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, noDoubleJumpRange);
         
     }
 
