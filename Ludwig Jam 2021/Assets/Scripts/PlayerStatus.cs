@@ -92,6 +92,7 @@ public class PlayerStatus : MonoBehaviour
         timer.RestartTimer();
         player.Respawn();
         cam.Priority = 20;
+        DeactivateInvincibility();
     }
 
 
