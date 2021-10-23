@@ -69,8 +69,11 @@ public class PlayerMovement : MonoBehaviour
     
     ///////////
     [Header("Crouching")]
-    [SerializeField] Vector3 crouchSize;
-    private Vector3 basicSize;
+    [SerializeField] Vector2 crouchSize;
+    [SerializeField] Vector2 crouchOffset;
+    private CapsuleCollider2D col;
+    private Vector2 startSize;
+    private Vector2 startOffset;
     [SerializeField] float crouchSpeed;
     private float basicSpeed;
     private bool isCrouching;
@@ -110,6 +113,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Respawn")]
     [SerializeField] Transform respawnPoint;
 
+    [SerializeField] Animator animator;
+
     ///////////////////////////////////////////////
     #region Singleton
     public static PlayerMovement Instance {get; private set;}
@@ -130,7 +135,10 @@ public class PlayerMovement : MonoBehaviour
         jumpDelay = hangTime + 0.05f;
         footEmission = footsteps.emission;
         wallJumpAngle.Normalize();
-        basicSize = transform.localScale;
+        col = GetComponent<CapsuleCollider2D>();
+        startSize = col.size;
+        startOffset = col.offset;
+        //basicSize = transform.localScale;
         basicSpeed = maxMoveSpeed;
 
         tab1y = tab1.position;
@@ -150,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         CheckCollisions();
+        animator.SetBool("isGrounded", isGrounded);
 
         if(isGrounded && !isJumpPressed)
         {
@@ -203,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
             //wall slide
             rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
         }
+        animator.SetBool("isSliding", isWallSliding);
         
         if(isCrouching)
             {
@@ -213,6 +223,7 @@ public class PlayerMovement : MonoBehaviour
                 if(!isCeiling && !crouchingPressed)
                 StopCrouching();
             }
+        animator.SetBool("isCrouching", isCrouching);
             
 
         
@@ -378,7 +389,9 @@ public class PlayerMovement : MonoBehaviour
     private void StopCrouching()
     {
         isCrouching = false;
-        transform.localScale = basicSize;
+        //transform.localScale = basicSize;
+        col.size = startSize;
+        col.offset = startOffset;
         maxMoveSpeed = basicSpeed;
     }
 
@@ -438,8 +451,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(context.performed)
             horizontalDirection = context.ReadValue<float>();
+
         if(context.canceled)
             horizontalDirection = 0f;
+        animator.SetFloat("InputStrength", Mathf.Abs(horizontalDirection));
     }
 
     public void JumpInput(InputAction.CallbackContext context)
@@ -461,7 +476,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(context.performed)
         {
-            transform.localScale = crouchSize;
+            //transform.localScale = crouchSize;
+            col.size = crouchSize;
+            col.offset = crouchOffset;
             crouchingPressed = true;
             isCrouching = true;
             if(isWallSliding)
