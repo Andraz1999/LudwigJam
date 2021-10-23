@@ -6905,6 +6905,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 206088295988901660, guid: e34dd2d3ebde6464c93293a18fc5de71, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 206088295988901660, guid: e34dd2d3ebde6464c93293a18fc5de71, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 104065337
+      objectReference: {fileID: 0}
     - target: {fileID: 993073314138969328, guid: e34dd2d3ebde6464c93293a18fc5de71, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.727147
