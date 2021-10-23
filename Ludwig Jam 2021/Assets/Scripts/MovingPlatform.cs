@@ -47,7 +47,8 @@ public class MovingPlatform : MonoBehaviour
     void Move()
     {
         Vector3 dir = (point.position - transform.position).normalized;
-        rb.velocity = (dir * movingSpeed * Time.deltaTime);
+        //rb.velocity = (dir * movingSpeed * Time.deltaTime);
+        transform.position = transform.position + (dir * movingSpeed * Time.deltaTime);
         if((point.position - transform.position).magnitude < 0.1f)
         {
             isPointSet = false;
@@ -59,7 +60,6 @@ public class MovingPlatform : MonoBehaviour
         yield return new WaitForSeconds(pauseFor);
         int n = points.Length;
         int i = Array.IndexOf(points, cur);
-        Debug.Log(i);
         isPointSet = true;
         if (n-1 == i) 
         {
@@ -85,5 +85,24 @@ public class MovingPlatform : MonoBehaviour
     void DisablePlatform()
     {
         isEnabled = false;
+    }
+
+        private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.tag == "Player")
+        {
+
+            //waitingForPlayer = false;
+            other.transform.parent = this.transform;
+        }    
+    }
+
+    
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        if(other.tag == "Player")
+        {
+            other.transform.parent = null;
+        }  
     }
 }
