@@ -316,7 +316,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallSlide()
     {
-        if(isTouchingWall && !isGrounded && rb.velocity.y < 0)
+        if(isTouchingWall && !isGrounded && rb.velocity.y < 0 && !isCrouching)
         {
             isWallSliding = true;
             canMove = false;
@@ -395,6 +395,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         transform.position = respawnPoint.position;
+        if(isSwitched)
+        SwitchTabs();
     }
 
     private void SwitchTabs()
