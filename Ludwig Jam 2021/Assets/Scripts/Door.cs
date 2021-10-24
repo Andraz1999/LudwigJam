@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     [SerializeField] int conditions;
     [SerializeField] float responeTime = 15f;
+    public float pauseFor = 2f;
     private int currentConditions;
     private Animator animator;
     // Start is called before the first frame update
@@ -19,13 +20,13 @@ public class Door : MonoBehaviour
     {
         currentConditions += n;
         if(currentConditions >= conditions)
-        OpenDoor();
-        Invoke("CloseDoor", responeTime);
+        Invoke("OpenDoor", pauseFor);    
     }
 
     void OpenDoor()
     {
         animator.SetBool("isOpen", true);
+        Invoke("CloseDoor", responeTime);
     }
     void CloseDoor()
     {

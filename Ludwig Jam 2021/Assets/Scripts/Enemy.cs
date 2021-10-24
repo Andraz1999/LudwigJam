@@ -9,8 +9,10 @@ public class Enemy : MonoBehaviour
 
 
     [SerializeField] private float walkSpeed = 10f;
-    public bool facingRight = true; 
+    private bool facingRight = true; 
 
+    [SerializeField] bool allowToMove = true;
+    private float baseSpeed;
 
     [Header("Ground")]
     [SerializeField] float groundRaycastOffSet;
@@ -38,7 +40,12 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>(); 
+        baseSpeed = walkSpeed;  
+        if(!allowToMove)
+        {
+            walkSpeed = 0;
+        }
     }
 
     void Update()
@@ -60,7 +67,10 @@ public class Enemy : MonoBehaviour
         if(mustPatrol)
         {
             if((transform.position - player.position).magnitude < sightRange)
+            {
+                walkSpeed = baseSpeed;
                 mustTurn = (!isGrounded || isWall || Mathf.Sign(rb.velocity.x * (player.position.x - transform.position.x)) < 0);
+            }
             else    mustTurn = (!isGrounded || isWall || isBorder);
         }
 
@@ -94,6 +104,7 @@ public class Enemy : MonoBehaviour
     {
         transform.position = startPosition.position;
         if(!facingRight) Flip(); 
+        if(!allowToMove) walkSpeed = 0;
     }
 
 

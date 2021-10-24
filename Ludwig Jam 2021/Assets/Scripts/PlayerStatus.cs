@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Events;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PlayerStatus : MonoBehaviour
 
     private PauseMenu pauseMenu;
     [SerializeField] CinemachineVirtualCamera cam;
-
+    [SerializeField] UnityEvent onRespawn;
 
     #region Singleton
     public static PlayerStatus Instance {get; private set;}
@@ -92,6 +93,7 @@ public class PlayerStatus : MonoBehaviour
         timer.RestartTimer();
         player.Respawn();
         cam.Priority = 20;
+        onRespawn.Invoke();
         DeactivateInvincibility();
     }
 
