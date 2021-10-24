@@ -21,6 +21,7 @@ public class MovingPlatform : MonoBehaviour
 
     [SerializeField] int conditions = 1;
     private int currentConditions;
+    
 
     private void Start() 
     {
@@ -28,6 +29,8 @@ public class MovingPlatform : MonoBehaviour
         if(points.Length != 0)
         point = points[0];  
         rb = GetComponent<Rigidbody2D>(); 
+        if(conditions == 0)
+            EnablePlatform();
     }
 
     // Update is called once per frame
@@ -90,6 +93,8 @@ public class MovingPlatform : MonoBehaviour
     public void Respawn()
     {
         DisablePlatform();
+        if(conditions == 0)
+            EnablePlatform();
         transform.position = points[0].position;
     }
 

@@ -244,7 +244,7 @@ MonoBehaviour:
   - {fileID: 5696879501301120221}
   isEnabled: 0
   movingSpeed: 2
-  pauseFor: 0
+  pauseFor: 2
   conditions: 1
 --- !u!61 &6063098998477127480
 BoxCollider2D:

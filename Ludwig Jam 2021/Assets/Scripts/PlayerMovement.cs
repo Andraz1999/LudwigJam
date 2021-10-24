@@ -117,8 +117,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Respawn")]
-    [SerializeField] Transform respawnPoint;
-
+    //[SerializeField] Transform respawnPoint;
+    Vector3 respawnPoint;
     [SerializeField] Animator animator;
 
     ///////////////////////////////////////////////
@@ -151,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
         tab1y = tab1.position;
         tab2y = tab2.position;
         distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
+        respawnPoint = transform.position;
     }
 
         void FixedUpdate()
@@ -432,7 +433,7 @@ public class PlayerMovement : MonoBehaviour
     public void Respawn()
     {
         rb.velocity = Vector3.zero;
-        transform.position = respawnPoint.position;
+        transform.position = respawnPoint;
         if(isSwitched)
         SwitchTabs();
     }
