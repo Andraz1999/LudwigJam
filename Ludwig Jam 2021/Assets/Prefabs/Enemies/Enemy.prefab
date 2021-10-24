@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4079942694913534552}
   - component: {fileID: 4079942694913534553}
   - component: {fileID: 4079942694913534534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,12 +341,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 200
-  facingRight: 1
   groundRaycastOffSet: 1
   groundRaycastLength: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
+  isGrounded: 0
   wallRaycastLength: 1
   wallLayer:
     serializedVersion: 2
@@ -493,7 +493,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5019622}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -504,7 +504,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 2, y: 1.9960756}
   m_EdgeRadius: 0
 --- !u!1 &4079942695350995597
 GameObject:
