@@ -63,6 +63,48 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: walkBeton
+    clip: {fileID: 8300000, guid: 3744e42e4d5d1904aa2246ff4ce340fe, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: walkTrava
+    clip: {fileID: 8300000, guid: aa68121cf2fe3eb438491149e8446d18, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jumpBeton
+    clip: {fileID: 8300000, guid: 51efa82b9cf20b743818ffbbe40ffd18, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: JumpTrava
+    clip: {fileID: 8300000, guid: c1ef6540051cafc41a3e8ab3de40b5f1, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slide
+    clip: {fileID: 8300000, guid: a03570eefc4ea7643a995ee9b5c74971, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SecondPart
+    clip: {fileID: 8300000, guid: 7c564cd6825e3a44ba3cd2fb81968441, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SecondPart
+    clip: {fileID: 8300000, guid: 7c564cd6825e3a44ba3cd2fb81968441, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   audioSources: []
   doublePart: 1
   backgroundSoundNumber: 3
