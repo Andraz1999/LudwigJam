@@ -271,14 +271,16 @@ public class PlayerMovement : MonoBehaviour
         lowJumpMultiplier *= gravity;
     }
 
-    public void Jump(float lowJump, float highJump)
+    public void Jump(float lowJump, float highJump, float bonus = 0.3f)
     {
-        if(jumpBufferCount + 0.3f > 0f)
+        if(jumpBufferCount + bonus > 0f)
         {
+            Debug.Log(highJump);
             rb.velocity = new Vector2(rb.velocity.x, highJump);
         }
         else
         {
+            Debug.Log(lowJump);
             rb.velocity = new Vector2(rb.velocity.x, lowJump);
         }
     }
