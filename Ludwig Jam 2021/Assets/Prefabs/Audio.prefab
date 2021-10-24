@@ -61,7 +61,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7c564cd6825e3a44ba3cd2fb81968441, type: 3}
     volume: 0.6
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: walkBeton
     clip: {fileID: 8300000, guid: 3744e42e4d5d1904aa2246ff4ce340fe, type: 3}
