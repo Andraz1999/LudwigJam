@@ -45,6 +45,7 @@ public class JumpOnEnemy : MonoBehaviour
         if(other.tag == "Player" && playerRB.velocity.y < 0)
         {
             player.Jump(lowJump, highJump);
+            player.ResetDoubleJump();
             sprite.enabled = false;
             col1.enabled = false;
             col2.enabled = false;

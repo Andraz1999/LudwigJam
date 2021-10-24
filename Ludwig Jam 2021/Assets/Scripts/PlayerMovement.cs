@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float wallRaycastOffset;
     [SerializeField] float wallRaycastLength;
     private bool isTouchingWall;
-    //private bool wasTouchingWall;
+    private bool wasTouchingWall;
     private bool isWallSliding;
 
     ///////////
@@ -96,7 +96,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem footsteps;
     private ParticleSystem.EmissionModule footEmission;
     [SerializeField] float footestepsRateOverTime;
+    [SerializeField] ParticleSystem wallSlideEffect;
+    private ParticleSystem.EmissionModule wallSlideEmission;
+    [SerializeField] float wallSlideRateOverTime;
     [SerializeField] ParticleSystem impactEffect;
+    [SerializeField] ParticleSystem wallJumpEffect;
     private bool wasOnGround;
     private bool isGrounded;
 
@@ -136,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
         SetUpJumpVariables();
         jumpDelay = hangTime + 0.05f;
         footEmission = footsteps.emission;
+        wallSlideEmission = wallSlideEffect.emission;
         wallJumpAngle.Normalize();
         col = GetComponent<CapsuleCollider2D>();
         startSize = col.size;
@@ -205,7 +210,13 @@ public class PlayerMovement : MonoBehaviour
             CheckJump();
         }
 
-        //if(isTouchingWall && !wasTouchingWall) canMove = true;
+        if(isTouchingWall && !wasTouchingWall)
+        {
+            wallJumpEffect.gameObject.SetActive(true);
+                wallJumpEffect.Stop();
+                wallJumpEffect.transform.position = transform.position + transform.right * 0.5f;
+                wallJumpEffect.Play();
+        }
         
 
         WallSlide();
@@ -213,6 +224,11 @@ public class PlayerMovement : MonoBehaviour
         {
             //wall slide
             rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
+            wallSlideEmission.rateOverDistance = wallSlideRateOverTime;
+        }
+        else
+        {
+            wallSlideEmission.rateOverDistance = 0f;
         }
         animator.SetBool("isSliding", isWallSliding);
         
@@ -233,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
         jumpBufferCount -= Time.deltaTime;
         jumpDelayCount -= Time.deltaTime; 
         wasOnGround = isGrounded;  
-        //wasTouchingWall = isTouchingWall;   
+        wasTouchingWall = isTouchingWall;   
 
         /// updating the minimap
         minimapSprite.position = new Vector3(transform.position.x, transform.position.y + distanceBetweenTabs, transform.position.z);  
@@ -266,6 +282,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ResetDoubleJump()
+    {
+        currentJump = extraJumps;
+    }
     public void Jump(float jump)
     {
         Jump(jump, jump);

@@ -87,6 +87,12 @@ public class MovingPlatform : MonoBehaviour
         isEnabled = false;
     }
 
+    public void Respawn()
+    {
+        DisablePlatform();
+        transform.position = points[0].position;
+    }
+
         private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.tag == "Player")
