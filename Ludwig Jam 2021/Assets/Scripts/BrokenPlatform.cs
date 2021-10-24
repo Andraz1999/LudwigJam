@@ -6,23 +6,41 @@ public class BrokenPlatform : MonoBehaviour
 {
     [SerializeField] float respawnTime = 10f;
     [SerializeField] float pauseFor = 5f;
-    private Animator animator;
+    SpriteRenderer sprite;
+    [SerializeField] GameObject gfx2;
+    [SerializeField] GameObject destroyEffect;
+    [SerializeField] Collider2D colTriger;
+    [SerializeField] Collider2D col1;
+
+
+    private void Start() 
+    {
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.enabled = true;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player")
         {
-            animator.SetTrigger("stepOn");
+            gfx2.SetActive(true);
+            sprite.enabled = false;
+            colTriger.enabled = false;
             Invoke("Fall", pauseFor);
         }
     }
 
     void Fall()
     {
-        animator.SetTrigger("falling");
+        gfx2.SetActive(false);
+        col1.enabled = false;
+        Destroy(Instantiate(destroyEffect, transform.position, transform.rotation), 5f);
         Invoke("Respawn", respawnTime);
     }
-    void Resapwn()
+    void Respawn()
     {
-        animator.SetTrigger("respawn");
+        col1.enabled = true;
+        sprite.enabled = true;
+        colTriger.enabled = true;
     }
 }
