@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsScreen;
     public int volSet;
 
+    public GameObject pauseFirstButton, htpFirstButton, storyFirstButton;
+
     public GameObject[] htpScrens;
     int htpScr = 0;
 
@@ -19,11 +22,13 @@ public class MainMenu : MonoBehaviour
     int storyScr = 0;
     private void Start() {
         Time.timeScale = 1;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
     public void Play()
     {
         Time.timeScale = 1f;
-        FindObjectOfType<AudioManager>().StopPlaying("MenuTheme");
+        FindObjectOfType<AudioManager>().StopPlaying("MainMenu");
         FindObjectOfType<AudioManager>().DoublePart();
         SceneManager.LoadScene("Scenes/tryScene");
         
@@ -31,6 +36,8 @@ public class MainMenu : MonoBehaviour
 
     public void HowToPlay()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(htpFirstButton);
         howToPlayScreen.SetActive(true);
         htpScr = 0;
         nextHowToPlayScrene();
@@ -38,6 +45,8 @@ public class MainMenu : MonoBehaviour
     }
     public void Story()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(storyFirstButton);
         storyScreen.SetActive(true);
         storyScr = 0;
         nextStoryScrene();
@@ -46,6 +55,8 @@ public class MainMenu : MonoBehaviour
 
     public void outOfHowToPlay()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
         howToPlayScreen.SetActive(false);
         // mainScreen.SetActive(true);
     }
@@ -90,7 +101,7 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Scenes/MainMenu");
-        FindObjectOfType<AudioManager>().Play("MenuTheme");
+        FindObjectOfType<AudioManager>().Play("MainMenu");
     }
 
     public void QuitGame()
@@ -106,6 +117,8 @@ public class MainMenu : MonoBehaviour
         {
             SetHowToPlayScrene(lastHtpScr, 0);
             howToPlayScreen.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
             return;
         }
         else
@@ -121,6 +134,8 @@ public class MainMenu : MonoBehaviour
         if(htpScr == 1)
         {
             howToPlayScreen.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
             return;
         }
         else
@@ -143,6 +158,8 @@ public class MainMenu : MonoBehaviour
         {
             SetStoryScrene(lastStoryScr, 0);
             storyScreen.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
             return;
         }
         else
@@ -158,6 +175,8 @@ public class MainMenu : MonoBehaviour
         if(storyScr == 1)
         {
             storyScreen.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
             return;
         }
         else

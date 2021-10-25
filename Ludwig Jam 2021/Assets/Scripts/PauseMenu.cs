@@ -154,7 +154,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         FindObjectOfType<AudioManager>().StopDoublePart();
-        FindObjectOfType<AudioManager>().Play("MenuTheme");
+        FindObjectOfType<AudioManager>().Play("MainMenu");
         SceneManager.LoadScene("Scenes/MainMenu");
         
     }

@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
         respawnPoint = transform.position;
 
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.Instance;
 
         playerAudio = PlayerAudio.Instance;
     }
