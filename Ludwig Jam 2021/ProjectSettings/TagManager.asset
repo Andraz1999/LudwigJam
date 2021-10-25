@@ -68,6 +68,12 @@ TagManager:
   - name: Player
     uniqueID: 104065337
     locked: 0
+  - name: DorBody
+    uniqueID: 2789771687
+    locked: 0
+  - name: DorLock
+    uniqueID: 1510041789
+    locked: 0
   - name: Ground
     uniqueID: 1995508867
     locked: 0

@@ -105,7 +105,9 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         playerStatus.Die();
-        Resume();
+        //Resume();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Scenes/tryScene");
     }
 
     public void QuitMenu()
@@ -150,7 +152,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("You want to go to menu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Scenes/MainMenu");
+        
     }
 
 }
