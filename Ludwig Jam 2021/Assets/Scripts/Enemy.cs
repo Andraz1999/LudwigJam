@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private Transform player;
 
 
+    
     [SerializeField] private float walkSpeed = 10f;
     private bool facingRight = true; 
 

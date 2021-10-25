@@ -32,5 +32,9 @@ public class JumpPlatform : MonoBehaviour
             animator.SetTrigger("jump");
         }    
     }
+    public void ForceBounce()
+    {
+        animator.SetTrigger("jump");
+    }
 
 }
