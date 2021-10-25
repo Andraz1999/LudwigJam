@@ -70,4 +70,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac927b7434c8e3f4b9a37cf11d0256fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireWorks: {fileID: 5902485944087739527, guid: bcbf455a272a58d47a380a31739e968a, type: 3}
+  fireWorks: {fileID: 0}
