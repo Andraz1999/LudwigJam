@@ -11,6 +11,7 @@ public class OneLifeLeft : MonoBehaviour
     public GameObject dangerScreen;
     public PlayerInput control;
     bool gameIsPaused;
+    public GameObject pauseFirstButton;
 
     #region Singleton
     public static OneLifeLeft Instance {get; private set;}
@@ -33,6 +34,8 @@ public class OneLifeLeft : MonoBehaviour
         control.actions.FindActionMap("Gameplay").Disable();
         //control.actions.FindActionMap("Danger").Enable();
         dangerScreen.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
 
     public void ContinueGame()
