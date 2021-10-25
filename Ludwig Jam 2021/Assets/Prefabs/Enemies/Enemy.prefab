@@ -136,8 +136,8 @@ MonoBehaviour:
   - {fileID: 2701249538445410014}
   - {fileID: 3837176637430178986}
   m_Bounds:
-    m_Center: {x: 0.009828985, y: -0.12528664, z: 0}
-    m_Extent: {x: 0.5676108, y: 0.82415485, z: 0}
+    m_Center: {x: 0.009859502, y: -0.12528688, z: 0}
+    m_Extent: {x: 0.5676413, y: 0.8241551, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -633,6 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldRespawnAfterTime: 0
+  gfx: {fileID: 1843575130792926572}
   col1: {fileID: 4079942694913534552}
   col2: {fileID: 4079942694913534553}
   collectEffect: {fileID: 5902485944087739527, guid: bcbf455a272a58d47a380a31739e968a, type: 3}

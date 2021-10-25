@@ -5,7 +5,8 @@ using UnityEngine;
 public class JumpOnEnemy : MonoBehaviour
 {
     [SerializeField] bool shouldRespawnAfterTime;
-    SpriteRenderer sprite;
+    //SpriteRenderer sprite;
+    [SerializeField] GameObject gfx;
     [SerializeField]Collider2D col1;
     [SerializeField]Collider2D col2;
     [SerializeField] GameObject collectEffect;
@@ -21,7 +22,7 @@ public class JumpOnEnemy : MonoBehaviour
     [SerializeField] float offset;
     private void Start() 
     {
-        sprite = GetComponent<SpriteRenderer>();
+        //sprite = GetComponent<SpriteRenderer>();
         enemy = GetComponent<Enemy>(); 
         playerRB = GameObject.Find("Player").GetComponent<Rigidbody2D>();   
         player = PlayerMovement.Instance;
@@ -34,7 +35,7 @@ public class JumpOnEnemy : MonoBehaviour
 
     void Respawn()
     {
-        sprite.enabled = true;
+        //sprite.enabled = true;
         col1.enabled = true;
         col2.enabled = true;
         enemy.Respawn();
@@ -47,7 +48,8 @@ public class JumpOnEnemy : MonoBehaviour
         {
             player.Jump(lowJump, highJump);
             player.ResetDoubleJump();
-            sprite.enabled = false;
+            //sprite.enabled = false;
+            gfx.SetActive(false);
             col1.enabled = false;
             col2.enabled = false;
             if(shouldRespawnAfterTime)
