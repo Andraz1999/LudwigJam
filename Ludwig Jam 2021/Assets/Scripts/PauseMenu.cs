@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour
      public GameObject gameOverUI;
      public GameObject quitGameOverUI;
     public GameObject gameOverFirstButton, gameOverQuitFirstButton, gameOverQuitClosedButton;
+    ////////////////
+    public GameObject tab1, tab2;
 
     #region Singleton
     public static PauseMenu Instance {get; private set;}
@@ -157,6 +159,20 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("MainMenu");
         SceneManager.LoadScene("Scenes/MainMenu");
         
+    }
+
+    public void SwitchTabs(bool isSwitched)
+    {
+        if(isSwitched)
+        {
+            tab1.SetActive(false);
+            tab2.SetActive(true);
+        }
+        else
+        {
+            tab2.SetActive(false);
+            tab1.SetActive(true);
+        }
     }
 
 }
