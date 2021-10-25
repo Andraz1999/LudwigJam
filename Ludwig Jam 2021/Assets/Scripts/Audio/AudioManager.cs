@@ -76,7 +76,7 @@ public class AudioManager : MonoBehaviour
            Debug.Log("Sound: " + name + " not found, napiši ime prav!");
            return;
        }
-        s.source.Play();
+        s.source.PlayOneShot(s.source.clip);
    }
 
    public void PlayNotForced(string name)
@@ -98,6 +98,7 @@ public class AudioManager : MonoBehaviour
            Debug.Log("Sound: " + name + " not found, napiši ime prav!");
            return;
        }
+       Debug.Log("moralo bi se " + name);
         s.source.volume = UnityEngine.Random.Range(minVol, maxVol);
         s.source.volume *= volume;
         s.source.pitch = UnityEngine.Random.Range(minPitch, maxPitch);
