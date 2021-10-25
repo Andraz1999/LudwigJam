@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAudio playerAudio;
     private AudioManager audioManager;
 
+    private PauseMenu pauseMenu;
     ///////////////////////////////////////////////
     #region Singleton
     public static PlayerMovement Instance {get; private set;}
@@ -160,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
         audioManager = AudioManager.Instance;
 
         playerAudio = PlayerAudio.Instance;
+        pauseMenu = PauseMenu.Instance;
     }
 
         void FixedUpdate()
@@ -472,12 +474,14 @@ public class PlayerMovement : MonoBehaviour
             tab1.position = tab1y;
             tab2.position = tab2y;
             isSwitched = false;
+            pauseMenu.SwitchTabs(false);
         }
         else
         {
             tab2.position = tab1y;
             tab1.position = tab2y;
             isSwitched = true;
+            pauseMenu.SwitchTabs(true);
         }
     }
 
