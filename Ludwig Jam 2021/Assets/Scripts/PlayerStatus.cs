@@ -53,7 +53,7 @@ public class PlayerStatus : MonoBehaviour
         pauseMenu = PauseMenu.Instance;
         oneLifeLeft = OneLifeLeft.Instance;
 
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.Instance;
 
     }
 

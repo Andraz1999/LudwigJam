@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
         respawnPoint = transform.position;
 
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.Instance;
 
         playerAudio = PlayerAudio.Instance;
     }
@@ -332,7 +332,9 @@ public class PlayerMovement : MonoBehaviour
         {   
             if(!Physics2D.OverlapCircle(transform.position, noDoubleJumpRange, noDoubleJumpLayer))
             {
+                animator.SetTrigger("DoubleJump");
                 audioManager.PlayNotForced("jump");
+                
                 rb.velocity = new Vector2(rb.velocity.x, multiJumpVelocity);
                 //Jump(multiJumpVelocity);
                 canMove = true;

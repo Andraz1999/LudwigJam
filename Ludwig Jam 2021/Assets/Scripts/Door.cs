@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         CloseDoor();
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.Instance;
     }
 
     public void IncreaseCondition(int n)

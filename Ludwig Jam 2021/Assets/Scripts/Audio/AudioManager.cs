@@ -18,12 +18,12 @@ public class AudioManager : MonoBehaviour
     public float backgroundVolume;
     public float effectVolume;
 
-    public static AudioManager instance;
+    public static AudioManager Instance;
     // Start is called before the first frame update
     void Awake()
     {
-        if(instance == null)
-            instance = this;
+        if(Instance == null)
+            Instance = this;
         else
         {
             Destroy(gameObject);
@@ -76,7 +76,7 @@ public class AudioManager : MonoBehaviour
            Debug.Log("Sound: " + name + " not found, napiši ime prav!");
            return;
        }
-        s.source.PlayOneShot(s.source.clip);
+        s.source.Play();
    }
 
    public void PlayNotForced(string name)
@@ -98,7 +98,7 @@ public class AudioManager : MonoBehaviour
            Debug.Log("Sound: " + name + " not found, napiši ime prav!");
            return;
        }
-       Debug.Log("moralo bi se " + name);
+    //    Debug.Log("moralo bi se " + name);
         s.source.volume = UnityEngine.Random.Range(minVol, maxVol);
         s.source.volume *= volume;
         s.source.pitch = UnityEngine.Random.Range(minPitch, maxPitch);

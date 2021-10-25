@@ -20,7 +20,7 @@ public class CollectBalls : MonoBehaviour
     {
         //sprite = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();    
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.Instance;
     }
 
     void Respawn()
