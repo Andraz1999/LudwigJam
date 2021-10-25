@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class CollectBalls : MonoBehaviour
 {
     [SerializeField] float respawnTime = 15f;
+    [SerializeField] bool shouldRespawnAfterTime;
     [SerializeField] GameObject collectEffect;
     [SerializeField] UnityEvent onComplete;
     [SerializeField] GameObject gfx;
@@ -33,7 +34,8 @@ public class CollectBalls : MonoBehaviour
             gfx.SetActive(false);
             col.enabled = false;
             onComplete.Invoke();
-            Invoke("Respawn", respawnTime);
+            if(shouldRespawnAfterTime)
+                Invoke("Respawn", respawnTime);
             Destroy(Instantiate(collectEffect, transform.position, transform.rotation), 5f);
         }    
     }

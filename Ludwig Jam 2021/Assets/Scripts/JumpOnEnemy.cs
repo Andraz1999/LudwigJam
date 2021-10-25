@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JumpOnEnemy : MonoBehaviour
 {
+    [SerializeField] bool shouldRespawnAfterTime;
     SpriteRenderer sprite;
     [SerializeField]Collider2D col1;
     [SerializeField]Collider2D col2;
@@ -49,7 +50,8 @@ public class JumpOnEnemy : MonoBehaviour
             sprite.enabled = false;
             col1.enabled = false;
             col2.enabled = false;
-            Invoke("Respawn", respawnTime);
+            if(shouldRespawnAfterTime)
+                Invoke("Respawn", respawnTime);
             Destroy(Instantiate(collectEffect, transform.position, transform.rotation), 5f);
         }    
     }

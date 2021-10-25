@@ -301,6 +301,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(new Vector2(wallJumpForce*wallJumpDirection*wallJumpAngle.x, wallJumpForce*wallJumpAngle.y), ForceMode2D.Impulse);
             canMove = false;
+            //ResetDoubleJump();// now you can double jump after wall jump
             Invoke("CanMoveAgain", canMoveAgainDelay);
         }
 

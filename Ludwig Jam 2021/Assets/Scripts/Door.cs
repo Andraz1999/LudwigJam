@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     [SerializeField] int conditions;
     [SerializeField] float responeTime = 15f;
     public float pauseFor = 2f;
-    private int currentConditions;
+    public  int currentConditions;
     private Animator animator;
     // Start is called before the first frame update
     void Start()
