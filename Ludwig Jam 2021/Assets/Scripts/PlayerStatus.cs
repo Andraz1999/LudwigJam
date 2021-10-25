@@ -90,7 +90,7 @@ public class PlayerStatus : MonoBehaviour
                 Debug.Log(timer.GetTime());
                 pauseMenu.Pause(false);
             }   
-            if(currentHealth == 1)
+            if(currentHealth == 10)
             {
                 oneLifeLeft.Danger();
             }
