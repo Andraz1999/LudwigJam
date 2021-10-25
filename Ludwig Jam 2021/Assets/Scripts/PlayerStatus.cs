@@ -48,6 +48,7 @@ public class PlayerStatus : MonoBehaviour
         timer = TimerController.Instance;
         progressbar = Progressbar.Instance;
         pauseMenu = PauseMenu.Instance;
+
     }
 
     

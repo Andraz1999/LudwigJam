@@ -23,6 +23,8 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1f;
+        FindObjectOfType<AudioManager>().StopPlaying("MenuTheme");
+        FindObjectOfType<AudioManager>().DoublePart();
         SceneManager.LoadScene("Scenes/tryScene");
         
     }

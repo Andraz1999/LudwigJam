@@ -22,13 +22,13 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        // if(instance == null)
-        //     instance = this;
-        // else
-        // {
-        //     Destroy(gameObject);
-        // }
-        // DontDestroyOnLoad(gameObject);
+        if(instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
 
 
         foreach (Sounds s in sounds)
@@ -42,14 +42,30 @@ public class AudioManager : MonoBehaviour
 
             audioSources.Add(s.source);
         }
+
     }
 
      private void Start() 
    {
         if(!doublePart)
-            Play("MenuTheme");
+            Play("MainMenu");
         else
-            StartCoroutine("DoubleSound");
+        DoublePart();
+   }
+
+   public void DoublePart()
+   {
+       StopPlaying("FirstPart");
+        StopPlaying("SecondPart");
+       StopCoroutine("DoubleSound");
+       StartCoroutine("DoubleSound");
+   }
+
+   public void StopDoublePart()
+   {
+       StopPlaying("FirstPart");
+        StopPlaying("SecondPart");
+       StopCoroutine("DoubleSound");
    }
 
    public void Play(string name)
