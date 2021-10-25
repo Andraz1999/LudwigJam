@@ -202,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
                 impactEffect.Stop();
                 impactEffect.transform.position = footsteps.transform.position;
                 impactEffect.Play();
+                animator.SetBool("DoubleJump", false);
                 
             }
         }
@@ -237,6 +238,8 @@ public class PlayerMovement : MonoBehaviour
             //wall slide
             rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
             wallSlideEmission.rateOverDistance = wallSlideRateOverTime;
+
+            animator.SetBool("DoubleJump", false);
         }
         else
         {
@@ -252,6 +255,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if(!isCeiling && !crouchingPressed)
                 StopCrouching();
+
+                animator.SetBool("DoubleJump", false);
             }
         animator.SetBool("isCrouching", isCrouching);
             
@@ -332,7 +337,9 @@ public class PlayerMovement : MonoBehaviour
         {   
             if(!Physics2D.OverlapCircle(transform.position, noDoubleJumpRange, noDoubleJumpLayer))
             {
-                animator.SetTrigger("DoubleJump");
+                animator.SetBool("DoubleJump", true);
+                StartCoroutine("DoubleDelay");
+                
                 audioManager.PlayNotForced("jump");
                 
                 rb.velocity = new Vector2(rb.velocity.x, multiJumpVelocity);
@@ -579,5 +586,11 @@ public class PlayerMovement : MonoBehaviour
     private void WallSlidingAudioStop()
     {
         audioManager.StopPlaying("slide");
+    }
+
+    IEnumerator DoubleDelay()
+    {
+        yield return new WaitForSeconds(15/60f);
+        animator.SetBool("DoubleJump", false);
     }
 }
