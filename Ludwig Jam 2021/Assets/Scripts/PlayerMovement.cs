@@ -121,6 +121,10 @@ public class PlayerMovement : MonoBehaviour
     Vector3 respawnPoint;
     [SerializeField] Animator animator;
 
+    /////audio
+    private PlayerAudio playerAudio;
+    private AudioManager audioManager;
+
     ///////////////////////////////////////////////
     #region Singleton
     public static PlayerMovement Instance {get; private set;}
@@ -152,6 +156,10 @@ public class PlayerMovement : MonoBehaviour
         tab2y = tab2.position;
         distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
         respawnPoint = transform.position;
+
+        audioManager = FindObjectOfType<AudioManager>();
+
+        playerAudio = PlayerAudio.Instance;
     }
 
         void FixedUpdate()
@@ -189,10 +197,12 @@ public class PlayerMovement : MonoBehaviour
             // dust Effect when hitting the ground
             if(!wasOnGround)
             {
+                JumpAudio();
                 impactEffect.gameObject.SetActive(true);
                 impactEffect.Stop();
                 impactEffect.transform.position = footsteps.transform.position;
                 impactEffect.Play();
+                
             }
         }
         else
@@ -212,11 +222,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(isTouchingWall && !wasTouchingWall)
-        {
+        {   
+            JumpAudio();
             wallJumpEffect.gameObject.SetActive(true);
-                wallJumpEffect.Stop();
-                wallJumpEffect.transform.position = transform.position + transform.right * 0.5f;
-                wallJumpEffect.Play();
+            wallJumpEffect.Stop();
+            wallJumpEffect.transform.position = transform.position + transform.right * 0.5f;
+            wallJumpEffect.Play();
         }
         
 
@@ -272,15 +283,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Jump(float lowJump, float highJump, float bonus = 0.3f)
-    {
+    {   
+        
         if(jumpBufferCount + bonus > 0f)
         {
-            Debug.Log(highJump);
+            //Debug.Log(highJump);
+            audioManager.PlayNotForced("highJump");
             rb.velocity = new Vector2(rb.velocity.x, highJump);
         }
         else
         {
-            Debug.Log(lowJump);
+            //Debug.Log(lowJump);
+            audioManager.PlayNotForced("lowJump");
             rb.velocity = new Vector2(rb.velocity.x, lowJump);
         }
     }
@@ -299,6 +313,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(isWallSliding)
         {
+            audioManager.PlayNotForced("jump");
             rb.AddForce(new Vector2(wallJumpForce*wallJumpDirection*wallJumpAngle.x, wallJumpForce*wallJumpAngle.y), ForceMode2D.Impulse);
             canMove = false;
             //ResetDoubleJump();// now you can double jump after wall jump
@@ -307,10 +322,9 @@ public class PlayerMovement : MonoBehaviour
 
         else if(hangCounter > 0f)
         {
-            // rb.velocity = new Vector2(rb.velocity.x, 0f);
-            // float x = rb.velocity.x;
-            // rb.velocity = new Vector2(x,initialJumpVelocity);
-            Jump(initialJumpVelocity);
+            audioManager.PlayNotForced("jump");
+            rb.velocity = new Vector2(rb.velocity.x, initialJumpVelocity);
+            //Jump(initialJumpVelocity);
             canMove = true;
             
         }
@@ -318,10 +332,9 @@ public class PlayerMovement : MonoBehaviour
         {   
             if(!Physics2D.OverlapCircle(transform.position, noDoubleJumpRange, noDoubleJumpLayer))
             {
-                // rb.velocity = new Vector2(rb.velocity.x, 0f);
-                // float x = rb.velocity.x;
-                // rb.velocity = new Vector2(x,multiJumpVelocity);
-                Jump(multiJumpVelocity);
+                audioManager.PlayNotForced("jump");
+                rb.velocity = new Vector2(rb.velocity.x, multiJumpVelocity);
+                //Jump(multiJumpVelocity);
                 canMove = true;
                 // rb.AddForce(Vector2.up*multiJumpVelocity, ForceMode2D.Impulse); 
                 currentJump--; 
@@ -359,6 +372,7 @@ public class PlayerMovement : MonoBehaviour
         if(isTouchingWall && !isGrounded && rb.velocity.y < 0 && !isCrouching)
         {
             isWallSliding = true;
+            WallSlidingAudio();
             canMove = false;
             //wall slide
             //rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
@@ -366,6 +380,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isWallSliding = false;
+            WallSlidingAudioStop();
         }
     } 
 
@@ -518,6 +533,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 canMove = true;
                 isWallSliding = false;
+                WallSlidingAudioStop();
             }
         }
         if(context.canceled)
@@ -534,6 +550,32 @@ public class PlayerMovement : MonoBehaviour
         }    
         
     }
-
-
+    
+////////////////////// AUDIO
+    
+    public bool CheckIfSwitched()
+    {
+        return isSwitched;
+    }
+    private void JumpAudio()
+    {   
+        if(isSwitched)
+            {
+                //audioManager.RandomPlay("jumpTrava", 1f, 1f, 0.8f, 1.1f);
+                audioManager.Play("jumpTrava");
+            }
+        else
+        {
+            //audioManager.RandomPlay("jumpBeton", 1f, 1f, 0.8f, 1.1f);
+            audioManager.Play("jumpBeton");
+        }
+    }
+    private void WallSlidingAudio()
+    {
+        audioManager.PlayNotForced("slide");
+    }
+    private void WallSlidingAudioStop()
+    {
+        audioManager.StopPlaying("slide");
+    }
 }

@@ -12,11 +12,15 @@ public class BrokenPlatform : MonoBehaviour
     [SerializeField] Collider2D colTriger;
     [SerializeField] Collider2D col1;
 
+    private AudioManager audioManager;
+    
+
 
     private void Start() 
     {
         sprite = GetComponent<SpriteRenderer>();
         sprite.enabled = true;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
 
@@ -32,6 +36,7 @@ public class BrokenPlatform : MonoBehaviour
 
     void Fall()
     {
+        audioManager.Play("breakPlatform");
         gfx2.SetActive(false);
         col1.enabled = false;
         Destroy(Instantiate(destroyEffect, transform.position, transform.rotation), 5f);

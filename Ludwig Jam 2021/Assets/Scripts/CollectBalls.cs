@@ -10,6 +10,8 @@ public class CollectBalls : MonoBehaviour
     [SerializeField] GameObject collectEffect;
     [SerializeField] UnityEvent onComplete;
     [SerializeField] GameObject gfx;
+
+    private AudioManager audioManager;
     
     //SpriteRenderer sprite;
     Collider2D col;
@@ -18,6 +20,7 @@ public class CollectBalls : MonoBehaviour
     {
         //sprite = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();    
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Respawn()
@@ -31,6 +34,7 @@ public class CollectBalls : MonoBehaviour
         if(other.tag == "Player")
         {
             //sprite.enabled = false;
+            audioManager.Play("pickup");
             gfx.SetActive(false);
             col.enabled = false;
             onComplete.Invoke();

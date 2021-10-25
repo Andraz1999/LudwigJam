@@ -53,54 +53,96 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: FirstPart
     clip: {fileID: 8300000, guid: 3d27336eb22041243821fe87612258b3, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: SecondPart
-    clip: {fileID: 8300000, guid: 7c564cd6825e3a44ba3cd2fb81968441, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: walkBeton
-    clip: {fileID: 8300000, guid: 3744e42e4d5d1904aa2246ff4ce340fe, type: 3}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: walkTrava
-    clip: {fileID: 8300000, guid: aa68121cf2fe3eb438491149e8446d18, type: 3}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: jumpBeton
-    clip: {fileID: 8300000, guid: 51efa82b9cf20b743818ffbbe40ffd18, type: 3}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: JumpTrava
-    clip: {fileID: 8300000, guid: c1ef6540051cafc41a3e8ab3de40b5f1, type: 3}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: slide
-    clip: {fileID: 8300000, guid: a03570eefc4ea7643a995ee9b5c74971, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SecondPart
     clip: {fileID: 8300000, guid: 7c564cd6825e3a44ba3cd2fb81968441, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: walkBeton
+    clip: {fileID: 8300000, guid: 5945a75b08d879b4b9a35ad7ab204efa, type: 3}
+    volume: 1
+    pitch: 0.32
+    loop: 0
+    source: {fileID: 0}
+  - name: walkTrava
+    clip: {fileID: 8300000, guid: aa68121cf2fe3eb438491149e8446d18, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jumpBeton
+    clip: {fileID: 8300000, guid: 51efa82b9cf20b743818ffbbe40ffd18, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jumpTrava
+    clip: {fileID: 8300000, guid: c1ef6540051cafc41a3e8ab3de40b5f1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slide
+    clip: {fileID: 8300000, guid: 5454b750bf8c87744a294c5ac30440c5, type: 3}
+    volume: 0.392
+    pitch: 3
+    loop: 1
+    source: {fileID: 0}
+  - name: pickup
+    clip: {fileID: 8300000, guid: 76237ddfdfb24d64f867e9d4e9611aa9, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: SecondPart
-    clip: {fileID: 8300000, guid: 7c564cd6825e3a44ba3cd2fb81968441, type: 3}
+  - name: hurt
+    clip: {fileID: 8300000, guid: 0725600d32a878040a83efb022d19cd5, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: doorUp
+    clip: {fileID: 8300000, guid: 66853a85ec315a440b4670cb1242c3a0, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: youDidIt
+    clip: {fileID: 8300000, guid: 346230ec611cd1041b4639f3416b27ab, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: open
+    clip: {fileID: 8300000, guid: decb2b2bff99698439daf0ee822d3512, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: highJump
+    clip: {fileID: 8300000, guid: 346230ec611cd1041b4639f3416b27ab, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: lowJump
+    clip: {fileID: 8300000, guid: 346230ec611cd1041b4639f3416b27ab, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jump
+    clip: {fileID: 8300000, guid: 346230ec611cd1041b4639f3416b27ab, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: breakPlatform
+    clip: {fileID: 8300000, guid: 42d8457c71b1ae74499b40aaa8d129ef, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0

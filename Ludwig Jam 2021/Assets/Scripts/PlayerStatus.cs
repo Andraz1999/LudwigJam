@@ -22,8 +22,11 @@ public class PlayerStatus : MonoBehaviour
     private Progressbar progressbar;
 
     private PauseMenu pauseMenu;
+    private OneLifeLeft oneLifeLeft;
     [SerializeField] CinemachineVirtualCamera cam;
     [SerializeField] UnityEvent onRespawn;
+
+    private AudioManager audioManager;
 
     #region Singleton
     public static PlayerStatus Instance {get; private set;}
@@ -48,6 +51,9 @@ public class PlayerStatus : MonoBehaviour
         timer = TimerController.Instance;
         progressbar = Progressbar.Instance;
         pauseMenu = PauseMenu.Instance;
+        oneLifeLeft = OneLifeLeft.Instance;
+
+        audioManager = FindObjectOfType<AudioManager>();
 
     }
 
@@ -73,6 +79,7 @@ public class PlayerStatus : MonoBehaviour
             int health = currentHealth + damage;
             healthbar.SetHealth(health);
             currentHealth = healthbar.GetHealth();
+            audioManager.Play("hurt");
             if (damage < 0)
             {
                 SetInvincibility();
@@ -83,6 +90,10 @@ public class PlayerStatus : MonoBehaviour
                 Debug.Log(timer.GetTime());
                 pauseMenu.Pause(false);
             }   
+            if(currentHealth == 1)
+            {
+                oneLifeLeft.Danger();
+            }
         
         }   
     }
