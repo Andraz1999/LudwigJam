@@ -332,7 +332,9 @@ public class PlayerMovement : MonoBehaviour
         {   
             if(!Physics2D.OverlapCircle(transform.position, noDoubleJumpRange, noDoubleJumpLayer))
             {
+                animator.SetTrigger("DoubleJump");
                 audioManager.PlayNotForced("jump");
+                
                 rb.velocity = new Vector2(rb.velocity.x, multiJumpVelocity);
                 //Jump(multiJumpVelocity);
                 canMove = true;
