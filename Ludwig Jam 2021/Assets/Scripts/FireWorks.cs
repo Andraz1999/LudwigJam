@@ -13,8 +13,15 @@ public class FireWorks : MonoBehaviour
         if(other.tag == "Player" && active)
         {
             fireWorks.SetActive(true);
-            Destroy(fireWorks, 5f);
+            StartCoroutine("delay");
+            
             active = false;
         }
+    }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(5f);
+        fireWorks.SetActive(false);
     }
 }
