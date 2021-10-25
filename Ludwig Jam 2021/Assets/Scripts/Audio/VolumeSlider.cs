@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
-   public Slider backVolumeSlider;
-   public Slider effectVolumeSlider;
+   // public Slider backVolumeSlider;
+   // public Slider effectVolumeSlider;
+
+   public Slider volumeSlider;
 
 //    private VolumeSlider instance;
 
@@ -23,7 +25,9 @@ public class VolumeSlider : MonoBehaviour
 
    private void Update() 
    {
-       FindObjectOfType<AudioManager>().BackVolumeAdjust(backVolumeSlider.value);
-       FindObjectOfType<AudioManager>().EffectVolumeAdjust(effectVolumeSlider.value);
+   //     FindObjectOfType<AudioManager>().BackVolumeAdjust(backVolumeSlider.value);
+   //     FindObjectOfType<AudioManager>().EffectVolumeAdjust(effectVolumeSlider.value);
+
+      FindObjectOfType<AudioManager>().VolumeAdjust(volumeSlider.value);
    }
 }
