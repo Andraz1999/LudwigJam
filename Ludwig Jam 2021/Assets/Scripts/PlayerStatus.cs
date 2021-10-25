@@ -42,7 +42,8 @@ public class PlayerStatus : MonoBehaviour
     {
         player = PlayerMovement.Instance;
         healthbar = Healthbar.Instance;
-        healthbar.SetMaxHealth(maxHealth);
+        healthbar.SetMaxHealth(120);
+        healthbar.SetHealth(maxHealth);
         currentHealth = maxHealth;
         timer = TimerController.Instance;
         progressbar = Progressbar.Instance;

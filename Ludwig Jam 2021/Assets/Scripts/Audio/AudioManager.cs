@@ -149,18 +149,27 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void EffectVolumeAdjust(float koeficijent)
-    {
-        for (int i = audioSources.Count - 1; i > backgroundSoundNumber; i--)
-        {
-            audioSources[i].volume = sounds[i].volume * koeficijent;
-        }
+    // public void EffectVolumeAdjust(float koeficijent)
+    // {
+    //     for (int i = audioSources.Count - 1; i > backgroundSoundNumber; i--)
+    //     {
+    //         audioSources[i].volume = sounds[i].volume * koeficijent;
+    //     }
         
-    }
+    // }
 
-    public void BackVolumeAdjust(float koeficijent)
+    // public void BackVolumeAdjust(float koeficijent)
+    // {
+    //     for (int i = 0; i <= backgroundSoundNumber; i++)
+    //     {
+    //         audioSources[i].volume = sounds[i].volume * koeficijent;
+    //     }
+        
+    // }
+
+     public void VolumeAdjust(float koeficijent)
     {
-        for (int i = 0; i <= backgroundSoundNumber; i++)
+        for (int i = 0; i <= audioSources.Count - 1; i++)
         {
             audioSources[i].volume = sounds[i].volume * koeficijent;
         }
