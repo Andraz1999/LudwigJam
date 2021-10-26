@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsScreen;
     public int volSet;
 
-    public GameObject pauseFirstButton, htpFirstButton, storyFirstButton;
+    public GameObject pauseFirstButton, htpFirstButton, storyFirstButton, endStoryButton, endHtpbutton;
 
     public GameObject[] htpScrens;
     int htpScr = 0;
@@ -22,8 +22,8 @@ public class MainMenu : MonoBehaviour
     int storyScr = 0;
     private void Start() {
         Time.timeScale = 1;
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+        // EventSystem.current.SetSelectedGameObject(null);
+        // EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
     public void Play()
     {
@@ -36,18 +36,20 @@ public class MainMenu : MonoBehaviour
 
     public void HowToPlay()
     {
+        
+        howToPlayScreen.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(htpFirstButton);
-        howToPlayScreen.SetActive(true);
         htpScr = 0;
         nextHowToPlayScrene();
         // mainScreen.SetActive(false);
     }
     public void Story()
     {
+        
+        storyScreen.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(storyFirstButton);
-        storyScreen.SetActive(true);
         storyScr = 0;
         nextStoryScrene();
         // mainScreen.SetActive(false);
@@ -118,7 +120,7 @@ public class MainMenu : MonoBehaviour
             SetHowToPlayScrene(lastHtpScr, 0);
             howToPlayScreen.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+            EventSystem.current.SetSelectedGameObject(endHtpbutton);
             return;
         }
         else
@@ -135,7 +137,7 @@ public class MainMenu : MonoBehaviour
         {
             howToPlayScreen.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+        EventSystem.current.SetSelectedGameObject(endHtpbutton);
             return;
         }
         else
@@ -159,7 +161,7 @@ public class MainMenu : MonoBehaviour
             SetStoryScrene(lastStoryScr, 0);
             storyScreen.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+        EventSystem.current.SetSelectedGameObject(endStoryButton);
             return;
         }
         else
@@ -176,7 +178,7 @@ public class MainMenu : MonoBehaviour
         {
             storyScreen.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+            EventSystem.current.SetSelectedGameObject(endStoryButton);
             return;
         }
         else

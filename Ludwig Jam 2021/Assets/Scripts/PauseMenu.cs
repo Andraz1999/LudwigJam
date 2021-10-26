@@ -50,26 +50,35 @@ public class PauseMenu : MonoBehaviour
 
     private void Start() 
     {
-        playerStatus = PlayerStatus.Instance;    
+        playerStatus = PlayerStatus.Instance;  
+        control.actions.FindActionMap("PauseMenu").Disable(); 
+        control.actions.FindActionMap("Gameplay").Enable();
+        gameIsPaused = false;
+        quitMenuActive = false;
+         
     }
 
     public void PauseInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
+            //Debug.Log("pressewd menu");
             if(gameIsPaused) 
             {
                 if (quitMenuActive)
                 {
+                    //Debug.Log("should quit");
                     QuitMenu();
                 }
                 else if(canResume)
                 {
+                    //Debug.Log("should resume");
                     Resume();
                 }
             }
             else
             {
+                Debug.Log("should pause");
                 Pause(true);
             }
         }  
@@ -112,9 +121,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        playerStatus.Die();
+        // playerStatus.Die();
         //Resume();
         Time.timeScale = 1f;
+        //control.actions.FindActionMap("PauseMenu").Disable(); 
+        //control.actions.FindActionMap("Gameplay").Enable();
         SceneManager.LoadScene("Scenes/tryScene");
     }
 
