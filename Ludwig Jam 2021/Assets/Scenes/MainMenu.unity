@@ -3120,7 +3120,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: NO! Two clicks for you is for the computer still a lot of work, but luckily
     there is a cute little SaveKnight, doing it's best to safely deliver your work
-    to the main disc.
+    to the hard disk.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
