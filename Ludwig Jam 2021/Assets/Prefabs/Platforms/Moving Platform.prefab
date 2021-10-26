@@ -168,7 +168,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 104065337
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
@@ -246,6 +246,7 @@ MonoBehaviour:
   isEnabled: 0
   movingSpeed: 2
   pauseFor: 2
+  particles: {fileID: 8007799934617025670}
   conditions: 1
 --- !u!61 &6063098998477127480
 BoxCollider2D:
@@ -5052,7 +5053,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1995508867
-  m_SortingLayer: 12
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -5144,7 +5145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3111749586284384175, guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}
       propertyPath: m_SortingLayer
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3111749586284384175, guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}
       propertyPath: m_SortingLayerID
