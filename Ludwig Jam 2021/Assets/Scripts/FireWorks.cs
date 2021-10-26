@@ -8,15 +8,27 @@ public class FireWorks : MonoBehaviour
     //[SerializeField] Transform fwPosition;
     bool active = true;
 
+    private AudioManager audioManager;
+
+    private void Start() {
+        audioManager = AudioManager.Instance;
+    }
+
     
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player" && active)
         {
             fireWorks.SetActive(true);
+            active = false;
+            audioManager.Play("fireworksTrail");
+            Invoke("PlayExplosion", 2f);
             StartCoroutine("delay");
             
-            active = false;
         }
+    }
+    private void PlayExplosion()
+    {
+        audioManager.Play("fireworksExplosion");
     }
 
     IEnumerator delay()

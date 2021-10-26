@@ -17,20 +17,26 @@ public class MovingPlatform : MonoBehaviour
     //public bool waitingForPlayer;
     public float pauseFor = 2f;
 
-    private Rigidbody2D rb;
+    //private Rigidbody2D rb;
+    [SerializeField] GameObject particles;
 
     [SerializeField] int conditions = 1;
     private int currentConditions;
+
+    private AudioManager audioManager;
     
 
     private void Start() 
     {
+        audioManager = AudioManager.Instance;
         //points = allThePoints.GetComponentsInChildren<Transform>();
         if(points.Length != 0)
         point = points[0];  
-        rb = GetComponent<Rigidbody2D>(); 
+        //rb = GetComponent<Rigidbody2D>(); 
         if(conditions == 0)
             EnablePlatform();
+        else
+            DisablePlatform();
     }
 
     // Update is called once per frame
@@ -78,25 +84,28 @@ public class MovingPlatform : MonoBehaviour
         currentConditions += n;
         if (currentConditions >= conditions)
         {
+            audioManager.Play("open");
             EnablePlatform();
         }
     }
     void EnablePlatform()
     {
         isEnabled = true;
+        particles.SetActive(true);
     }
     void DisablePlatform()
     {
         isEnabled = false;
+        particles.SetActive(false);
     }
 
-    public void Respawn()
-    {
-        DisablePlatform();
-        if(conditions == 0)
-            EnablePlatform();
-        transform.position = points[0].position;
-    }
+    // public void Respawn()
+    // {
+    //     DisablePlatform();
+    //     if(conditions == 0)
+    //         EnablePlatform();
+    //     transform.position = points[0].position;
+    // }
 
         private void OnTriggerEnter2D(Collider2D other) 
     {
