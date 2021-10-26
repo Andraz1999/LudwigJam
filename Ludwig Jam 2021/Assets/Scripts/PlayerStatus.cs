@@ -87,7 +87,7 @@ public class PlayerStatus : MonoBehaviour
             if (currentHealth <= 0)
             {
                 //Die();
-                Debug.Log(timer.GetTime());
+                
                 pauseMenu.Pause(false);
             }   
             if(currentHealth == 10)
@@ -108,6 +108,12 @@ public class PlayerStatus : MonoBehaviour
         cam.Priority = 20;
         onRespawn.Invoke();
         DeactivateInvincibility();
+    }
+
+    public void Goal()
+    {
+        Time.timeScale = 0f;
+        pauseMenu.GoalScene(timer.GetTimeString());
     }
 
 
