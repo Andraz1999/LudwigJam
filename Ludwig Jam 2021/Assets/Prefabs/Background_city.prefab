@@ -148,44 +148,38 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " // Is this transform a child of /parent/?\r\n        [FreeFunction(\"Internal_IsChildOrSameTransform\",
-    HasExplicitThis = true)]\r\n        public extern bool IsChildOf([NotNull] Transform
-    parent);\r\n\r\n        // Has the transform changed since the last time the
-    flag was set to 'false'?\r\n        [NativeProperty(\"HasChangedDeprecated\")]\r\n       
-    public extern bool hasChanged { get; set; }\r\n\r\n        //*undocumented*\r\n       
-    [Obsolete(\"FindChild has been deprecated. Use Find instead (UnityUpgradable)
-    -> Find([mscorlib] System.String)\", false)]\r\n        public Transform FindChild(string
-    n) { return Find(n); }\r\n\r\n        //*undocumented* Documented separately\r\n       
-    public IEnumerator GetEnumerator()\r\n        {\r\n            return new Transform.Enumerator(this);\r\n       
-    }\r\n\r\n        private class Enumerator : IEnumerator\r\n        {\r\n           
-    Transform outer;\r\n            int currentIndex = -1;\r\n\r\n            internal
-    Enumerator(Transform outer)\r\n            {\r\n                this.outer =
-    outer;\r\n            }\r\n\r\n            //*undocumented*\r\n            public
-    object Current\r\n            {\r\n                get { return outer.GetChild(currentIndex);
-    }\r\n            }\r\n\r\n            //*undocumented*\r\n            public
-    bool MoveNext()\r\n            {\r\n                int childCount = outer.childCount;\r\n               
-    return ++currentIndex < childCount;\r\n            }\r\n\r\n            //*undocumented*\r\n           
-    public void Reset() { currentIndex = -1; }\r\n        }\r\n\r\n        // *undocumented*
-    DEPRECATED\r\n        [Obsolete(\"warning use Transform.Rotate instead.\")]\r\n       
-    public extern void RotateAround(Vector3 axis, float angle);\r\n\r\n        //
-    *undocumented* DEPRECATED\r\n        [Obsolete(\"warning use Transform.Rotate
-    instead.\")]\r\n        public extern void RotateAroundLocal(Vector3 axis, float
-    angle);\r\n\r\n        // Get a transform child by index\r\n        [NativeThrows]\r\n       
-    [FreeFunction(\"GetChild\", HasExplicitThis = true)]\r\n        public extern
-    Transform GetChild(int index);\r\n\r\n        //*undocumented* DEPRECATED\r\n       
-    [Obsolete(\"warning use Transform.childCount instead (UnityUpgradable) -> Transform.childCount\",
-    false)]\r\n        [NativeMethod(\"GetChildrenCount\")]\r\n        public extern
-    int GetChildCount();\r\n\r\n        public int hierarchyCapacity\r\n        {\r\n           
-    get { return internal_getHierarchyCapacity(); }\r\n            set { internal_setHierarchyCapacity(value);
-    }\r\n        }\r\n\r\n        [FreeFunction(\"GetHierarchyCapacity\", HasExplicitThis
-    = true)]\r\n        private extern int internal_getHierarchyCapacity();\r\n\r\n       
-    [FreeFunction(\"SetHierarchyCapacity\", HasExplicitThis = true)]\r\n        private
-    extern void internal_setHierarchyCapacity(int value);\r\n\r\n        public int
-    hierarchyCount { get { return internal_getHierarchyCount(); } }\r\n\r\n       
-    [FreeFunction(\"GetHierarchyCount\", HasExplicitThis = true)]\r\n        private
-    extern int internal_getHierarchyCount();\r\n\r\n        [NativeConditional(\"UNITY_EDITOR\")]\r\n       
-    [FreeFunction(\"IsNonUniformScaleTransform\", HasExplicitThis = true)]\r\n       
-    internal extern bool IsNonUniformScaleTransform();\r\n    }"
+  m_text: "'Transform:\r\n  m_CorrespondingSourceObject: {fileID: 3543598773910546650,
+    guid: 417d4ffc752cde246bef7dde9a4c05ef, type: 3}\r\n  m_PrefabInstance: {fileID:
+    658387837}\r\n  m_PrefabAsset: {fileID: 0}\r\n--- !u!1001 &21382795\r\nPrefabInstance:\r\n 
+    m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent:
+    {fileID: 1793628636}\r\n    m_Modifications:\r\n    - target: {fileID: 4571229191599610074,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Spike (30)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 26\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1016.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 47.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &22068699\n'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13352,49 +13346,44 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// Transforms the direction /x/, /y/, /z/ from world space to local space.
-    The opposite of Transform.TransformDirection.\r\n        public Vector3 InverseTransformDirection(float
-    x, float y, float z) { return InverseTransformDirection(new Vector3(x, y, z));
-    }\r\n\r\n\r\n        // Transforms /vector/ from local space to world space.\r\n       
-    public extern Vector3 TransformVector(Vector3 vector);\r\n\r\n        // Transforms
-    vector /x/, /y/, /z/ from local space to world space.\r\n        public Vector3
-    TransformVector(float x, float y, float z) { return TransformVector(new Vector3(x,
-    y, z)); }\r\n\r\n        // Transforms a /vector/ from world space to local space.
-    The opposite of Transform.TransformVector.\r\n        public extern Vector3 InverseTransformVector(Vector3
-    vector);\r\n\r\n        // Transforms the vector /x/, /y/, /z/ from world space
-    to local space. The opposite of Transform.TransformVector.\r\n        public
-    Vector3 InverseTransformVector(float x, float y, float z) { return InverseTransformVector(new
-    Vector3(x, y, z)); }\r\n\r\n\r\n        // Transforms /position/ from local space
-    to world space.\r\n        public extern Vector3 TransformPoint(Vector3 position);\r\n\r\n       
-    // Transforms the position /x/, /y/, /z/ from local space to world space.\r\n       
-    public Vector3 TransformPoint(float x, float y, float z) { return TransformPoint(new
-    Vector3(x, y, z)); }\r\n\r\n        // Transforms /position/ from world space
-    to local space. The opposite of Transform.TransformPoint.\r\n        public extern
-    Vector3 InverseTransformPoint(Vector3 position);\r\n\r\n        // Transforms
-    the position /x/, /y/, /z/ from world space to local space. The opposite of Transform.TransformPoint.\r\n       
-    public Vector3 InverseTransformPoint(float x, float y, float z) { return InverseTransformPoint(new
-    Vector3(x, y, z)); }\r\n\r\n        // Returns the topmost transform in the hierarchy.\r\n       
-    public Transform root { get { return GetRoot(); } }\r\n\r\n        private extern
-    Transform GetRoot();\r\n\r\n        // The number of children the Transform has.\r\n       
-    public extern int childCount\r\n        {\r\n            [NativeMethod(\"GetChildrenCount\")]\r\n           
-    get;\r\n        }\r\n\r\n        // Unparents all children.\r\n        [FreeFunction(\"DetachChildren\",
-    HasExplicitThis = true)]\r\n        public extern void DetachChildren();\r\n\r\n       
-    // Move itself to the end of the parent's array of children\r\n        public
-    extern void SetAsFirstSibling();\r\n\r\n        // Move itself to the beginning
-    of the parent's array of children\r\n        public extern void SetAsLastSibling();\r\n\r\n       
-    public extern void SetSiblingIndex(int index);\r\n\r\n        [NativeMethod(\"MoveAfterSiblingInternal\")]\r\n       
-    internal extern void MoveAfterSibling(Transform transform, bool notifyEditorAndMarkDirty);\r\n\r\n       
-    public extern int GetSiblingIndex();\r\n\r\n        [FreeFunction]\r\n       
-    private static extern Transform FindRelativeTransformWithPath(Transform transform,
-    string path, [UnityEngine.Internal.DefaultValue(\"false\")] bool isActiveOnly);\r\n\r\n       
-    // Finds a child by /name/ and returns it.\r\n        public Transform Find(string
-    n)\r\n        {\r\n            if (n == null)\r\n                throw new ArgumentNullException(\"Name
-    cannot be null\");\r\n            return FindRelativeTransformWithPath(this,
-    n, false);\r\n        }\r\n\r\n        //*undocumented\r\n        [NativeConditional(\"UNITY_EDITOR\")]\r\n       
-    internal extern void SendTransformChangedScale();\r\n\r\n        // The global
-    scale of the object (RO).\r\n        public extern Vector3 lossyScale\r\n       
-    {\r\n            [NativeMethod(\"GetWorldScaleLossy\")]\r\n            get;\r\n       
-    }"
+  m_text: "'NavMeshSettings:\r\n  serializedVersion: 2\r\n  m_ObjectHideFlags: 0\r\n 
+    m_BuildSettings:\r\n    serializedVersion: 2\r\n    agentTypeID: 0\r\n    agentRadius:
+    0.5\r\n    agentHeight: 2\r\n    agentSlope: 45\r\n    agentClimb: 0.4\r\n   
+    ledgeDropHeight: 0\r\n    maxJumpAcrossDistance: 0\r\n    minRegionArea: 2\r\n   
+    manualCellSize: 0\r\n    cellSize: 0.16666667\r\n    manualTileSize: 0\r\n   
+    tileSize: 256\r\n    accuratePlacement: 0\r\n    maxJobWorkers: 0\r\n    preserveTilesOutsideBounds:
+    0\r\n    debug:\r\n      m_Flags: 0\r\n  m_NavMeshData: {fileID: 0}\r\n--- !u!1001
+    &485193\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion:
+    2\r\n  m_Modification:\r\n    m_TransformParent: {fileID: 1390066624}\r\n   
+    m_Modifications:\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (6)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 6\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 651.02423\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: -13\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!4 &1248425 stripped\r\nTransform:\r\n  m_CorrespondingSourceObject:
+    {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n 
+    m_PrefabInstance: {fileID: 388768157}\r\n  m_PrefabAsset: {fileID: 0}'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13528,36 +13517,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "public void SetInsetAndSizeFromParentEdge(Edge edge, float inset, float
-    size)\r\n        {\r\n            int axis = (edge == Edge.Top || edge == Edge.Bottom)
-    ? 1 : 0;\r\n            bool end = (edge == Edge.Top || edge == Edge.Right);\r\n\r\n           
-    // Set anchorMin and anchorMax to be anchored to the chosen edge.\r\n           
-    float anchorValue = end ? 1 : 0;\r\n            Vector2 anchor = anchorMin;\r\n           
-    anchor[axis] = anchorValue;\r\n            anchorMin = anchor;\r\n           
-    anchor = anchorMax;\r\n            anchor[axis] = anchorValue;\r\n           
-    anchorMax = anchor;\r\n\r\n            // Set size. Since anchors are together,
-    size and sizeDelta means the same in this case.\r\n            Vector2 sizeD
-    = sizeDelta;\r\n            sizeD[axis] = size;\r\n            sizeDelta = sizeD;\r\n\r\n           
-    // Set inset.\r\n            Vector2 positionCopy = anchoredPosition;\r\n           
-    positionCopy[axis] = end ? -inset - size * (1 - pivot[axis]) : inset + size *
-    pivot[axis];\r\n            anchoredPosition = positionCopy;\r\n        }\r\n\r\n       
-    public void SetSizeWithCurrentAnchors(Axis axis, float size)\r\n        {\r\n           
-    int i = (int)axis;\r\n            Vector2 sizeD = sizeDelta;\r\n            sizeD[i]
-    = size - GetParentSize()[i] * (anchorMax[i] - anchorMin[i]);\r\n            sizeDelta
-    = sizeD;\r\n        }\r\n\r\n        [RequiredByNativeCode]\r\n        internal
-    static void SendReapplyDrivenProperties(RectTransform driven)\r\n        {\r\n           
-    reapplyDrivenProperties?.Invoke(driven);\r\n        }\r\n\r\n        // Return
-    rect relative to lower left corner of parent rect\r\n        internal Rect GetRectInParentSpace()\r\n       
-    {\r\n            Rect rectResult = rect;\r\n            Vector2 offset = offsetMin
-    + Vector2.Scale(pivot, rectResult.size);\r\n            if (transform.parent)\r\n           
-    {\r\n                RectTransform parentRect = transform.parent.GetComponent<RectTransform>();\r\n               
-    if (parentRect)\r\n                    offset += Vector2.Scale(anchorMin, parentRect.rect.size);\r\n           
-    }\r\n\r\n            rectResult.x += offset.x;\r\n            rectResult.y +=
-    offset.y;\r\n            return rectResult;\r\n        }\r\n\r\n        private
-    Vector2 GetParentSize()\r\n        {\r\n            RectTransform parentRect
-    = parent as RectTransform;\r\n            if (!parentRect)\r\n               
-    return Vector2.zero;\r\n            return parentRect.rect.size;\r\n        }\r\n   
-    }\r\n}\r\n\xA9 2021 GitHub, Inc.\r\nTerms\r\nPrivacy"
+  m_text: "'GameObject:\r\n  m_ObjectHideFlags: 0\r\n  m_CorrespondingSourceObject:
+    {fileID: 0}\r\n  m_PrefabInstance: {fileID: 0}\r\n  m_PrefabAsset: {fileID: 0}\r\n 
+    serializedVersion: 6\r\n  m_Component:\r\n  - component: {fileID: 34049921}\r\n 
+    - component: {fileID: 34049922}\r\n  m_Layer: 0\r\n  m_Name: BackgroundZgradbe
+    (5)\r\n  m_TagString: Untagged\r\n  m_Icon: {fileID: 0}\r\n  m_NavMeshLayer:
+    0\r\n  m_StaticEditorFlags: 0\r\n  m_IsActive: 1\r\n--- !u!4 &34049921\r\nTransform:\r\n 
+    m_ObjectHideFlags: 0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance:
+    {fileID: 0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 34049920}\r\n 
+    m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\r\n  m_LocalPosition: {x: 215.0701,
+    y: -8.6, z: -18.1}\r\n  m_LocalScale: {x: 2, y: 2, z: 1}\r\n  m_Children: []\r\n 
+    m_Father: {fileID: 1872642343}\r\n  m_RootOrder: 5\r\n  m_LocalEulerAnglesHint:
+    {x: 0, y: 0, z: 0}\r\n--- !u!212 &34049922\r\nSpriteRenderer:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 34049920}\r\n 
+    m_Enabled: 1\r\n  m_CastShadows: 0\r\n  m_ReceiveShadows: 0\r\n  m_DynamicOccludee:
+    1\r\n  m_StaticShadowCaster: 0\r\n  m_MotionVectors: 1\r\n  m_LightProbeUsage:
+    1\r\n  m_ReflectionProbeUsage: 1\r\n  m_RayTracingMode: 0\r\n  m_RayTraceProcedural:
+    0\r\n  m_RenderingLayerMask: 1\r\n  m_RendererPriority: 0\r\n  m_Materials:\r\n 
+    - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}\r\n  m_StaticBatchInfo:\r\n   
+    firstSubMesh: 0\r\n    subMeshCount: 0\r\n  m_StaticBatchRoot: {fileID: 0}\r\n 
+    m_ProbeAnchor: {fileID: 0}\r\n  m_LightProbeVolumeOverride: {fileID: 0}\r\n 
+    m_ScaleInLightmap: 1\r\n  m_ReceiveGI: 1\r\n  m_PreserveUVs: 0\r\n  m_IgnoreNormalsForChartDetection:
+    0\r\n  m_ImportantGI: 0\r\n  m_StitchLightmapSeams: 1\r\n  m_SelectedEditorRenderState:
+    0\r\n  m_MinimumChartSize: 4\r\n  m_AutoUVMaxDistance: 0.5\r\n  m_AutoUVMaxAngle:
+    89\r\n  m_LightmapParameters: {fileID: 0}\r\n  m_SortingLayerID: -51039993\r\n 
+    m_SortingLayer: 4\r\n  m_SortingOrder: 0\r\n  m_Sprite: {fileID: 21300000, guid:
+    61fc6cdb616dac147b7915bf760b4ee5, type: 3}\r\n  m_Color: {r: 1, g: 1, b: 1, a:
+    1}\r\n  m_FlipX: 0\r\n  m_FlipY: 0\r\n  m_DrawMode: 0\r\n  m_Size: {x: 38.399998,
+    y: 21.599998}\r\n  m_AdaptiveModeThreshold: 0.5\r\n  m_SpriteTileMode: 0\r\n 
+    m_WasSpriteAssigned: 1\r\n  m_MaskInteraction: 0\r\n  m_SpriteSortPoint: 0\r\n---
+    !u!1001 &35392092'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13894,26 +13884,67 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// Unity C# reference source\r\n// Copyright (c) Unity Technologies. For
-    terms of use, see\r\n// https://unity3d.com/legal/licenses/Unity_Reference_Only_License\r\n\r\nusing
-    System;\r\nusing System.Collections.Generic;\r\nusing UnityEngine.Bindings;\r\nusing
-    UnityEngine.Scripting;\r\n\r\nnamespace UnityEngine\r\n{\r\n    [Flags]\r\n   
-    public enum DrivenTransformProperties\r\n    {\r\n        None = 0,\r\n       
-    All = ~None,\r\n        AnchoredPositionX = 1 << 1,\r\n        AnchoredPositionY
-    = 1 << 2,\r\n\r\n        AnchoredPositionZ = 1 << 3,\r\n        Rotation = 1
-    << 4,\r\n        ScaleX = 1 << 5,\r\n        ScaleY = 1 << 6,\r\n        ScaleZ
-    = 1 << 7,\r\n        AnchorMinX = 1 << 8,\r\n        AnchorMinY = 1 << 9,\r\n       
-    AnchorMaxX = 1 << 10,\r\n        AnchorMaxY = 1 << 11,\r\n        SizeDeltaX
-    = 1 << 12,\r\n        SizeDeltaY = 1 << 13,\r\n        PivotX = 1 << 14,\r\n       
-    PivotY = 1 << 15,\r\n\r\n        AnchoredPosition = AnchoredPositionX | AnchoredPositionY,\r\n\r\n       
-    AnchoredPosition3D = AnchoredPositionX | AnchoredPositionY | AnchoredPositionZ,\r\n       
-    Scale = ScaleX | ScaleY | ScaleZ,\r\n        AnchorMin = AnchorMinX | AnchorMinY,\r\n       
-    AnchorMax = AnchorMaxX | AnchorMaxY,\r\n        Anchors = AnchorMin | AnchorMax,\r\n       
-    SizeDelta = SizeDeltaX | SizeDeltaY,\r\n        Pivot = PivotX | PivotY\r\n   
-    }\r\n\r\n    [NativeHeader(\"Editor/Src/Animation/AnimationModeSnapshot.h\")]\r\n   
-    public struct DrivenRectTransformTracker\r\n    {\r\n        private List<RectTransform>
-    m_Tracked;\r\n        [FreeFunction(\"!GetAnimationModeSnapshot().IsInAnimationMode\")]\r\n       
-    internal static extern bool CanRecordModifications();\r\n"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1390066624}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (40)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Layer\r\n      value: 9\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 53\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 770.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: -13.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_LocalPosition.z\r\n      value: 0\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n      value: 1\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &31017780\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n 
+    serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    1793628636}\r\n    m_Modifications:\r\n    - target: {fileID: 4571229191599610074,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Spike (117)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 93\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1034.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 11.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!4 &31017781 stripped'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14577,30 +14608,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[NativeHeader(\"Editor/Src/Animation/AnimationModeSnapshot.h\")]\r\n   
-    public struct DrivenRectTransformTracker\r\n    {\r\n        private List<RectTransform>
-    m_Tracked;\r\n        [FreeFunction(\"!GetAnimationModeSnapshot().IsInAnimationMode\")]\r\n       
-    internal static extern bool CanRecordModifications();\r\n\r\n        private
-    static bool s_BlockUndo;\r\n\r\n        public static void StopRecordingUndo()
-    { s_BlockUndo = true; }\r\n\r\n        public static void StartRecordingUndo()
-    { s_BlockUndo = false; }\r\n\r\n        public void Add(Object driver, RectTransform
-    rectTransform, DrivenTransformProperties drivenProperties)\r\n        {\r\n           
-    if (m_Tracked == null)\r\n                m_Tracked = new List<RectTransform>();\r\n\r\n           
-    if (!Application.isPlaying && CanRecordModifications() && !s_BlockUndo)\r\n               
-    RuntimeUndo.RecordObject(rectTransform, \"Driving RectTransform\");\r\n\r\n           
-    rectTransform.drivenByObject = driver;\r\n            rectTransform.drivenProperties
-    = rectTransform.drivenProperties | drivenProperties;\r\n\r\n            m_Tracked.Add(rectTransform);\r\n       
-    }\r\n\r\n        [Obsolete(\"revertValues parameter is ignored. Please use Clear()
-    instead.\")]\r\n        public void Clear(bool revertValues)\r\n        {\r\n           
-    Clear();\r\n        }\r\n\r\n        public void Clear()\r\n        {\r\n           
-    if (m_Tracked != null)\r\n            {\r\n                for (int i = 0; i
-    < m_Tracked.Count; i++)\r\n                {\r\n                    if (m_Tracked[i]
-    != null)\r\n                    {\r\n                        if (!Application.isPlaying
-    && CanRecordModifications() && !s_BlockUndo)\r\n                            RuntimeUndo.RecordObject(m_Tracked[i],
-    \"Driving RectTransform\");\r\n\r\n                        m_Tracked[i].drivenByObject
-    = null;\r\n                        m_Tracked[i].drivenProperties = DrivenTransformProperties.None;\r\n                   
-    }\r\n                }\r\n                m_Tracked.Clear();\r\n            }\r\n       
-    }\r\n    }"
+  m_text: "'GameObject:\r\n  m_ObjectHideFlags: 0\r\n  m_CorrespondingSourceObject:
+    {fileID: 0}\r\n  m_PrefabInstance: {fileID: 0}\r\n  m_PrefabAsset: {fileID: 0}\r\n 
+    serializedVersion: 6\r\n  m_Component:\r\n  - component: {fileID: 34049921}\r\n 
+    - component: {fileID: 34049922}\r\n  m_Layer: 0\r\n  m_Name: BackgroundZgradbe
+    (5)\r\n  m_TagString: Untagged\r\n  m_Icon: {fileID: 0}\r\n  m_NavMeshLayer:
+    0\r\n  m_StaticEditorFlags: 0\r\n  m_IsActive: 1\r\n--- !u!4 &34049921\r\nTransform:\r\n 
+    m_ObjectHideFlags: 0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance:
+    {fileID: 0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 34049920}\r\n 
+    m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\r\n  m_LocalPosition: {x: 215.0701,
+    y: -8.6, z: -18.1}\r\n  m_LocalScale: {x: 2, y: 2, z: 1}\r\n  m_Children: []\r\n 
+    m_Father: {fileID: 1872642343}\r\n  m_RootOrder: 5\r\n  m_LocalEulerAnglesHint:
+    {x: 0, y: 0, z: 0}\r\n--- !u!212 &34049922\r\nSpriteRenderer:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 34049920}\r\n 
+    m_Enabled: 1\r\n  m_CastShadows: 0\r\n  m_ReceiveShadows: 0\r\n  m_DynamicOccludee:
+    1\r\n  m_StaticShadowCaster: 0\r\n  m_MotionVectors: 1\r\n  m_LightProbeUsage:
+    1\r\n  m_ReflectionProbeUsage: 1\r\n  m_RayTracingMode: 0\r\n  m_RayTraceProcedural:
+    0\r\n  m_RenderingLayerMask: 1\r\n  m_RendererPriority: 0\r\n  m_Materials:\r\n 
+    - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}\r\n  m_StaticBatchInfo:\r\n   
+    firstSubMesh: 0\r\n    subMeshCount: 0\r\n  m_StaticBatchRoot: {fileID: 0}\r\n 
+    m_ProbeAnchor: {fileID: 0}\r\n  m_LightProbeVolumeOverride: {fileID: 0}\r\n 
+    m_ScaleInLightmap: 1\r\n  m_ReceiveGI: 1\r\n  m_PreserveUVs: 0\r\n  m_IgnoreNormalsForChartDetection:
+    0\r\n  m_ImportantGI: 0\r\n  m_StitchLightmapSeams: 1\r\n  m_SelectedEditorRenderState:
+    0\r\n  m_MinimumChartSize: 4\r\n  m_AutoUVMaxDistance: 0.5\r\n  m_AutoUVMaxAngle:
+    89\r\n  m_LightmapParameters: {fileID: 0}\r\n  m_SortingLayerID: -51039993\r\n 
+    m_SortingLayer: 4\r\n  m_SortingOrder: 0\r\n  m_Sprite: {fileID: 21300000, guid:
+    61fc6cdb616dac147b7915bf760b4ee5, type: 3}\r\n  m_Color: {r: 1, g: 1, b: 1, a:
+    1}\r\n  m_FlipX: 0\r\n  m_FlipY: 0\r\n  m_DrawMode: 0\r\n  m_Size: {x: 38.399998,
+    y: 21.599998}\r\n  m_AdaptiveModeThreshold: 0.5\r\n  m_SpriteTileMode: 0\r\n 
+    m_WasSpriteAssigned: 1\r\n  m_MaskInteraction: 0\r\n  m_SpriteSortPoint: 0\r\n---
+    !u!1001 &35392092'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14900,57 +14938,70 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// Moves the transform by /x/ along the x axis, /y/ along the y axis,
-    and /z/ along the z axis.\r\n        public void Translate(float x, float y,
-    float z, Transform relativeTo)\r\n        {\r\n            Translate(new Vector3(x,
-    y, z), relativeTo);\r\n        }\r\n\r\n        // Applies a rotation of /eulerAngles.z/
-    degrees around the z axis, /eulerAngles.x/ degrees around the x axis, and /eulerAngles.y/
-    degrees around the y axis (in that order).\r\n        public void Rotate(Vector3
-    eulers, [UnityEngine.Internal.DefaultValue(\"Space.Self\")] Space relativeTo)\r\n       
-    {\r\n            Quaternion eulerRot = Quaternion.Euler(eulers.x, eulers.y, eulers.z);\r\n           
-    if (relativeTo == Space.Self)\r\n                localRotation = localRotation
-    * eulerRot;\r\n            else\r\n            {\r\n                rotation
-    = rotation * (Quaternion.Inverse(rotation) * eulerRot * rotation);\r\n           
-    }\r\n        }\r\n\r\n        public void Rotate(Vector3 eulers)\r\n        {\r\n           
-    Rotate(eulers, Space.Self);\r\n        }\r\n\r\n        // Applies a rotation
-    of /zAngle/ degrees around the z axis, /xAngle/ degrees around the x axis, and
-    /yAngle/ degrees around the y axis (in that order).\r\n        public void Rotate(float
-    xAngle, float yAngle, float zAngle, [UnityEngine.Internal.DefaultValue(\"Space.Self\")]
-    Space relativeTo)\r\n        {\r\n            Rotate(new Vector3(xAngle, yAngle,
-    zAngle), relativeTo);\r\n        }\r\n\r\n        public void Rotate(float xAngle,
-    float yAngle, float zAngle)\r\n        {\r\n            Rotate(new Vector3(xAngle,
-    yAngle, zAngle), Space.Self);\r\n        }\r\n\r\n        [NativeMethod(\"RotateAround\")]\r\n       
-    internal extern void RotateAroundInternal(Vector3 axis, float angle);\r\n\r\n       
-    // Rotates the transform around /axis/ by /angle/ degrees.\r\n        public
-    void Rotate(Vector3 axis, float angle, [UnityEngine.Internal.DefaultValue(\"Space.Self\")]
-    Space relativeTo)\r\n        {\r\n            if (relativeTo == Space.Self)\r\n               
-    RotateAroundInternal(transform.TransformDirection(axis), angle * Mathf.Deg2Rad);\r\n           
-    else\r\n                RotateAroundInternal(axis, angle * Mathf.Deg2Rad);\r\n       
-    }\r\n\r\n        public void Rotate(Vector3 axis, float angle)\r\n        {\r\n           
-    Rotate(axis, angle, Space.Self);\r\n        }\r\n\r\n        // Rotates the transform
-    about /axis/ passing through /point/ in world coordinates by /angle/ degrees.\r\n       
-    public void RotateAround(Vector3 point, Vector3 axis, float angle)\r\n       
-    {\r\n            Vector3 worldPos = position;\r\n            Quaternion q = Quaternion.AngleAxis(angle,
-    axis);\r\n            Vector3 dif = worldPos - point;\r\n            dif = q
-    * dif;\r\n            worldPos = point + dif;\r\n            position = worldPos;\r\n           
-    RotateAroundInternal(axis, angle * Mathf.Deg2Rad);\r\n        }\r\n\r\n       
-    // Rotates the transform so the forward vector points at /target/'s current position.\r\n       
-    public void LookAt(Transform target, [UnityEngine.Internal.DefaultValue(\"Vector3.up\")]
-    Vector3 worldUp) { if (target) LookAt(target.position, worldUp); }\r\n       
-    public void LookAt(Transform target) { if (target) LookAt(target.position, Vector3.up);
-    }\r\n\r\n        // Rotates the transform so the forward vector points at /worldPosition/.\r\n       
-    public void LookAt(Vector3 worldPosition, [UnityEngine.Internal.DefaultValue(\"Vector3.up\")]
-    Vector3 worldUp) { Internal_LookAt(worldPosition, worldUp); }\r\n        public
-    void LookAt(Vector3 worldPosition) { Internal_LookAt(worldPosition, Vector3.up);
-    }\r\n\r\n        [FreeFunction(\"Internal_LookAt\", HasExplicitThis = true)]\r\n       
-    private extern void Internal_LookAt(Vector3 worldPosition, Vector3 worldUp);\r\n\r\n       
-    // Transforms /direction/ from local space to world space.\r\n        public
-    extern Vector3 TransformDirection(Vector3 direction);\r\n\r\n        // Transforms
-    direction /x/, /y/, /z/ from local space to world space.\r\n        public Vector3
-    TransformDirection(float x, float y, float z) { return TransformDirection(new
-    Vector3(x, y, z)); }\r\n\r\n        // Transforms a /direction/ from world space
-    to local space. The opposite of Transform.TransformDirection.\r\n        public
-    extern Vector3 InverseTransformDirection"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1154473450}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (238)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 180\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1068.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 45\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &23054916\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n 
+    serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    565132284}\r\n    m_Modifications:\r\n    - target: {fileID: 3111749586284384172,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Platform (1)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    3111749586284384172, guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n     
+    propertyPath: m_IsActive\r\n      value: 0\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 14\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_LocalScale.x\r\n      value: 1\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_LocalScale.y\r\n      value: 1\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 145\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid:
+    57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 57871f48fd61f4d49b659a65b0f7da70, type:
+    3}\r\n--- !u!1001 &23608971'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15521,23 +15572,49 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "/ Unity C# reference source\r\n// Copyright (c) Unity Technologies. For
-    terms of use, see\r\n// https://unity3d.com/legal/licenses/Unity_Reference_Only_License\r\n\r\nusing
-    System;\r\nusing System.Collections.Generic;\r\nusing UnityEngine.Bindings;\r\nusing
-    UnityEngine.Scripting;\r\n\r\nnamespace UnityEngine\r\n{\r\n    [Flags]\r\n   
-    public enum DrivenTransformProperties\r\n    {\r\n        None = 0,\r\n       
-    All = ~None,\r\n        AnchoredPositionX = 1 << 1,\r\n        AnchoredPositionY
-    = 1 << 2,\r\n\r\n        AnchoredPositionZ = 1 << 3,\r\n        Rotation = 1
-    << 4,\r\n        ScaleX = 1 << 5,\r\n        ScaleY = 1 << 6,\r\n        ScaleZ
-    = 1 << 7,\r\n        AnchorMinX = 1 << 8,\r\n        AnchorMinY = 1 << 9,\r\n       
-    AnchorMaxX = 1 << 10,\r\n        AnchorMaxY = 1 << 11,\r\n        SizeDeltaX
-    = 1 << 12,\r\n        SizeDeltaY = 1 << 13,\r\n        PivotX = 1 << 14,\r\n       
-    PivotY = 1 << 15,\r\n\r\n        AnchoredPosition = AnchoredPositionX | AnchoredPositionY,\r\n\r\n       
-    AnchoredPosition3D = AnchoredPositionX | AnchoredPositionY | AnchoredPositionZ,\r\n       
-    Scale = ScaleX | ScaleY | ScaleZ,\r\n        AnchorMin = AnchorMinX | AnchorMinY,\r\n       
-    AnchorMax = AnchorMaxX | AnchorMaxY,\r\n        Anchors = AnchorMin | AnchorMax,\r\n       
-    SizeDelta = SizeDeltaX | SizeDeltaY,\r\n        Pivot = PivotX | PivotY\r\n   
-    }"
+  m_text: "Transform:\r\n  m_CorrespondingSourceObject: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n  m_PrefabInstance: {fileID:
+    31017780}\r\n  m_PrefabAsset: {fileID: 0}\r\n--- !u!1 &33769743\r\nGameObject:\r\n 
+    m_ObjectHideFlags: 0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance:
+    {fileID: 0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  serializedVersion: 6\r\n  m_Component:\r\n 
+    - component: {fileID: 33769744}\r\n  - component: {fileID: 33769746}\r\n  - component:
+    {fileID: 33769745}\r\n  m_Layer: 3\r\n  m_Name: Square (22)\r\n  m_TagString:
+    Untagged\r\n  m_Icon: {fileID: 0}\r\n  m_NavMeshLayer: 0\r\n  m_StaticEditorFlags:
+    0\r\n  m_IsActive: 1\r\n--- !u!4 &33769744\r\nTransform:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 33769743}\r\n 
+    m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\r\n  m_LocalPosition: {x: 155, y:
+    6.8219, z: 0}\r\n  m_LocalScale: {x: 6, y: 1.0697968, z: 1}\r\n  m_Children:
+    []\r\n  m_Father: {fileID: 1762519388}\r\n  m_RootOrder: 17\r\n  m_LocalEulerAnglesHint:
+    {x: 0, y: 0, z: 0}\r\n--- !u!61 &33769745\r\nBoxCollider2D:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 33769743}\r\n 
+    m_Enabled: 1\r\n  m_Density: 1\r\n  m_Material: {fileID: 0}\r\n  m_IsTrigger:
+    0\r\n  m_UsedByEffector: 0\r\n  m_UsedByComposite: 0\r\n  m_Offset: {x: 0, y:
+    0}\r\n  m_SpriteTilingProperty:\r\n    border: {x: 0, y: 0, z: 0, w: 0}\r\n   
+    pivot: {x: 0.5, y: 0.5}\r\n    oldSize: {x: 1, y: 1}\r\n    newSize: {x: 1, y:
+    1}\r\n    adaptiveTilingThreshold: 0.5\r\n    drawMode: 0\r\n    adaptiveTiling:
+    0\r\n  m_AutoTiling: 0\r\n  serializedVersion: 2\r\n  m_Size: {x: 1, y: 1}\r\n 
+    m_EdgeRadius: 0\r\n--- !u!212 &33769746\r\nSpriteRenderer:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 33769743}\r\n 
+    m_Enabled: 0\r\n  m_CastShadows: 0\r\n  m_ReceiveShadows: 0\r\n  m_DynamicOccludee:
+    1\r\n  m_StaticShadowCaster: 0\r\n  m_MotionVectors: 1\r\n  m_LightProbeUsage:
+    1\r\n  m_ReflectionProbeUsage: 1\r\n  m_RayTracingMode: 0\r\n  m_RayTraceProcedural:
+    0\r\n  m_RenderingLayerMask: 1\r\n  m_RendererPriority: 0\r\n  m_Materials:\r\n 
+    - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}\r\n  m_StaticBatchInfo:\r\n   
+    firstSubMesh: 0\r\n    subMeshCount: 0\r\n  m_StaticBatchRoot: {fileID: 0}\r\n 
+    m_ProbeAnchor: {fileID: 0}\r\n  m_LightProbeVolumeOverride: {fileID: 0}\r\n 
+    m_ScaleInLightmap: 1\r\n  m_ReceiveGI: 1\r\n  m_PreserveUVs: 0\r\n  m_IgnoreNormalsForChartDetection:
+    0\r\n  m_ImportantGI: 0\r\n  m_StitchLightmapSeams: 1\r\n  m_SelectedEditorRenderState:
+    0\r\n  m_MinimumChartSize: 4\r\n  m_AutoUVMaxDistance: 0.5\r\n  m_AutoUVMaxAngle:
+    89\r\n  m_LightmapParameters: {fileID: 0}\r\n  m_SortingLayerID: 104065337\r\n 
+    m_SortingLayer: 10\r\n  m_SortingOrder: 0\r\n  m_Sprite: {fileID: 7482667652216324306,
+    guid: 311925a002f4447b3a28927169b83ea6, type: 3}\r\n  m_Color: {r: 0.37647063,
+    g: 0.69803923, b: 0.26666668, a: 1}\r\n  m_FlipX: 0\r\n  m_FlipY: 0\r\n  m_DrawMode:
+    0\r\n  m_Size: {x: 1, y: 1}\r\n  m_AdaptiveModeThreshold: 0.5\r\n  m_SpriteTileMode:
+    0\r\n  m_WasSpriteAssigned: 1\r\n  m_MaskInteraction: 0\r\n  m_SpriteSortPoint:
+    0\r\n--- !u!1 &34049920"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15754,23 +15831,84 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "/ Unity C# reference source\r\n// Copyright (c) Unity Technologies. For
-    terms of use, see\r\n// https://unity3d.com/legal/licenses/Unity_Reference_Only_License\r\n\r\nusing
-    System;\r\nusing System.Collections.Generic;\r\nusing UnityEngine.Bindings;\r\nusing
-    UnityEngine.Scripting;\r\n\r\nnamespace UnityEngine\r\n{\r\n    [Flags]\r\n   
-    public enum DrivenTransformProperties\r\n    {\r\n        None = 0,\r\n       
-    All = ~None,\r\n        AnchoredPositionX = 1 << 1,\r\n        AnchoredPositionY
-    = 1 << 2,\r\n\r\n        AnchoredPositionZ = 1 << 3,\r\n        Rotation = 1
-    << 4,\r\n        ScaleX = 1 << 5,\r\n        ScaleY = 1 << 6,\r\n        ScaleZ
-    = 1 << 7,\r\n        AnchorMinX = 1 << 8,\r\n        AnchorMinY = 1 << 9,\r\n       
-    AnchorMaxX = 1 << 10,\r\n        AnchorMaxY = 1 << 11,\r\n        SizeDeltaX
-    = 1 << 12,\r\n        SizeDeltaY = 1 << 13,\r\n        PivotX = 1 << 14,\r\n       
-    PivotY = 1 << 15,\r\n\r\n        AnchoredPosition = AnchoredPositionX | AnchoredPositionY,\r\n\r\n       
-    AnchoredPosition3D = AnchoredPositionX | AnchoredPositionY | AnchoredPositionZ,\r\n       
-    Scale = ScaleX | ScaleY | ScaleZ,\r\n        AnchorMin = AnchorMinX | AnchorMinY,\r\n       
-    AnchorMax = AnchorMaxX | AnchorMaxY,\r\n        Anchors = AnchorMin | AnchorMax,\r\n       
-    SizeDelta = SizeDeltaX | SizeDeltaY,\r\n        Pivot = PivotX | PivotY\r\n   
-    }"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1467168659}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 3768631964161326210, guid: e66b8570ca4839d43b313b03b461a827,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 14\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3768631964161326210, guid: e66b8570ca4839d43b313b03b461a827,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 0\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210, guid:
+    e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 12\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 90\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 6347680650778479888,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: CollectBall (44)\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode\r\n     
+    value: 3\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 7563501339211031172,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target\r\n     
+    value: \r\n      objectReference: {fileID: 597060390}\r\n    - target: {fileID:
+    7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName\r\n     
+    value: IncreaseCondition\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName\r\n     
+    value: Door, Assembly-CSharp\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 7563501339211031172,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName\r\n     
+    value: UnityEngine.Object, UnityEngine\r\n      objectReference: {fileID: 0}\r\n   
+    m_RemovedComponents: []\r\n  m_SourcePrefab: {fileID: 100100000, guid: e66b8570ca4839d43b313b03b461a827,
+    type: 3}\r\n--- !u!1001 &35635967\r\nPrefabInstance:\r\n  m_ObjectHideFlags:
+    0\r\n  serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    1211801441}\r\n    m_Modifications:\r\n    - target: {fileID: 4591050848424560592,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: FireWorks 1 (3)\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 4591050848424560597, guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 12\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4591050848424560597, guid: f2824ebc598333442baaf1385f312cee,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 0\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597, guid:
+    f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 8382338902088683023,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n     
+    value: 12.479492\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    8382338902088683023, guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n     
+    propertyPath: m_LocalPosition.y\r\n      value: -6.6997395\r\n      objectReference:
+    {fileID: 0}\r\n    m_RemovedComponents: []\r\n  m_SourcePrefab: {fileID: 100100000,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n--- !u!1001 &35924393'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16271,39 +16409,49 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "extern internal Object drivenByObject { get; set; }\r\n        extern
-    internal DrivenTransformProperties drivenProperties { get; set; }\r\n\r\n       
-    [NativeMethod(\"UpdateIfTransformDispatchIsDirty\")] public extern void ForceUpdateRectTransforms();\r\n\r\n       
-    public void GetLocalCorners(Vector3[] fourCornersArray)\r\n        {\r\n           
-    if (fourCornersArray == null || fourCornersArray.Length < 4)\r\n            {\r\n               
-    Debug.LogError(\"Calling GetLocalCorners with an array that is null or has less
-    than 4 elements.\");\r\n                return;\r\n            }\r\n\r\n           
-    Rect tmpRect = rect;\r\n            float x0 = tmpRect.x;\r\n            float
-    y0 = tmpRect.y;\r\n            float x1 = tmpRect.xMax;\r\n            float
-    y1 = tmpRect.yMax;\r\n\r\n            fourCornersArray[0] = new Vector3(x0, y0,
-    0f);\r\n            fourCornersArray[1] = new Vector3(x0, y1, 0f);\r\n           
-    fourCornersArray[2] = new Vector3(x1, y1, 0f);\r\n            fourCornersArray[3]
-    = new Vector3(x1, y0, 0f);\r\n        }\r\n\r\n        public void GetWorldCorners(Vector3[]
-    fourCornersArray)\r\n        {\r\n            if (fourCornersArray == null ||
-    fourCornersArray.Length < 4)\r\n            {\r\n                Debug.LogError(\"Calling
-    GetWorldCorners with an array that is null or has less than 4 elements.\");\r\n               
-    return;\r\n            }\r\n\r\n            GetLocalCorners(fourCornersArray);\r\n\r\n           
-    Matrix4x4 mat = transform.localToWorldMatrix;\r\n            for (int i = 0;
-    i < 4; i++)\r\n                fourCornersArray[i] = mat.MultiplyPoint(fourCornersArray[i]);\r\n       
-    }\r\n\r\n        public void SetInsetAndSizeFromParentEdge(Edge edge, float inset,
-    float size)\r\n        {\r\n            int axis = (edge == Edge.Top || edge
-    == Edge.Bottom) ? 1 : 0;\r\n            bool end = (edge == Edge.Top || edge
-    == Edge.Right);\r\n\r\n            // Set anchorMin and anchorMax to be anchored
-    to the chosen edge.\r\n            float anchorValue = end ? 1 : 0;\r\n           
-    Vector2 anchor = anchorMin;\r\n            anchor[axis] = anchorValue;\r\n           
-    anchorMin = anchor;\r\n            anchor = anchorMax;\r\n            anchor[axis]
-    = anchorValue;\r\n            anchorMax = anchor;\r\n\r\n            // Set size.
-    Since anchors are together, size and sizeDelta means the same in this case.\r\n           
-    Vector2 sizeD = sizeDelta;\r\n            sizeD[axis] = size;\r\n           
-    sizeDelta = sizeD;\r\n\r\n            // Set inset.\r\n            Vector2 positionCopy
-    = anchoredPosition;\r\n            positionCopy[axis] = end ? -inset - size *
-    (1 - pivot[axis]) : inset + size * pivot[axis];\r\n            anchoredPosition
-    = positionCopy;"
+  m_text: "Transform:\r\n  m_CorrespondingSourceObject: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n  m_PrefabInstance: {fileID:
+    31017780}\r\n  m_PrefabAsset: {fileID: 0}\r\n--- !u!1 &33769743\r\nGameObject:\r\n 
+    m_ObjectHideFlags: 0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance:
+    {fileID: 0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  serializedVersion: 6\r\n  m_Component:\r\n 
+    - component: {fileID: 33769744}\r\n  - component: {fileID: 33769746}\r\n  - component:
+    {fileID: 33769745}\r\n  m_Layer: 3\r\n  m_Name: Square (22)\r\n  m_TagString:
+    Untagged\r\n  m_Icon: {fileID: 0}\r\n  m_NavMeshLayer: 0\r\n  m_StaticEditorFlags:
+    0\r\n  m_IsActive: 1\r\n--- !u!4 &33769744\r\nTransform:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 33769743}\r\n 
+    m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\r\n  m_LocalPosition: {x: 155, y:
+    6.8219, z: 0}\r\n  m_LocalScale: {x: 6, y: 1.0697968, z: 1}\r\n  m_Children:
+    []\r\n  m_Father: {fileID: 1762519388}\r\n  m_RootOrder: 17\r\n  m_LocalEulerAnglesHint:
+    {x: 0, y: 0, z: 0}\r\n--- !u!61 &33769745\r\nBoxCollider2D:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 33769743}\r\n 
+    m_Enabled: 1\r\n  m_Density: 1\r\n  m_Material: {fileID: 0}\r\n  m_IsTrigger:
+    0\r\n  m_UsedByEffector: 0\r\n  m_UsedByComposite: 0\r\n  m_Offset: {x: 0, y:
+    0}\r\n  m_SpriteTilingProperty:\r\n    border: {x: 0, y: 0, z: 0, w: 0}\r\n   
+    pivot: {x: 0.5, y: 0.5}\r\n    oldSize: {x: 1, y: 1}\r\n    newSize: {x: 1, y:
+    1}\r\n    adaptiveTilingThreshold: 0.5\r\n    drawMode: 0\r\n    adaptiveTiling:
+    0\r\n  m_AutoTiling: 0\r\n  serializedVersion: 2\r\n  m_Size: {x: 1, y: 1}\r\n 
+    m_EdgeRadius: 0\r\n--- !u!212 &33769746\r\nSpriteRenderer:\r\n  m_ObjectHideFlags:
+    0\r\n  m_CorrespondingSourceObject: {fileID: 0}\r\n  m_PrefabInstance: {fileID:
+    0}\r\n  m_PrefabAsset: {fileID: 0}\r\n  m_GameObject: {fileID: 33769743}\r\n 
+    m_Enabled: 0\r\n  m_CastShadows: 0\r\n  m_ReceiveShadows: 0\r\n  m_DynamicOccludee:
+    1\r\n  m_StaticShadowCaster: 0\r\n  m_MotionVectors: 1\r\n  m_LightProbeUsage:
+    1\r\n  m_ReflectionProbeUsage: 1\r\n  m_RayTracingMode: 0\r\n  m_RayTraceProcedural:
+    0\r\n  m_RenderingLayerMask: 1\r\n  m_RendererPriority: 0\r\n  m_Materials:\r\n 
+    - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}\r\n  m_StaticBatchInfo:\r\n   
+    firstSubMesh: 0\r\n    subMeshCount: 0\r\n  m_StaticBatchRoot: {fileID: 0}\r\n 
+    m_ProbeAnchor: {fileID: 0}\r\n  m_LightProbeVolumeOverride: {fileID: 0}\r\n 
+    m_ScaleInLightmap: 1\r\n  m_ReceiveGI: 1\r\n  m_PreserveUVs: 0\r\n  m_IgnoreNormalsForChartDetection:
+    0\r\n  m_ImportantGI: 0\r\n  m_StitchLightmapSeams: 1\r\n  m_SelectedEditorRenderState:
+    0\r\n  m_MinimumChartSize: 4\r\n  m_AutoUVMaxDistance: 0.5\r\n  m_AutoUVMaxAngle:
+    89\r\n  m_LightmapParameters: {fileID: 0}\r\n  m_SortingLayerID: 104065337\r\n 
+    m_SortingLayer: 10\r\n  m_SortingOrder: 0\r\n  m_Sprite: {fileID: 7482667652216324306,
+    guid: 311925a002f4447b3a28927169b83ea6, type: 3}\r\n  m_Color: {r: 0.37647063,
+    g: 0.69803923, b: 0.26666668, a: 1}\r\n  m_FlipX: 0\r\n  m_FlipY: 0\r\n  m_DrawMode:
+    0\r\n  m_Size: {x: 1, y: 1}\r\n  m_AdaptiveModeThreshold: 0.5\r\n  m_SpriteTileMode:
+    0\r\n  m_WasSpriteAssigned: 1\r\n  m_MaskInteraction: 0\r\n  m_SpriteSortPoint:
+    0\r\n--- !u!1 &34049920"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16520,26 +16668,64 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// Unity C# reference source\r\n// Copyright (c) Unity Technologies. For
-    terms of use, see\r\n// https://unity3d.com/legal/licenses/Unity_Reference_Only_License\r\n\r\nusing
-    System;\r\nusing System.Collections.Generic;\r\nusing UnityEngine.Bindings;\r\nusing
-    UnityEngine.Scripting;\r\n\r\nnamespace UnityEngine\r\n{\r\n    [Flags]\r\n   
-    public enum DrivenTransformProperties\r\n    {\r\n        None = 0,\r\n       
-    All = ~None,\r\n        AnchoredPositionX = 1 << 1,\r\n        AnchoredPositionY
-    = 1 << 2,\r\n\r\n        AnchoredPositionZ = 1 << 3,\r\n        Rotation = 1
-    << 4,\r\n        ScaleX = 1 << 5,\r\n        ScaleY = 1 << 6,\r\n        ScaleZ
-    = 1 << 7,\r\n        AnchorMinX = 1 << 8,\r\n        AnchorMinY = 1 << 9,\r\n       
-    AnchorMaxX = 1 << 10,\r\n        AnchorMaxY = 1 << 11,\r\n        SizeDeltaX
-    = 1 << 12,\r\n        SizeDeltaY = 1 << 13,\r\n        PivotX = 1 << 14,\r\n       
-    PivotY = 1 << 15,\r\n\r\n        AnchoredPosition = AnchoredPositionX | AnchoredPositionY,\r\n\r\n       
-    AnchoredPosition3D = AnchoredPositionX | AnchoredPositionY | AnchoredPositionZ,\r\n       
-    Scale = ScaleX | ScaleY | ScaleZ,\r\n        AnchorMin = AnchorMinX | AnchorMinY,\r\n       
-    AnchorMax = AnchorMaxX | AnchorMaxY,\r\n        Anchors = AnchorMin | AnchorMax,\r\n       
-    SizeDelta = SizeDeltaX | SizeDeltaY,\r\n        Pivot = PivotX | PivotY\r\n   
-    }\r\n\r\n    [NativeHeader(\"Editor/Src/Animation/AnimationModeSnapshot.h\")]\r\n   
-    public struct DrivenRectTransformTracker\r\n    {\r\n        private List<RectTransform>
-    m_Tracked;\r\n        [FreeFunction(\"!GetAnimationModeSnapshot().IsInAnimationMode\")]\r\n       
-    internal static extern bool CanRecordModifications();\r\n"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1698910576}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (25)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 63\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 559.25\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 15\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &25137388\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n 
+    serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    1154473450}\r\n    m_Modifications:\r\n    - target: {fileID: 4571229191599610074,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Spike (154)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 37\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1034.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 25\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &25558102\n'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16756,48 +16942,70 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// Unity C# reference source\r\n// Copyright (c) Unity Technologies. For
-    terms of use, see\r\n// https://unity3d.com/legal/licenses/Unity_Reference_Only_License\r\n\r\nusing
-    UnityEngine.Bindings;\r\nusing UnityEngine.Scripting;\r\n\r\nusing System;\r\nusing
-    System.Collections;\r\n\r\nnamespace UnityEngine\r\n{\r\n    //*undocumented\r\n   
-    internal enum RotationOrder { OrderXYZ, OrderXZY, OrderYZX, OrderYXZ, OrderZXY,
-    OrderZYX }\r\n\r\n    // Position, rotation and scale of an object.\r\n    [NativeHeader(\"Configuration/UnityConfigure.h\")]\r\n   
-    [NativeHeader(\"Runtime/Transform/Transform.h\")]\r\n    [NativeHeader(\"Runtime/Transform/ScriptBindings/TransformScriptBindings.h\")]\r\n   
-    [RequiredByNativeCode]\r\n    public partial class Transform : Component, IEnumerable\r\n   
-    {\r\n        protected Transform() {}\r\n\r\n        // The position of the transform
-    in world space.\r\n        public extern Vector3 position { get; set; }\r\n\r\n       
-    // Position of the transform relative to the parent transform.\r\n        public
-    extern Vector3 localPosition { get; set; }\r\n\r\n        // Get local euler
-    angles with rotation order specified\r\n        internal extern Vector3 GetLocalEulerAngles(RotationOrder
-    order);\r\n\r\n        // Set local euler angles with rotation order specified\r\n       
-    internal extern void SetLocalEulerAngles(Vector3 euler, RotationOrder order);\r\n\r\n       
-    // Set local euler hint\r\n        [NativeConditional(\"UNITY_EDITOR\")]\r\n       
-    internal extern void SetLocalEulerHint(Vector3 euler);\r\n\r\n        // The
-    rotation as Euler angles in degrees.\r\n        public Vector3 eulerAngles {
-    get { return rotation.eulerAngles; } set { rotation = Quaternion.Euler(value);
-    } }\r\n\r\n        // The rotation as Euler angles in degrees relative to the
-    parent transform's rotation.\r\n        public Vector3 localEulerAngles { get
-    { return localRotation.eulerAngles; } set { localRotation = Quaternion.Euler(value);
-    } }\r\n\r\n        // The red axis of the transform in world space.\r\n       
-    public Vector3 right { get { return rotation * Vector3.right; } set { rotation
-    = Quaternion.FromToRotation(Vector3.right, value); } }\r\n\r\n        // The
-    green axis of the transform in world space.\r\n        public Vector3 up { get
-    { return rotation * Vector3.up; } set { rotation = Quaternion.FromToRotation(Vector3.up,
-    value); } }\r\n\r\n        // The blue axis of the transform in world space.\r\n       
-    public Vector3 forward { get { return rotation * Vector3.forward; } set { rotation
-    = Quaternion.LookRotation(value); } }\r\n\r\n        // The rotation of the transform
-    in world space stored as a [[Quaternion]].\r\n        public extern Quaternion
-    rotation { get; set; }\r\n\r\n        // The rotation of the transform relative
-    to the parent transform's rotation.\r\n        public extern Quaternion localRotation
-    { get; set; }\r\n\r\n        // The euler rotation order for this transform\r\n       
-    [NativeConditional(\"UNITY_EDITOR\")]\r\n        internal RotationOrder rotationOrder\r\n       
-    {\r\n            get { return (RotationOrder)GetRotationOrderInternal(); }\r\n           
-    set { SetRotationOrderInternal(value); }\r\n        }\r\n\r\n        [NativeConditional(\"UNITY_EDITOR\")]\r\n       
-    [NativeMethod(\"GetRotationOrder\")]\r\n        internal extern int GetRotationOrderInternal();\r\n       
-    [NativeConditional(\"UNITY_EDITOR\")]\r\n        [NativeMethod(\"SetRotationOrder\")]\r\n       
-    internal extern void SetRotationOrderInternal(RotationOrder rotationOrder);\r\n\r\n       
-    // The scale of the transform relative to the parent.\r\n        public extern
-    Vector3 localScale { get; set; }\r\n"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1154473450}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (238)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 180\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1068.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 45\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &23054916\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n 
+    serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    565132284}\r\n    m_Modifications:\r\n    - target: {fileID: 3111749586284384172,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Platform (1)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    3111749586284384172, guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n     
+    propertyPath: m_IsActive\r\n      value: 0\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 14\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_LocalScale.x\r\n      value: 1\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_LocalScale.y\r\n      value: 1\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid: 57871f48fd61f4d49b659a65b0f7da70,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 145\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173, guid:
+    57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3111749586284384173,
+    guid: 57871f48fd61f4d49b659a65b0f7da70, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 57871f48fd61f4d49b659a65b0f7da70, type:
+    3}\r\n--- !u!1001 &23608971'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17368,48 +17576,44 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// Unity C# reference source\r\n// Copyright (c) Unity Technologies. For
-    terms of use, see\r\n// https://unity3d.com/legal/licenses/Unity_Reference_Only_License\r\n\r\nusing
-    UnityEngine.Bindings;\r\nusing UnityEngine.Scripting;\r\n\r\nusing System;\r\nusing
-    System.Collections;\r\n\r\nnamespace UnityEngine\r\n{\r\n    //*undocumented\r\n   
-    internal enum RotationOrder { OrderXYZ, OrderXZY, OrderYZX, OrderYXZ, OrderZXY,
-    OrderZYX }\r\n\r\n    // Position, rotation and scale of an object.\r\n    [NativeHeader(\"Configuration/UnityConfigure.h\")]\r\n   
-    [NativeHeader(\"Runtime/Transform/Transform.h\")]\r\n    [NativeHeader(\"Runtime/Transform/ScriptBindings/TransformScriptBindings.h\")]\r\n   
-    [RequiredByNativeCode]\r\n    public partial class Transform : Component, IEnumerable\r\n   
-    {\r\n        protected Transform() {}\r\n\r\n        // The position of the transform
-    in world space.\r\n        public extern Vector3 position { get; set; }\r\n\r\n       
-    // Position of the transform relative to the parent transform.\r\n        public
-    extern Vector3 localPosition { get; set; }\r\n\r\n        // Get local euler
-    angles with rotation order specified\r\n        internal extern Vector3 GetLocalEulerAngles(RotationOrder
-    order);\r\n\r\n        // Set local euler angles with rotation order specified\r\n       
-    internal extern void SetLocalEulerAngles(Vector3 euler, RotationOrder order);\r\n\r\n       
-    // Set local euler hint\r\n        [NativeConditional(\"UNITY_EDITOR\")]\r\n       
-    internal extern void SetLocalEulerHint(Vector3 euler);\r\n\r\n        // The
-    rotation as Euler angles in degrees.\r\n        public Vector3 eulerAngles {
-    get { return rotation.eulerAngles; } set { rotation = Quaternion.Euler(value);
-    } }\r\n\r\n        // The rotation as Euler angles in degrees relative to the
-    parent transform's rotation.\r\n        public Vector3 localEulerAngles { get
-    { return localRotation.eulerAngles; } set { localRotation = Quaternion.Euler(value);
-    } }\r\n\r\n        // The red axis of the transform in world space.\r\n       
-    public Vector3 right { get { return rotation * Vector3.right; } set { rotation
-    = Quaternion.FromToRotation(Vector3.right, value); } }\r\n\r\n        // The
-    green axis of the transform in world space.\r\n        public Vector3 up { get
-    { return rotation * Vector3.up; } set { rotation = Quaternion.FromToRotation(Vector3.up,
-    value); } }\r\n\r\n        // The blue axis of the transform in world space.\r\n       
-    public Vector3 forward { get { return rotation * Vector3.forward; } set { rotation
-    = Quaternion.LookRotation(value); } }\r\n\r\n        // The rotation of the transform
-    in world space stored as a [[Quaternion]].\r\n        public extern Quaternion
-    rotation { get; set; }\r\n\r\n        // The rotation of the transform relative
-    to the parent transform's rotation.\r\n        public extern Quaternion localRotation
-    { get; set; }\r\n\r\n        // The euler rotation order for this transform\r\n       
-    [NativeConditional(\"UNITY_EDITOR\")]\r\n        internal RotationOrder rotationOrder\r\n       
-    {\r\n            get { return (RotationOrder)GetRotationOrderInternal(); }\r\n           
-    set { SetRotationOrderInternal(value); }\r\n        }\r\n\r\n        [NativeConditional(\"UNITY_EDITOR\")]\r\n       
-    [NativeMethod(\"GetRotationOrder\")]\r\n        internal extern int GetRotationOrderInternal();\r\n       
-    [NativeConditional(\"UNITY_EDITOR\")]\r\n        [NativeMethod(\"SetRotationOrder\")]\r\n       
-    internal extern void SetRotationOrderInternal(RotationOrder rotationOrder);\r\n\r\n       
-    // The scale of the transform relative to the parent.\r\n        public extern
-    Vector3 localScale { get; set; }\r\n"
+  m_text: "'NavMeshSettings:\r\n  serializedVersion: 2\r\n  m_ObjectHideFlags: 0\r\n 
+    m_BuildSettings:\r\n    serializedVersion: 2\r\n    agentTypeID: 0\r\n    agentRadius:
+    0.5\r\n    agentHeight: 2\r\n    agentSlope: 45\r\n    agentClimb: 0.4\r\n   
+    ledgeDropHeight: 0\r\n    maxJumpAcrossDistance: 0\r\n    minRegionArea: 2\r\n   
+    manualCellSize: 0\r\n    cellSize: 0.16666667\r\n    manualTileSize: 0\r\n   
+    tileSize: 256\r\n    accuratePlacement: 0\r\n    maxJobWorkers: 0\r\n    preserveTilesOutsideBounds:
+    0\r\n    debug:\r\n      m_Flags: 0\r\n  m_NavMeshData: {fileID: 0}\r\n--- !u!1001
+    &485193\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion:
+    2\r\n  m_Modification:\r\n    m_TransformParent: {fileID: 1390066624}\r\n   
+    m_Modifications:\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (6)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 6\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 651.02423\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: -13\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!4 &1248425 stripped\r\nTransform:\r\n  m_CorrespondingSourceObject:
+    {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n 
+    m_PrefabInstance: {fileID: 388768157}\r\n  m_PrefabAsset: {fileID: 0}'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18209,32 +18413,64 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " public void GetWorldCorners(Vector3[] fourCornersArray)\r\n        {\r\n           
-    if (fourCornersArray == null || fourCornersArray.Length < 4)\r\n            {\r\n               
-    Debug.LogError(\"Calling GetWorldCorners with an array that is null or has less
-    than 4 elements.\");\r\n                return;\r\n            }\r\n\r\n           
-    GetLocalCorners(fourCornersArray);\r\n\r\n            Matrix4x4 mat = transform.localToWorldMatrix;\r\n           
-    for (int i = 0; i < 4; i++)\r\n                fourCornersArray[i] = mat.MultiplyPoint(fourCornersArray[i]);\r\n       
-    }\r\n\r\n        public void SetInsetAndSizeFromParentEdge(Edge edge, float inset,
-    float size)\r\n        {\r\n            int axis = (edge == Edge.Top || edge
-    == Edge.Bottom) ? 1 : 0;\r\n            bool end = (edge == Edge.Top || edge
-    == Edge.Right);\r\n\r\n            // Set anchorMin and anchorMax to be anchored
-    to the chosen edge.\r\n            float anchorValue = end ? 1 : 0;\r\n           
-    Vector2 anchor = anchorMin;\r\n            anchor[axis] = anchorValue;\r\n           
-    anchorMin = anchor;\r\n            anchor = anchorMax;\r\n            anchor[axis]
-    = anchorValue;\r\n            anchorMax = anchor;\r\n\r\n            // Set size.
-    Since anchors are together, size and sizeDelta means the same in this case.\r\n           
-    Vector2 sizeD = sizeDelta;\r\n            sizeD[axis] = size;\r\n           
-    sizeDelta = sizeD;\r\n\r\n            // Set inset.\r\n            Vector2 positionCopy
-    = anchoredPosition;\r\n            positionCopy[axis] = end ? -inset - size *
-    (1 - pivot[axis]) : inset + size * pivot[axis];\r\n            anchoredPosition
-    = positionCopy;\r\n        }\r\n\r\n        public void SetSizeWithCurrentAnchors(Axis
-    axis, float size)\r\n        {\r\n            int i = (int)axis;\r\n           
-    Vector2 sizeD = sizeDelta;\r\n            sizeD[i] = size - GetParentSize()[i]
-    * (anchorMax[i] - anchorMin[i]);\r\n            sizeDelta = sizeD;\r\n       
-    }\r\n\r\n        [RequiredByNativeCode]\r\n        internal static void SendReapplyDrivenProperties(RectTransform
-    driven)\r\n        {\r\n            reapplyDrivenProperties?.Invoke(driven);\r\n       
-    }"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1698910576}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (25)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 63\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 559.25\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 15\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &25137388\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n 
+    serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    1154473450}\r\n    m_Modifications:\r\n    - target: {fileID: 4571229191599610074,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Spike (154)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 37\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1034.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 25\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &25558102\n'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18451,41 +18687,84 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "public extern Rect rect { get; }\r\n        public extern Vector2 anchorMin
-    { get; set; }\r\n        public extern Vector2 anchorMax { get; set; }\r\n       
-    public extern Vector2 anchoredPosition { get; set; }\r\n        public extern
-    Vector2 sizeDelta { get; set; }\r\n        public extern Vector2 pivot { get;
-    set; }\r\n\r\n        public Vector3 anchoredPosition3D\r\n        {\r\n           
-    get\r\n            {\r\n                Vector2 pos2 = anchoredPosition;\r\n               
-    return new Vector3(pos2.x, pos2.y, localPosition.z);\r\n            }\r\n           
-    set\r\n            {\r\n                anchoredPosition = new Vector2(value.x,
-    value.y);\r\n                Vector3 pos3 = localPosition;\r\n               
-    pos3.z = value.z;\r\n                localPosition = pos3;\r\n            }\r\n       
-    }\r\n\r\n        public Vector2 offsetMin\r\n        {\r\n            get\r\n           
-    {\r\n                return anchoredPosition - Vector2.Scale(sizeDelta, pivot);\r\n           
-    }\r\n            set\r\n            {\r\n                Vector2 offset = value
-    - (anchoredPosition - Vector2.Scale(sizeDelta, pivot));\r\n                sizeDelta
-    -= offset;\r\n                anchoredPosition += Vector2.Scale(offset, Vector2.one
-    - pivot);\r\n            }\r\n        }\r\n\r\n        public Vector2 offsetMax\r\n       
-    {\r\n            get\r\n            {\r\n                return anchoredPosition
-    + Vector2.Scale(sizeDelta, Vector2.one - pivot);\r\n            }\r\n           
-    set\r\n            {\r\n                Vector2 offset = value - (anchoredPosition
-    + Vector2.Scale(sizeDelta, Vector2.one - pivot));\r\n                sizeDelta
-    += offset;\r\n                anchoredPosition += Vector2.Scale(offset, pivot);\r\n           
-    }\r\n        }\r\n\r\n        extern internal Object drivenByObject { get; set;
-    }\r\n        extern internal DrivenTransformProperties drivenProperties { get;
-    set; }\r\n\r\n        [NativeMethod(\"UpdateIfTransformDispatchIsDirty\")] public
-    extern void ForceUpdateRectTransforms();\r\n\r\n        public void GetLocalCorners(Vector3[]
-    fourCornersArray)\r\n        {\r\n            if (fourCornersArray == null ||
-    fourCornersArray.Length < 4)\r\n            {\r\n                Debug.LogError(\"Calling
-    GetLocalCorners with an array that is null or has less than 4 elements.\");\r\n               
-    return;\r\n            }\r\n\r\n            Rect tmpRect = rect;\r\n           
-    float x0 = tmpRect.x;\r\n            float y0 = tmpRect.y;\r\n            float
-    x1 = tmpRect.xMax;\r\n            float y1 = tmpRect.yMax;\r\n\r\n           
-    fourCornersArray[0] = new Vector3(x0, y0, 0f);\r\n            fourCornersArray[1]
-    = new Vector3(x0, y1, 0f);\r\n            fourCornersArray[2] = new Vector3(x1,
-    y1, 0f);\r\n            fourCornersArray[3] = new Vector3(x1, y0, 0f);\r\n       
-    }"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1467168659}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 3768631964161326210, guid: e66b8570ca4839d43b313b03b461a827,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 14\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 3768631964161326210, guid: e66b8570ca4839d43b313b03b461a827,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 0\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210, guid:
+    e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 12\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 3768631964161326210,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 90\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 6347680650778479888,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: CollectBall (44)\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode\r\n     
+    value: 3\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 7563501339211031172,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target\r\n     
+    value: \r\n      objectReference: {fileID: 597060390}\r\n    - target: {fileID:
+    7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName\r\n     
+    value: IncreaseCondition\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName\r\n     
+    value: Door, Assembly-CSharp\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 7563501339211031172, guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n     
+    propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 7563501339211031172,
+    guid: e66b8570ca4839d43b313b03b461a827, type: 3}\r\n      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName\r\n     
+    value: UnityEngine.Object, UnityEngine\r\n      objectReference: {fileID: 0}\r\n   
+    m_RemovedComponents: []\r\n  m_SourcePrefab: {fileID: 100100000, guid: e66b8570ca4839d43b313b03b461a827,
+    type: 3}\r\n--- !u!1001 &35635967\r\nPrefabInstance:\r\n  m_ObjectHideFlags:
+    0\r\n  serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    1211801441}\r\n    m_Modifications:\r\n    - target: {fileID: 4591050848424560592,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: FireWorks 1 (3)\r\n      objectReference: {fileID: 0}\r\n    - target:
+    {fileID: 4591050848424560597, guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 12\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4591050848424560597, guid: f2824ebc598333442baaf1385f312cee,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 0\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597, guid:
+    f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4591050848424560597,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 8382338902088683023,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n     
+    value: 12.479492\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    8382338902088683023, guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n     
+    propertyPath: m_LocalPosition.y\r\n      value: -6.6997395\r\n      objectReference:
+    {fileID: 0}\r\n    m_RemovedComponents: []\r\n  m_SourcePrefab: {fileID: 100100000,
+    guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n--- !u!1001 &35924393'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18702,41 +18981,67 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "public extern Rect rect { get; }\r\n        public extern Vector2 anchorMin
-    { get; set; }\r\n        public extern Vector2 anchorMax { get; set; }\r\n       
-    public extern Vector2 anchoredPosition { get; set; }\r\n        public extern
-    Vector2 sizeDelta { get; set; }\r\n        public extern Vector2 pivot { get;
-    set; }\r\n\r\n        public Vector3 anchoredPosition3D\r\n        {\r\n           
-    get\r\n            {\r\n                Vector2 pos2 = anchoredPosition;\r\n               
-    return new Vector3(pos2.x, pos2.y, localPosition.z);\r\n            }\r\n           
-    set\r\n            {\r\n                anchoredPosition = new Vector2(value.x,
-    value.y);\r\n                Vector3 pos3 = localPosition;\r\n               
-    pos3.z = value.z;\r\n                localPosition = pos3;\r\n            }\r\n       
-    }\r\n\r\n        public Vector2 offsetMin\r\n        {\r\n            get\r\n           
-    {\r\n                return anchoredPosition - Vector2.Scale(sizeDelta, pivot);\r\n           
-    }\r\n            set\r\n            {\r\n                Vector2 offset = value
-    - (anchoredPosition - Vector2.Scale(sizeDelta, pivot));\r\n                sizeDelta
-    -= offset;\r\n                anchoredPosition += Vector2.Scale(offset, Vector2.one
-    - pivot);\r\n            }\r\n        }\r\n\r\n        public Vector2 offsetMax\r\n       
-    {\r\n            get\r\n            {\r\n                return anchoredPosition
-    + Vector2.Scale(sizeDelta, Vector2.one - pivot);\r\n            }\r\n           
-    set\r\n            {\r\n                Vector2 offset = value - (anchoredPosition
-    + Vector2.Scale(sizeDelta, Vector2.one - pivot));\r\n                sizeDelta
-    += offset;\r\n                anchoredPosition += Vector2.Scale(offset, pivot);\r\n           
-    }\r\n        }\r\n\r\n        extern internal Object drivenByObject { get; set;
-    }\r\n        extern internal DrivenTransformProperties drivenProperties { get;
-    set; }\r\n\r\n        [NativeMethod(\"UpdateIfTransformDispatchIsDirty\")] public
-    extern void ForceUpdateRectTransforms();\r\n\r\n        public void GetLocalCorners(Vector3[]
-    fourCornersArray)\r\n        {\r\n            if (fourCornersArray == null ||
-    fourCornersArray.Length < 4)\r\n            {\r\n                Debug.LogError(\"Calling
-    GetLocalCorners with an array that is null or has less than 4 elements.\");\r\n               
-    return;\r\n            }\r\n\r\n            Rect tmpRect = rect;\r\n           
-    float x0 = tmpRect.x;\r\n            float y0 = tmpRect.y;\r\n            float
-    x1 = tmpRect.xMax;\r\n            float y1 = tmpRect.yMax;\r\n\r\n           
-    fourCornersArray[0] = new Vector3(x0, y0, 0f);\r\n            fourCornersArray[1]
-    = new Vector3(x0, y1, 0f);\r\n            fourCornersArray[2] = new Vector3(x1,
-    y1, 0f);\r\n            fourCornersArray[3] = new Vector3(x1, y0, 0f);\r\n       
-    }"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1390066624}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (40)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Layer\r\n      value: 9\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 53\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 770.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: -13.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_LocalPosition.z\r\n      value: 0\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n      value: 1\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &31017780\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n 
+    serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent: {fileID:
+    1793628636}\r\n    m_Modifications:\r\n    - target: {fileID: 4571229191599610074,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Spike (117)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 93\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1034.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 11.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!4 &31017781 stripped'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19119,17 +19424,67 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// Return rect relative to lower left corner of parent rect\r\n       
-    internal Rect GetRectInParentSpace()\r\n        {\r\n            Rect rectResult
-    = rect;\r\n            Vector2 offset = offsetMin + Vector2.Scale(pivot, rectResult.size);\r\n           
-    if (transform.parent)\r\n            {\r\n                RectTransform parentRect
-    = transform.parent.GetComponent<RectTransform>();\r\n                if (parentRect)\r\n                   
-    offset += Vector2.Scale(anchorMin, parentRect.rect.size);\r\n            }\r\n\r\n           
-    rectResult.x += offset.x;\r\n            rectResult.y += offset.y;\r\n           
-    return rectResult;\r\n        }\r\n\r\n        private Vector2 GetParentSize()\r\n       
-    {\r\n            RectTransform parentRect = parent as RectTransform;\r\n           
-    if (!parentRect)\r\n                return Vector2.zero;\r\n            return
-    parentRect.rect.size;\r\n        }\r\n    }\r\n}"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1793628636}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (35)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 137\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1042.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 48\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!4 &26016985 stripped\r\nTransform:\r\n  m_CorrespondingSourceObject:
+    {fileID: 4591050848424560597, guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n 
+    m_PrefabInstance: {fileID: 952602659}\r\n  m_PrefabAsset: {fileID: 0}\r\n---
+    !u!1001 &26844889\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion:
+    2\r\n  m_Modification:\r\n    m_TransformParent: {fileID: 1390066624}\r\n   
+    m_Modifications:\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (48)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Layer\r\n      value: 9\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 61\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 778.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: -13.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_LocalPosition.z\r\n      value: 0\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n      value: 1\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19680,40 +20035,38 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "// The parent of the transform.\r\n        public Transform parent\r\n       
-    {\r\n            get { return parentInternal; }\r\n            set\r\n           
-    {\r\n                if (this is RectTransform)\r\n                    Debug.LogWarning(\"Parent
-    of RectTransform is being set with parent property. Consider using the SetParent
-    method instead, with the worldPositionStays argument set to false. This will
-    retain local orientation and scale rather than world orientation and scale, which
-    can prevent common UI scaling issues.\", this);\r\n                parentInternal
-    = value;\r\n            }\r\n        }\r\n\r\n        internal Transform parentInternal\r\n       
-    {\r\n            get { return GetParent(); }\r\n            set { SetParent(value);
-    }\r\n        }\r\n\r\n        private extern Transform GetParent();\r\n\r\n       
-    public void SetParent(Transform p)\r\n        {\r\n            SetParent(p, true);\r\n       
-    }\r\n\r\n        [FreeFunction(\"SetParent\", HasExplicitThis = true)]\r\n       
-    public extern void SetParent(Transform parent, bool worldPositionStays);\r\n\r\n       
-    // Matrix that transforms a point from world space into local space (RO).\r\n       
-    public extern Matrix4x4 worldToLocalMatrix { get; }\r\n        // Matrix that
-    transforms a point from local space into world space (RO).\r\n        public
-    extern Matrix4x4 localToWorldMatrix { get; }\r\n\r\n        // Set position and
-    rotation in world space\r\n        public extern void SetPositionAndRotation(Vector3
-    position, Quaternion rotation);\r\n\r\n        // Moves the transform in the
-    direction and distance of /translation/.\r\n        public void Translate(Vector3
-    translation, [UnityEngine.Internal.DefaultValue(\"Space.Self\")] Space relativeTo)\r\n       
-    {\r\n            if (relativeTo == Space.World)\r\n                position +=
-    translation;\r\n            else\r\n                position += TransformDirection(translation);\r\n       
-    }\r\n\r\n        public void Translate(Vector3 translation)\r\n        {\r\n           
-    Translate(translation, Space.Self);\r\n        }\r\n\r\n        // Moves the
-    transform by /x/ along the x axis, /y/ along the y axis, and /z/ along the z
-    axis.\r\n        public void Translate(float x, float y, float z, [UnityEngine.Internal.DefaultValue(\"Space.Self\")]
-    Space relativeTo)\r\n        {\r\n            Translate(new Vector3(x, y, z),
-    relativeTo);\r\n        }\r\n\r\n        public void Translate(float x, float
-    y, float z)\r\n        {\r\n            Translate(new Vector3(x, y, z), Space.Self);\r\n       
-    }\r\n\r\n        // Moves the transform in the direction and distance of /translation/.\r\n       
-    public void Translate(Vector3 translation, Transform relativeTo)\r\n        {\r\n           
-    if (relativeTo)\r\n                position += relativeTo.TransformDirection(translation);\r\n           
-    else\r\n                position += translation;\r\n        }"
+  m_text: "'Transform:\r\n  m_CorrespondingSourceObject: {fileID: 3543598773910546650,
+    guid: 417d4ffc752cde246bef7dde9a4c05ef, type: 3}\r\n  m_PrefabInstance: {fileID:
+    658387837}\r\n  m_PrefabAsset: {fileID: 0}\r\n--- !u!1001 &21382795\r\nPrefabInstance:\r\n 
+    m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n  m_Modification:\r\n    m_TransformParent:
+    {fileID: 1793628636}\r\n    m_Modifications:\r\n    - target: {fileID: 4571229191599610074,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_Name\r\n     
+    value: Spike (30)\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_RootOrder\r\n      value: 26\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1016.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 47.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!1001 &22068699\n'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20843,31 +21196,67 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "private static bool s_BlockUndo;\r\n\r\n        public static void StopRecordingUndo()
-    { s_BlockUndo = true; }\r\n\r\n        public static void StartRecordingUndo()
-    { s_BlockUndo = false; }\r\n\r\n        public void Add(Object driver, RectTransform
-    rectTransform, DrivenTransformProperties drivenProperties)\r\n        {\r\n           
-    if (m_Tracked == null)\r\n                m_Tracked = new List<RectTransform>();\r\n\r\n           
-    if (!Application.isPlaying && CanRecordModifications() && !s_BlockUndo)\r\n               
-    RuntimeUndo.RecordObject(rectTransform, \"Driving RectTransform\");\r\n\r\n           
-    rectTransform.drivenByObject = driver;\r\n            rectTransform.drivenProperties
-    = rectTransform.drivenProperties | drivenProperties;\r\n\r\n            m_Tracked.Add(rectTransform);\r\n       
-    }\r\n\r\n        [Obsolete(\"revertValues parameter is ignored. Please use Clear()
-    instead.\")]\r\n        public void Clear(bool revertValues)\r\n        {\r\n           
-    Clear();\r\n        }\r\n\r\n        public void Clear()\r\n        {\r\n           
-    if (m_Tracked != null)\r\n            {\r\n                for (int i = 0; i
-    < m_Tracked.Count; i++)\r\n                {\r\n                    if (m_Tracked[i]
-    != null)\r\n                    {\r\n                        if (!Application.isPlaying
-    && CanRecordModifications() && !s_BlockUndo)\r\n                            RuntimeUndo.RecordObject(m_Tracked[i],
-    \"Driving RectTransform\");\r\n\r\n                        m_Tracked[i].drivenByObject
-    = null;\r\n                        m_Tracked[i].drivenProperties = DrivenTransformProperties.None;\r\n                   
-    }\r\n                }\r\n                m_Tracked.Clear();\r\n            }\r\n       
-    }\r\n    }\r\n\r\n    [NativeHeader(\"Runtime/Transform/RectTransform.h\"),\r\n    
-    NativeClass(\"UI::RectTransform\")]\r\n    public sealed class RectTransform
-    : Transform\r\n    {\r\n        public enum Edge { Left = 0, Right = 1, Top =
-    2, Bottom = 3 }\r\n        public enum Axis { Horizontal = 0, Vertical = 1 }\r\n\r\n       
-    public delegate void ReapplyDrivenProperties(RectTransform driven);\r\n       
-    public static event ReapplyDrivenProperties reapplyDrivenProperties;\n"
+  m_text: "'PrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion: 2\r\n 
+    m_Modification:\r\n    m_TransformParent: {fileID: 1793628636}\r\n    m_Modifications:\r\n   
+    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (35)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 137\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 1042.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: 48\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n     
+    value: 1\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    m_RemovedComponents: []\r\n 
+    m_SourcePrefab: {fileID: 100100000, guid: 3a343373068f3e145966b0c1b4583411, type:
+    3}\r\n--- !u!4 &26016985 stripped\r\nTransform:\r\n  m_CorrespondingSourceObject:
+    {fileID: 4591050848424560597, guid: f2824ebc598333442baaf1385f312cee, type: 3}\r\n 
+    m_PrefabInstance: {fileID: 952602659}\r\n  m_PrefabAsset: {fileID: 0}\r\n---
+    !u!1001 &26844889\r\nPrefabInstance:\r\n  m_ObjectHideFlags: 0\r\n  serializedVersion:
+    2\r\n  m_Modification:\r\n    m_TransformParent: {fileID: 1390066624}\r\n   
+    m_Modifications:\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Name\r\n      value: Spike (48)\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610074, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_Layer\r\n      value: 9\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_RootOrder\r\n      value: 61\r\n      objectReference:
+    {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalPosition.x\r\n      value: 778.5\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalPosition.y\r\n     
+    value: -13.5\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID:
+    4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n     
+    propertyPath: m_LocalPosition.z\r\n      value: 0\r\n      objectReference: {fileID:
+    0}\r\n    - target: {fileID: 4571229191599610075, guid: 3a343373068f3e145966b0c1b4583411,
+    type: 3}\r\n      propertyPath: m_LocalRotation.w\r\n      value: 1\r\n     
+    objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075, guid:
+    3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.x\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.y\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalRotation.z\r\n     
+    value: -0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.x\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.y\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}\r\n    - target: {fileID: 4571229191599610075,
+    guid: 3a343373068f3e145966b0c1b4583411, type: 3}\r\n      propertyPath: m_LocalEulerAnglesHint.z\r\n     
+    value: 0\r\n      objectReference: {fileID: 0}'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
