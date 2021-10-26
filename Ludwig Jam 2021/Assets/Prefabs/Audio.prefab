@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume: 0
   sounds:
-  - name: MenuTheme
+  - name: MainMenu
     clip: {fileID: 8300000, guid: 849d4f1d470a7e546834152d9c849fb6, type: 3}
     volume: 0.8
     pitch: 1
@@ -130,7 +130,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: lowJump
-    clip: {fileID: 8300000, guid: 346230ec611cd1041b4639f3416b27ab, type: 3}
+    clip: {fileID: 8300000, guid: 7caa10b6094c2d642bcfa3950c8b076a, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
@@ -144,6 +144,18 @@ MonoBehaviour:
   - name: breakPlatform
     clip: {fileID: 8300000, guid: 42d8457c71b1ae74499b40aaa8d129ef, type: 3}
     volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: fireworksTrail
+    clip: {fileID: 8300000, guid: e053aab5ad643a1429fa524e702bb7c4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: fireworksExplosion
+    clip: {fileID: 8300000, guid: cc12fc267bfb2964eb59458530e42e61, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
