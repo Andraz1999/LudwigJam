@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         FindObjectOfType<AudioManager>().StopPlaying("MainMenu");
         FindObjectOfType<AudioManager>().DoublePart();
-        SceneManager.LoadScene("Scenes/tryScene");
+        SceneManager.LoadScene("Scenes/Game");
         
     }
 

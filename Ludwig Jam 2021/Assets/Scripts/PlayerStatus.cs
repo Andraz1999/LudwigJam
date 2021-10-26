@@ -24,7 +24,7 @@ public class PlayerStatus : MonoBehaviour
     private PauseMenu pauseMenu;
     private OneLifeLeft oneLifeLeft;
     [SerializeField] CinemachineVirtualCamera cam;
-    [SerializeField] UnityEvent onRespawn;
+    //[SerializeField] UnityEvent onRespawn;
 
     private AudioManager audioManager;
 
@@ -106,7 +106,7 @@ public class PlayerStatus : MonoBehaviour
         timer.RestartTimer();
         player.Respawn();
         cam.Priority = 20;
-        onRespawn.Invoke();
+        //onRespawn.Invoke();
         DeactivateInvincibility();
     }
 

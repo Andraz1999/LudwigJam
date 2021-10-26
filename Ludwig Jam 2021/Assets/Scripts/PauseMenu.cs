@@ -126,7 +126,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         //control.actions.FindActionMap("PauseMenu").Disable(); 
         //control.actions.FindActionMap("Gameplay").Enable();
-        SceneManager.LoadScene("Scenes/tryScene");
+        SceneManager.LoadScene("Scenes/Game");
     }
 
     public void QuitMenu()

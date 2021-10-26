@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
         currentConditions += n;
         if(currentConditions >= conditions)
         {
-            audioManager.Play("youDidIt");
+            //audioManager.Play("youDidIt");
             Invoke("OpenDoor", pauseFor); 
         }
            

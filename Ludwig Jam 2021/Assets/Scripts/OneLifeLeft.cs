@@ -46,9 +46,13 @@ public class OneLifeLeft : MonoBehaviour
             Time.timeScale = 1f;
             gameIsPaused = false;
             //control.actions.FindActionMap("Danger").Disable();
-            control.actions.FindActionMap("GamePlay").Enable();
+            Invoke("EnableGameplay", 0.01f);
             
         }
+    }
+    private void EnableGameplay()
+    {
+        control.actions.FindActionMap("GamePlay").Enable();
     }
     public void PauseInput(InputAction.CallbackContext context)
     {

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1995508867
-  m_SortingLayer: 10
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 169c9e7589101d54598036e09273d27b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,7 +154,7 @@ MonoBehaviour:
   respawnTime: 10
   pauseFor: 3
   gfx2: {fileID: 2394946412650252276}
-  destroyEffect: {fileID: 5902485944087739527, guid: bcbf455a272a58d47a380a31739e968a, type: 3}
+  destroyEffect: {fileID: 5902485944087739527, guid: a4fab5fd51aaab245a0d90e3bb136372, type: 3}
   colTriger: {fileID: 2394946412289954780}
   col1: {fileID: 2394946412289954781}
 --- !u!1 &2394946412650252276
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1927895969
-  m_SortingLayer: 11
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 39142a9e7e44ed041aeb8902ba7b6209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
