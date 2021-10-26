@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
     public float backgroundVolume;
     public float effectVolume;
 
+    public float koeficijent;
+
     public static AudioManager Instance;
     // Start is called before the first frame update
     void Awake()
@@ -184,8 +186,9 @@ public class AudioManager : MonoBehaviour
         
     // }
 
-     public void VolumeAdjust(float koeficijent)
+     public void VolumeAdjust(float k)
     {
+        koeficijent = k;
         for (int i = 0; i <= audioSources.Count - 1; i++)
         {
             audioSources[i].volume = sounds[i].volume * koeficijent;

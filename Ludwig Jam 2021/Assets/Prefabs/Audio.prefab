@@ -152,3 +152,4 @@ MonoBehaviour:
   backgroundSoundNumber: 3
   backgroundVolume: 0
   effectVolume: 0
+  koeficijent: 0.8

@@ -9,6 +9,7 @@ public class VolumeSlider : MonoBehaviour
    // public Slider effectVolumeSlider;
 
    public Slider volumeSlider;
+   AudioManager audioManager;
 
 //    private VolumeSlider instance;
 
@@ -21,6 +22,13 @@ public class VolumeSlider : MonoBehaviour
     //         Destroy(gameObject);
     //     }
     //     DontDestroyOnLoad(gameObject);
+
+    audioManager = AudioManager.Instance;
+   }
+
+   private void Start()
+   {
+      volumeSlider.value = audioManager.koeficijent;
    }
 
    private void Update() 
