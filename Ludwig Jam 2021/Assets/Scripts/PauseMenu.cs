@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
     ///////
     public GameObject goalScreen;
     public GameObject goalScreenButton;
-    public TextMeshPro goalText;
+    public TextMeshProUGUI goalText;
 
     #region Singleton
     public static PauseMenu Instance {get; private set;}
