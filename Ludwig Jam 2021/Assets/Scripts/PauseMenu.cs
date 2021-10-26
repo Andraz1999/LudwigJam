@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject gameOverFirstButton, gameOverQuitFirstButton, gameOverQuitClosedButton;
     ////////////////
     public GameObject tab1, tab2;
+
+    ///////
+    public GameObject goalScreen;
+    public GameObject goalScreenButton;
+    public TextMeshPro goalText;
 
     #region Singleton
     public static PauseMenu Instance {get; private set;}
@@ -173,6 +179,15 @@ public class PauseMenu : MonoBehaviour
             tab2.SetActive(false);
             tab1.SetActive(true);
         }
+    }
+
+    public void GoalScene(string text)
+    {
+        control.actions.FindActionMap("Gameplay").Disable();
+        goalScreen.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(goalScreenButton);
+        goalText.SetText(text);
     }
 
 }
