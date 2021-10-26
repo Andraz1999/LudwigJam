@@ -112,7 +112,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void Goal()
     {
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f;
         pauseMenu.GoalScene(timer.GetTimeString());
     }
 

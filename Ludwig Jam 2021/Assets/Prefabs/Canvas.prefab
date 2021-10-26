@@ -2399,6 +2399,7 @@ GameObject:
   - component: {fileID: 8517813421732677643}
   - component: {fileID: 6155738480982967746}
   - component: {fileID: 6547325270952163270}
+  - component: {fileID: 3765333042805582681}
   m_Layer: 5
   m_Name: GoalSceene
   m_TagString: Untagged
@@ -2488,6 +2489,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3765333042805582681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327006167949783120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8963874a0567d84ab1a537fc7fa8b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScalekkoeficijent: 1
 --- !u!1 &3391326553652818993
 GameObject:
   m_ObjectHideFlags: 0
