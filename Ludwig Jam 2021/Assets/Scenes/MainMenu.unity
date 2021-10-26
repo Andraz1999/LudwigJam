@@ -1905,9 +1905,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mom's laptop has only 30 % percent battery left and you can't find the
-    charger. In panic of not losing all of your work, you choose to do\r the only
-    one logical option - you klick on save and now you are safe, right???"
+  m_text: Mom's laptop has only 30 % percent battery left and you can't find the
+    charger. In panic of not losing all of your work, you choose to do the only one
+    logical option - you klick on save and now you are safe, right???
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3118,9 +3118,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "NO! Two clicks for you is for the computer still a lot of work, but luckily
-    there is a cute little SaveKnight, who is doing it's best to\r safely deliver
-    your work to the main disc."
+  m_text: NO! Two clicks for you is for the computer still a lot of work, but luckily
+    there is a cute little SaveKnight, doing it's best to safely deliver your work
+    to the main disc.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3257,11 +3257,11 @@ MonoBehaviour:
   m_text: 'Computers don''t save their data in order, they jump from one file to
     another... at least this one does.
 
-    Therefore you have to press the "X"
-    key or the "X" or "Y" button on the controller to switch between
+    Therefore you have to press the "X" key
+    or the "X" or "Y" button on the controller to switch between
 
-    different
-    files. Remember that.'
+    different files.
+    Remember that.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4508,6 +4508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 5957069853712654489}
   control: {fileID: 717826836}
+  pauseFirstButton: {fileID: 927158676}
 --- !u!1 &1344574659
 GameObject:
   m_ObjectHideFlags: 0
@@ -7425,6 +7426,8 @@ MonoBehaviour:
   pauseFirstButton: {fileID: 927158676}
   htpFirstButton: {fileID: 528444856}
   storyFirstButton: {fileID: 597594850}
+  endStoryButton: {fileID: 207197456}
+  endHtpbutton: {fileID: 1655968202}
   htpScrens:
   - {fileID: 1595239194}
   - {fileID: 165509093}
