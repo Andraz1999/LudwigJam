@@ -95,7 +95,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: pickup
     clip: {fileID: 8300000, guid: 76237ddfdfb24d64f867e9d4e9611aa9, type: 3}
-    volume: 0.6
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
