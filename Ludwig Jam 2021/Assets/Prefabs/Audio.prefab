@@ -159,8 +159,26 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: doubleJump
+    clip: {fileID: 8300000, guid: b9e9a211677d3074dbbffdb7fe72f60b, type: 3}
+    volume: 0.792
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: menuMove
+    clip: {fileID: 8300000, guid: 3d0196efb8b712a40b98dcf23b78f305, type: 3}
+    volume: 0.101
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: playButton
+    clip: {fileID: 8300000, guid: 4f30273e84c1ceb498d3e04b0260db80, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   audioSources: []
-  doublePart: 1
+  doublePart: 0
   backgroundSoundNumber: 3
   backgroundVolume: 0
   effectVolume: 0

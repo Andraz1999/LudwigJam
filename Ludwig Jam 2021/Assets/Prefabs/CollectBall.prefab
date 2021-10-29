@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1927895969
-  m_SortingLayer: 11
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cf4d586940b673b45992020a197ef355, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3768631964161326210}
   - component: {fileID: 6185484900099622698}
   - component: {fileID: 7563501339211031172}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CollectBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTime: 60
+  shouldRespawnAfterTime: 0
   collectEffect: {fileID: 5902485944087739527, guid: bcbf455a272a58d47a380a31739e968a, type: 3}
   onComplete:
     m_PersistentCalls:
@@ -183,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7065218911138988696}
   - component: {fileID: 5593306453925325642}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5036,7 +5037,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1995508867
-  m_SortingLayer: 10
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

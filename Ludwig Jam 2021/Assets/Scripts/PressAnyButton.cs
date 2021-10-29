@@ -8,6 +8,7 @@ public class PressAnyButton : MonoBehaviour
    [SerializeField] GameObject mainMenu;
     public PlayerInput control;
     public GameObject pauseFirstButton;
+    AudioManager audioManager;
 
 
     private void Start() {
@@ -15,6 +16,7 @@ public class PressAnyButton : MonoBehaviour
         control.actions.FindActionMap("Gameplay").Disable();
         control.actions.FindActionMap("PauseMenu").Enable();
         EventSystem.current.SetSelectedGameObject(null);
+        audioManager = AudioManager.Instance;
         //EventSystem.current.SetSelectedGameObject(null);
         //EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
@@ -24,6 +26,7 @@ public class PressAnyButton : MonoBehaviour
         {
             control.actions.FindActionMap("PauseMenu").Disable();
             control.actions.FindActionMap("Gameplay").Enable();
+            audioManager.Play("playButton");
             Invoke("SetActionMap", 0.1f);
             
         }

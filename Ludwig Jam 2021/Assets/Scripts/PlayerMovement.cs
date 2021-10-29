@@ -335,14 +335,14 @@ public class PlayerMovement : MonoBehaviour
             canMove = true;
             
         }
-        else if(currentJump > 0)
+        else if(currentJump > 0) //for double jumps
         {   
             if(!Physics2D.OverlapCircle(transform.position, noDoubleJumpRange, noDoubleJumpLayer))
             {
                 animator.SetBool("DoubleJump", true);
                 StartCoroutine("DoubleDelay");
                 
-                audioManager.PlayNotForced("jump");
+                audioManager.Play("doubleJump");
                 
                 rb.velocity = new Vector2(rb.velocity.x, multiJumpVelocity);
                 //Jump(multiJumpVelocity);

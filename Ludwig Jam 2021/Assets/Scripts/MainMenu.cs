@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class MainMenu : MonoBehaviour
 {
@@ -20,14 +21,19 @@ public class MainMenu : MonoBehaviour
 
     public GameObject[] storyScrens;
     int storyScr = 0;
+    
+
+    private AudioManager audioManager;
     private void Start() {
         Time.timeScale = 1;
+        audioManager = AudioManager.Instance;
         // EventSystem.current.SetSelectedGameObject(null);
         // EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
     public void Play()
     {
         Time.timeScale = 1f;
+        audioManager.Play("playButton");
         FindObjectOfType<AudioManager>().StopPlaying("MainMenu");
         FindObjectOfType<AudioManager>().DoublePart();
         SceneManager.LoadScene("Scenes/Game");
@@ -192,5 +198,14 @@ public class MainMenu : MonoBehaviour
         storyScrens[scr].SetActive(true);
         storyScrens[lastStoryScr].SetActive(false);
 
+    }
+
+    public void LazyInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            audioManager.PlayNotForced("menuMove");
+            
+        }
     }
 }
