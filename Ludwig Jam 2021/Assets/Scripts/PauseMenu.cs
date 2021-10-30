@@ -95,6 +95,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Pause(bool canResume) 
     {
+        playerStatus.SaveStatus();
         this.canResume = canResume;
         Time.timeScale = 0f;
         gameIsPaused = true;

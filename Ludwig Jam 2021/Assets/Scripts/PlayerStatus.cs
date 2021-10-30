@@ -210,5 +210,9 @@ public class PlayerStatus : MonoBehaviour
         time = 0;
         saveManager.Save();
     }
+    public void SaveStatus()
+    {
+        saveManager.Save();
+    }
 
 }
