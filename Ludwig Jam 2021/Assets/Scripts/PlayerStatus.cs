@@ -26,6 +26,12 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera cam;
     //[SerializeField] UnityEvent onRespawn;
 
+    ////////// saving
+    [Header("Saving")]
+    SaveManager saveManager;
+    public float time;
+    public int checkPoint;
+
     private AudioManager audioManager;
 
     #region Singleton
@@ -54,6 +60,10 @@ public class PlayerStatus : MonoBehaviour
         oneLifeLeft = OneLifeLeft.Instance;
 
         audioManager = AudioManager.Instance;
+        saveManager = saveManager.Instance;
+
+        saveManager.Load();
+        // 
 
     }
 
