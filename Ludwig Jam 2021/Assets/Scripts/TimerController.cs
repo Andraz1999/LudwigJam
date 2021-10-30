@@ -36,14 +36,16 @@ public class TimerController : MonoBehaviour
         BeginTimer();
     }
 
-    public void BeginTimer()
+    public void BeginTimer(float startTime = 0f)
     {
         timerGoing = true;
         //var startTime = Time.time;
-        elapsedTime = 0f;
+        elapsedTime = startTime;
 
         StartCoroutine(UpdateTimer());
     }
+
+
     public void EndTimer()
     {
         timerGoing = false;
@@ -51,7 +53,7 @@ public class TimerController : MonoBehaviour
 
     public void RestartTimer()
     {
-       timeCounter.SetText("Time: 00:00.00");
+        timeCounter.SetText("Time: 00:00.00");
         timerGoing = false;
         BeginTimer(); 
     }

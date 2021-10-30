@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Respawn")]
     //[SerializeField] Transform respawnPoint;
-    Vector3 respawnPoint;
+    //Vector3 respawnPoint;
     [SerializeField] Animator animator;
 
     /////audio
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
         tab1y = tab1.position;
         tab2y = tab2.position;
         distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
-        respawnPoint = transform.position;
+        //respawnPoint = transform.position;
 
         audioManager = AudioManager.Instance;
 
@@ -459,12 +459,21 @@ public class PlayerMovement : MonoBehaviour
         isCeiling = Physics2D.Raycast(transform.position, transform.up, ceilingRaycastLength, groundLayer);
     }
 
-    public void Respawn()
+    // public void Respawn()
+    // {
+    //     rb.velocity = Vector3.zero;
+    //     transform.position = respawnPoint;
+    //     if(isSwitched)
+    //     SwitchTabs();
+    // }
+    public void Respawn(Vector3 respawnPoint, bool startSwitch)
     {
         rb.velocity = Vector3.zero;
         transform.position = respawnPoint;
-        if(isSwitched)
-        SwitchTabs();
+        if(startSwitch)
+        {
+            SwitchTabs();
+        }
     }
 
     private void SwitchTabs()
