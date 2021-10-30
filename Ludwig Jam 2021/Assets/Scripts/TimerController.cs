@@ -28,16 +28,18 @@ public class TimerController : MonoBehaviour
     }   
     #endregion
 
-    void Start()
-    {
-        timeCounter.SetText("Time: 00:00.00");
-        timerGoing = false;
-        // Here add for connecting between Scenes.
-        BeginTimer();
-    }
+    // void Start()
+    // {
+    //     timeCounter.SetText("Time: 00:00.00");
+    //     timerGoing = false;
+    //     // Here add for connecting between Scenes.
+    //     BeginTimer();
+    // }
 
     public void BeginTimer(float startTime = 0f)
-    {
+    {   
+        timerGoing = false;
+        timeCounter.SetText("Time: 00:00.00");
         timerGoing = true;
         //var startTime = Time.time;
         elapsedTime = startTime;

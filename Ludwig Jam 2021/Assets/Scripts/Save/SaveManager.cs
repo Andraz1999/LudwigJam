@@ -13,14 +13,27 @@ public class SaveManager : MonoBehaviour
 
 	PlayerStatus playerStatus;
 
+	#region Singleton
+    public static SaveManager Instance {get; private set;}
+    
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
+    }   
+    #endregion
+
 	private void Start() {
 		playerStatus = PlayerStatus.Instance;
 	}
 
 	public void Save()
 	{
-		// checkpoint = playerStatus.checkpoint;
-		// time = playerStatus.time;
+		checkpoint = playerStatus.checkpoint;
+		time = playerStatus.time;
 
 		SaveSystem.Save(this);
 	}
@@ -29,8 +42,8 @@ public class SaveManager : MonoBehaviour
 	{
 		PlayerData data = SaveSystem.Load();
 
-		// playerStatus.time = data.time;
-		// playerStatus.checkpoint = data.checkpoint;
+		playerStatus.time = data.time;
+		playerStatus.checkpoint = data.checkpoint;
 	}
 
 	

@@ -26,13 +26,15 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera cam;
     //[SerializeField] UnityEvent onRespawn;
 
+    private AudioManager audioManager;
     ////////// saving
     [Header("Saving")]
     SaveManager saveManager;
     public float time;
-    public int checkPoint;
+    public int checkpoint;
+    public CheckPoint[] checkPoints;
 
-    private AudioManager audioManager;
+    
 
     #region Singleton
     public static PlayerStatus Instance {get; private set;}
@@ -44,6 +46,8 @@ public class PlayerStatus : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+
+        checkpoint = -1;
     }   
     #endregion
 
@@ -60,9 +64,10 @@ public class PlayerStatus : MonoBehaviour
         oneLifeLeft = OneLifeLeft.Instance;
 
         audioManager = AudioManager.Instance;
-        saveManager = saveManager.Instance;
+        saveManager = SaveManager.Instance;
 
         saveManager.Load();
+        Respawn();
         // 
 
     }
@@ -114,8 +119,8 @@ public class PlayerStatus : MonoBehaviour
         healthbar.SetMaxHealth(currentHealth);
         progressbar.ResetProgress();
         timer.RestartTimer();
-        player.Respawn();
-        cam.Priority = 20;
+        //player.Respawn();
+        //cam.Priority = 20;
         //onRespawn.Invoke();
         DeactivateInvincibility();
     }
@@ -137,6 +142,20 @@ public class PlayerStatus : MonoBehaviour
     {
         invincibility = false;
         playerSprite.enabled = true;
+    }
+
+    private void Respawn()
+    {
+        if(checkpoint == -1)
+        {
+            player.Respawn(new Vector3(0f, -0.9f, 0), false);
+            timer.BeginTimer();
+        }
+        else
+        {
+            player.Respawn(checkPoints[checkpoint].transform.position, checkPoints[checkpoint].startSwitch);
+            timer.BeginTimer(time);
+        }
     }
 
 }
