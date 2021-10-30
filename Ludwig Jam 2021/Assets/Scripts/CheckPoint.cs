@@ -6,8 +6,12 @@ public class CheckPoint : MonoBehaviour
 {
     PlayerStatus playerStatus;
     public int checkpoint;
-    public bool startSwitch;
+    [HideInInspector]public bool startSwitch;
     public bool isActive;
+    public int progress;
+    public bool isCameraWide;
+    public Animator animator;
+    AudioManager audioManager;
     void Awake()
     {
         isActive = true;
@@ -15,6 +19,8 @@ public class CheckPoint : MonoBehaviour
     void Start()
     {
         playerStatus = PlayerStatus.Instance;
+        audioManager = AudioManager.Instance;
+        animator.SetBool("isOpen", false);
     }
 
     // Update is called once per frame
@@ -22,6 +28,9 @@ public class CheckPoint : MonoBehaviour
         if(other.tag == "Player" && isActive)
         {
             playerStatus.checkpoint = this.checkpoint;
+            animator.SetBool("isOpen", true);
+            audioManager.Play("playButton");
+            isActive = false;
         }        
     }
 }

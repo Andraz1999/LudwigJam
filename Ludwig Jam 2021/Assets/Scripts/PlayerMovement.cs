@@ -136,6 +136,10 @@ public class PlayerMovement : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+
+        tab1y = tab1.position;
+        tab2y = tab2.position;
+        distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y);
     }   
     #endregion
 
@@ -150,13 +154,11 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         startSize = col.size;
         startOffset = col.offset;
-        //basicSize = transform.localScale;
+        
         basicSpeed = maxMoveSpeed;
 
-        tab1y = tab1.position;
-        tab2y = tab2.position;
-        distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
-        //respawnPoint = transform.position;
+         
+        
 
         audioManager = AudioManager.Instance;
 
@@ -468,12 +470,25 @@ public class PlayerMovement : MonoBehaviour
     // }
     public void Respawn(Vector3 respawnPoint, bool startSwitch)
     {
-        rb.velocity = Vector3.zero;
-        transform.position = respawnPoint;
+        Debug.Log("respawn 3");
         if(startSwitch)
         {
             SwitchTabs();
         }
+        //rb.velocity = Vector2.zero;
+        transform.position = respawnPoint;
+        
+    }
+    public void Respawn(GameObject respawnPoint, bool startSwitch)
+    {
+        Debug.Log("respawn 3");
+        if(startSwitch)
+        {
+            SwitchTabs();
+        }
+        //rb.velocity = Vector2.zero;
+        transform.position = respawnPoint.transform.position;
+        
     }
 
     private void SwitchTabs()

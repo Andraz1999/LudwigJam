@@ -8,8 +8,10 @@ using UnityEngine.UI;
 public class SaveManager : MonoBehaviour
 {
 	// Start is called before the first frame update
-	public int checkpoint;
-	public float time;
+	[HideInInspector]public int checkpoint;
+	[HideInInspector]public float time;
+	public float bestTime;
+    public string bestTimeString;
 
 	PlayerStatus playerStatus;
 
@@ -23,27 +25,38 @@ public class SaveManager : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+
     }   
     #endregion
 
 	private void Start() {
-		playerStatus = PlayerStatus.Instance;
+		
 	}
 
 	public void Save()
 	{
+		playerStatus = PlayerStatus.Instance;
 		checkpoint = playerStatus.checkpoint;
 		time = playerStatus.time;
+		bestTime = playerStatus.bestTime;
+		bestTimeString = playerStatus.bestTimeString;
 
 		SaveSystem.Save(this);
+
+		Debug.Log("Successfully saved");
 	}
 
 	public void Load()
 	{
+		playerStatus = PlayerStatus.Instance;
 		PlayerData data = SaveSystem.Load();
 
 		playerStatus.time = data.time;
 		playerStatus.checkpoint = data.checkpoint;
+		playerStatus.bestTime = data.bestTime;
+		playerStatus.bestTimeString = data.bestTimeString;
+
+		Debug.Log("Successfully loaded");
 	}
 
 	

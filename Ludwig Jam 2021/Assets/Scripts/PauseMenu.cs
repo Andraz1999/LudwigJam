@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
     ///////
     public GameObject goalScreen;
     public GameObject goalScreenButton;
-    public TextMeshProUGUI goalText;
+    public TextMeshProUGUI goalText, recordText;
 
     #region Singleton
     public static PauseMenu Instance {get; private set;}
@@ -119,15 +119,25 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Restart()
+    public void RestartPause()
     {
         // playerStatus.Die();
         //Resume();
         Time.timeScale = 1f;
-        //control.actions.FindActionMap("PauseMenu").Disable(); 
-        //control.actions.FindActionMap("Gameplay").Enable();
-        SceneManager.LoadScene("Scenes/Game");
+        
+       
+       playerStatus.Restart();
+       SceneManager.LoadScene("Scenes/Game");
     }
+    public void RestartDie()
+    {
+        // playerStatus.Die();
+        //Resume();
+        Time.timeScale = 1f;
+       SceneManager.LoadScene("Scenes/Game");
+    }
+
+     
 
     public void QuitMenu()
     {   
@@ -192,13 +202,14 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void GoalScene(string text)
+    public void GoalScene(string text, string record)
     {
         control.actions.FindActionMap("Gameplay").Disable();
         goalScreen.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(goalScreenButton);
         goalText.SetText(text);
+        recordText.SetText(record);
     }
 
 }
