@@ -120,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] Transform respawnPoint;
     //Vector3 respawnPoint;
     [SerializeField] Animator animator;
+    bool canSwitch;
 
     /////audio
     private PlayerAudio playerAudio;
@@ -140,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
         tab1y = tab1.position;
         tab2y = tab2.position;
         distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y);
+        canSwitch = false;
     }   
     #endregion
 
@@ -470,24 +472,24 @@ public class PlayerMovement : MonoBehaviour
     // }
     public void Respawn(Vector3 respawnPoint, bool startSwitch)
     {
-        Debug.Log("respawn 3");
         if(startSwitch)
         {
             SwitchTabs();
         }
         //rb.velocity = Vector2.zero;
         transform.position = respawnPoint;
+        canSwitch = true;
         
     }
     public void Respawn(GameObject respawnPoint, bool startSwitch)
     {
-        Debug.Log("respawn 3");
         if(startSwitch)
         {
             SwitchTabs();
         }
         //rb.velocity = Vector2.zero;
         transform.position = respawnPoint.transform.position;
+        canSwitch = true;
         
     }
 
@@ -581,7 +583,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SwitchInput(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && canSwitch)
         {
             SwitchTabs();
         }    
