@@ -118,8 +118,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Respawn")]
     //[SerializeField] Transform respawnPoint;
-    Vector3 respawnPoint;
+    //Vector3 respawnPoint;
     [SerializeField] Animator animator;
+    bool canSwitch;
 
     /////audio
     private PlayerAudio playerAudio;
@@ -136,6 +137,11 @@ public class PlayerMovement : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+
+        tab1y = tab1.position;
+        tab2y = tab2.position;
+        distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y);
+        canSwitch = false;
     }   
     #endregion
 
@@ -150,13 +156,11 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         startSize = col.size;
         startOffset = col.offset;
-        //basicSize = transform.localScale;
+        
         basicSpeed = maxMoveSpeed;
 
-        tab1y = tab1.position;
-        tab2y = tab2.position;
-        distanceBetweenTabs = Mathf.Abs(tab1y.y - tab2y.y); 
-        respawnPoint = transform.position;
+         
+        
 
         audioManager = AudioManager.Instance;
 
@@ -335,14 +339,14 @@ public class PlayerMovement : MonoBehaviour
             canMove = true;
             
         }
-        else if(currentJump > 0)
+        else if(currentJump > 0) //for double jumps
         {   
             if(!Physics2D.OverlapCircle(transform.position, noDoubleJumpRange, noDoubleJumpLayer))
             {
                 animator.SetBool("DoubleJump", true);
                 StartCoroutine("DoubleDelay");
                 
-                audioManager.PlayNotForced("jump");
+                audioManager.Play("doubleJump");
                 
                 rb.velocity = new Vector2(rb.velocity.x, multiJumpVelocity);
                 //Jump(multiJumpVelocity);
@@ -459,12 +463,34 @@ public class PlayerMovement : MonoBehaviour
         isCeiling = Physics2D.Raycast(transform.position, transform.up, ceilingRaycastLength, groundLayer);
     }
 
-    public void Respawn()
+    // public void Respawn()
+    // {
+    //     rb.velocity = Vector3.zero;
+    //     transform.position = respawnPoint;
+    //     if(isSwitched)
+    //     SwitchTabs();
+    // }
+    public void Respawn(Vector3 respawnPoint, bool startSwitch)
     {
-        rb.velocity = Vector3.zero;
+        if(startSwitch)
+        {
+            SwitchTabs();
+        }
+        //rb.velocity = Vector2.zero;
         transform.position = respawnPoint;
-        if(isSwitched)
-        SwitchTabs();
+        canSwitch = true;
+        
+    }
+    public void Respawn(GameObject respawnPoint, bool startSwitch)
+    {
+        if(startSwitch)
+        {
+            SwitchTabs();
+        }
+        //rb.velocity = Vector2.zero;
+        transform.position = respawnPoint.transform.position;
+        canSwitch = true;
+        
     }
 
     private void SwitchTabs()
@@ -557,7 +583,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SwitchInput(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && canSwitch)
         {
             SwitchTabs();
         }    

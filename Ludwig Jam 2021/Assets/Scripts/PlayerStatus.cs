@@ -23,10 +23,21 @@ public class PlayerStatus : MonoBehaviour
 
     private PauseMenu pauseMenu;
     private OneLifeLeft oneLifeLeft;
-    [SerializeField] CinemachineVirtualCamera cam;
+    [SerializeField] CinemachineVirtualCamera camNarrow;
+    [SerializeField] CinemachineVirtualCamera camWide;
     //[SerializeField] UnityEvent onRespawn;
 
     private AudioManager audioManager;
+    ////////// saving
+    [Header("Saving")]
+    SaveManager saveManager;
+    public float time;
+    public int checkpoint;
+    public float bestTime;
+    public string bestTimeString;
+    public CheckPoint[] checkPoints;
+
+    
 
     #region Singleton
     public static PlayerStatus Instance {get; private set;}
@@ -38,6 +49,8 @@ public class PlayerStatus : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+
+        checkpoint = -1;
     }   
     #endregion
 
@@ -54,8 +67,20 @@ public class PlayerStatus : MonoBehaviour
         oneLifeLeft = OneLifeLeft.Instance;
 
         audioManager = AudioManager.Instance;
+        saveManager = SaveManager.Instance;
 
-    }
+        
+        // 
+
+        StartCoroutine(LateStart(0.01f));
+     }
+ 
+     IEnumerator LateStart(float waitTime)
+     {
+         yield return new WaitForSeconds(waitTime);
+            saveManager.Load();
+            Respawn();
+     }
 
     
     private void Update() 
@@ -87,7 +112,9 @@ public class PlayerStatus : MonoBehaviour
             if (currentHealth <= 0)
             {
                 //Die();
-                
+                timer.EndTimer();
+                time = timer.GetTime();
+                saveManager.Save();
                 pauseMenu.Pause(false);
             }   
             if(currentHealth == 10)
@@ -103,9 +130,9 @@ public class PlayerStatus : MonoBehaviour
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
         progressbar.ResetProgress();
-        timer.RestartTimer();
-        player.Respawn();
-        cam.Priority = 20;
+        //timer.RestartTimer();
+        //player.Respawn();
+        //cam.Priority = 20;
         //onRespawn.Invoke();
         DeactivateInvincibility();
     }
@@ -113,7 +140,20 @@ public class PlayerStatus : MonoBehaviour
     public void Goal()
     {
         // Time.timeScale = 0f;
-        pauseMenu.GoalScene(timer.GetTimeString());
+        if (bestTimeString.Equals(""))
+        {
+            bestTime = timer.GetTime();
+            bestTimeString = timer.GetTimeString();
+        }
+        else if (timer.GetTime() < bestTime)
+        {
+            bestTime = timer.GetTime();
+            bestTimeString = timer.GetTimeString();
+        }
+        checkpoint = -1;
+        time = 0;
+        saveManager.Save();
+        pauseMenu.GoalScene(timer.GetTimeString(), bestTimeString);
     }
 
 
@@ -127,6 +167,52 @@ public class PlayerStatus : MonoBehaviour
     {
         invincibility = false;
         playerSprite.enabled = true;
+    }
+
+    private void Respawn()
+    {
+        Debug.Log("respawn 1");
+        if(checkpoint == -1)
+        {
+            Debug.Log("respawn 2");
+            player.Respawn(new Vector3(0f, -0.9f, 0), false);
+            progressbar.ResetProgress();
+            timer.BeginTimer();
+        }
+        else
+        {
+            Debug.Log("respawn 2.1");
+            player.Respawn(checkPoints[checkpoint].gameObject, checkPoints[checkpoint].startSwitch);
+            Debug.Log("player is resawned successfully");
+            timer.BeginTimer(time);
+            Debug.Log("time is set");
+            if(checkPoints[checkpoint].isCameraWide)
+            {
+                camNarrow.Priority = 5;
+                camWide.Priority = 10;
+                Debug.Log("camera is now wide");
+            }
+            else
+            {
+                camNarrow.Priority = 10;
+                camWide.Priority = 5;
+                Debug.Log("camera is now narrow");
+            }
+            checkPoints[checkpoint].isActive = false;
+            progressbar.SetProgress(checkPoints[checkpoint].progress);
+            checkpoint--;
+            Debug.Log("everything done");
+        }
+    }
+    public void Restart()
+    {
+        checkpoint = -1;
+        time = 0;
+        saveManager.Save();
+    }
+    public void SaveStatus()
+    {
+        saveManager.Save();
     }
 
 }

@@ -28,22 +28,26 @@ public class TimerController : MonoBehaviour
     }   
     #endregion
 
-    void Start()
-    {
-        timeCounter.SetText("Time: 00:00.00");
-        timerGoing = false;
-        // Here add for connecting between Scenes.
-        BeginTimer();
-    }
+    // void Start()
+    // {
+    //     timeCounter.SetText("Time: 00:00.00");
+    //     timerGoing = false;
+    //     // Here add for connecting between Scenes.
+    //     BeginTimer();
+    // }
 
-    public void BeginTimer()
-    {
+    public void BeginTimer(float startTime = 0f)
+    {   
+        timerGoing = false;
+        timeCounter.SetText("Time: 00:00.00");
         timerGoing = true;
         //var startTime = Time.time;
-        elapsedTime = 0f;
+        elapsedTime = startTime;
 
         StartCoroutine(UpdateTimer());
     }
+
+
     public void EndTimer()
     {
         timerGoing = false;
@@ -51,7 +55,7 @@ public class TimerController : MonoBehaviour
 
     public void RestartTimer()
     {
-       timeCounter.SetText("Time: 00:00.00");
+        timeCounter.SetText("Time: 00:00.00");
         timerGoing = false;
         BeginTimer(); 
     }
@@ -72,8 +76,8 @@ public class TimerController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             timePlaying = TimeSpan.FromSeconds(elapsedTime);
-            timePlayingStr = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
-            timeCounter.SetText(timePlayingStr);
+            timePlayingStr = timePlaying.ToString("mm':'ss'.'ff");
+            timeCounter.SetText("Time: " + timePlayingStr);
             
             yield return null;
         }
